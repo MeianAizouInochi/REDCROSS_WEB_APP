@@ -1,0 +1,46 @@
+
+.RequesterFormContainerOuter {
+    
+    margin-top:10rem;
+    border:1px solid;
+    display:block;
+    width:75%;
+    margin-left:12.55%;
+    
+}
+    .RequesterFormContainerOuter label {
+
+        display:block;  
+        text-align:left;
+        padding:10px;
+    }
+
+
+.DocumentInputContainer {
+
+    display: flex;
+
+    flex-direction: row;
+
+}
+
+        .DocumentInputContainer img {
+
+            width: 100px;
+            height: 100px;
+
+        }
+
+
+.Title {
+
+    width:75%;
+    height:30px;
+
+}
+.Description {
+
+    resize:none;
+    width:75%;
+
+}

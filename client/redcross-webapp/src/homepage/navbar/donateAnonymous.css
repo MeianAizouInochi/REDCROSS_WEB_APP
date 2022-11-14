@@ -1,0 +1,329 @@
+
+.formmothercointainer{
+    position:fixed;
+    width:80%;
+    height:80%;
+    top:10%;
+    bottom:10%;
+    left:10%;
+    right:10%;
+    border:0.5px solid;
+    margin:0;
+    padding:0;
+}
+
+.formcointainer {
+    width: 100%;
+    height: 100%;
+}
+
+.formclass {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    font-family: Arial;
+    display:flex;
+    flex-direction:column;
+}
+
+.donateAnonymousformheading {
+    height: 10%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows:100%;
+    font-size: 1.5rem;
+    border-bottom:0.5px solid;
+    margin:0;
+    padding:0;
+}
+
+.donateAnonymousformheadingtext {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height:100%;
+    grid-column-start:1;
+    grid-column-end:7;
+    grid-row-start:1;
+    grid-row-end:1;
+    margin:0;
+    padding:0;
+}
+
+.donateAnonymousclosebuttoncointainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    margin: 0;
+    padding: 0;
+}
+
+.closebtn {
+    color: red;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-out;
+}
+
+    .closebtn :hover {
+        background-color: darkred;
+        transition: 0.5s ease-in;
+    }
+
+.donateAnonymousinputdivision{
+   background-image:url(Donateback.svg);
+   background-repeat:no-repeat;
+   background-position:right;
+   background-size:contain;
+   background-position-x:right;
+    height:55%;
+    display:flex;
+    flex-direction:column;
+    align-items:self-start;
+    justify-content: center;
+    margin:0;
+    padding:0;
+}
+
+/*FORM NAMES*/
+.donateAnonymousformName {
+    background-color: rgba(0,0,0,0.9);
+    width: 30%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-left: 10px;
+}
+.donateAnonymousformEmail {
+    background-color: rgba(0,0,0,0.9);
+    width: 30%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.donateAnonymousformPhoneno {
+    background-color: rgba(0,0,0,0.9);
+    width: 30%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding-left: 10px;
+}
+
+.donateAnonymousformAmount {
+    background-color: rgba(0,0,0,0.9);
+    width: 30%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding-left:10px;
+    justify-content: center;
+}
+
+/*FORM INPUT*/
+
+
+
+.donateAnonymousformNameinput {
+    border: none;
+    border-radius: 2px;
+    height:40%;
+    background-color: white;
+    width: 90%;
+    padding:0px 0px 0px 5%;
+}
+.donateAnonymousformEmailinput {
+    border: none;
+    border-radius: 2px;
+    height: 40%;
+    background-color: white;
+    width: 90%;
+    padding: 0px 0px 0px 5%;
+}
+
+.donateAnonymousformPhoneinput {
+    border: none;
+    border-radius: 2px;
+    height: 40%;
+    background-color: white;
+    width: 90%;
+    padding: 0px 0px 0px 5%;
+}
+
+.donateAnonymousformAmountinput {
+    border: none;
+    border-radius: 2px;
+    height: 40%;
+    background-color: white;
+    width: 90%;
+    padding: 0px 0px 0px 5%;
+}
+
+.agreementsection {
+    height: 20%;
+    border-top: 0.5px solid;
+    display: flex;
+}
+.donateAnonymousformagreement {
+    
+    width: 90%;
+    padding: 2px 2px 2px 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+.donatecheckboxcontainer{
+    width:10%;
+}
+.donateAnonymousformcheckbox {
+    position:relative;
+    top:25%;
+    bottom:25%;
+    width: 50%;
+    height: 50%;
+    
+}
+
+.donateAnonymousconfirm {
+    font-size: 2rem;
+    height: 15%;
+    color: white;
+    background-color: red;
+    border: none;
+    transition: 0.5s ease-out;
+}
+
+    .donateAnonymousconfirm:hover{
+        background-color:darkred;
+        transition:0.5s ease-in;
+    }
+
+    @media only screen and (max-width:801px) {
+        .donateAnonymousformheading {
+        height: 10%;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        grid-template-rows: 100%;
+        font-size: 1rem;
+        border-bottom:0.5px solid;
+        margin: 0;
+        padding: 0;
+    }
+        .donateAnonymousinputdivision {
+            background-image: url(Donateback.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-position-x: center;
+            height: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: self-start;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .donateAnonymousformagreement {
+            width: 93%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            overflow:auto;
+            margin:0;
+            padding:0;
+        }
+
+        .donateAnonymousformName {
+            background-color: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donateAnonymousformEmail {
+            background-color: rgba(0,0,0,0.8);
+            
+            padding:0;
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donateAnonymousformPhoneno {
+            background-color: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            padding: 0;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .donateAnonymousformAmount {
+            background-color: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100%;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .donateAnonymousformNameinput {
+            background-color: white;
+            width: 90%;
+        }
+
+        .donateAnonymousformEmailinput {
+            background-color: white;
+            width: 90%;
+        }
+
+        .donateAnonymousformPhoneinput {
+            background-color: white;
+            width: 90%;
+        }
+
+        .donateAnonymousformAmountinput {
+            background-color: white;
+            width: 90%;
+        }
+}

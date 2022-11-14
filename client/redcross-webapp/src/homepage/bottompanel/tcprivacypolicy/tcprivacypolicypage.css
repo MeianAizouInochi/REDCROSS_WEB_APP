@@ -1,0 +1,37 @@
+.tcprivacypolicycontainer
+{
+    margin-top:4.8rem;
+    height:90vh;
+    min-height:700px;
+    display:flex;
+    font-family:Arial;
+}
+
+.tcprivacypolicysubcontainer{
+    border: 0.1rem solid;
+    height:90%;
+    width:90%;
+    margin-left:5%;
+    align-self:center; 
+    display:flex;
+    flex-direction:column;
+}
+
+.tcprivacypolicyheadingcontainer {
+    border-bottom: 0.1rem solid;
+    font-size: 1.5rem;
+    height: 10%;
+    background-color: #e3e3e3;
+}
+
+.tcprivacypolicybodycontainer{
+    height:90%;
+    overflow-x:hidden;
+    overflow-y:auto;
+    font-size:1.5rem;
+    text-align:justify;
+    text-justify:inter-word;
+
+    padding:1rem;
+    padding-right:1rem;
+}

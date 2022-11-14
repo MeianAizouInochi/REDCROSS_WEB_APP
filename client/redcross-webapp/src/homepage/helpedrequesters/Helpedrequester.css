@@ -1,0 +1,51 @@
+
+.helpedrequestercointainer {
+    height:400px;
+    width:100%;
+    /* display: table; */
+    display: flex;
+    font-family: Arial;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    border-left:solid;
+}
+
+
+
+.helpedrequesterheading {
+    padding: 0;
+    margin: 0;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.Helpedrequester {
+    width: 100%;
+    height: 60%;
+    padding: 0;
+    margin: 0;
+}
+
+.Helpedrequester-header {
+    width: 100%;
+    height: 50%;
+}
+
+.quote {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height: 50%;
+    font-size: 20px;
+    margin-left:15px;
+    margin-right:15px;
+}
+
+
+/* -------------------------------------------------------------------- */

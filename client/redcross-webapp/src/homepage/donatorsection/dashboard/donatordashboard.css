@@ -1,0 +1,532 @@
+
+.Accountinfocontainer {
+    position: relative;
+    top: 8.6rem;
+    display: flex;
+    align-items:center;
+    height:75vh;
+    min-height:500px;
+    width: 100%;
+    margin:0;
+    padding:0;
+    gap:0.0rem;
+    font-family:Arial;
+    margin-bottom:15rem;
+}
+
+
+.Accountinfo {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 1rem;
+    margin-left:1%;
+    margin-right:1%;
+   
+}
+
+.Accountinfocover {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.ProfilepicContainer {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Profilepic {
+    height: 60%;
+    width: 90%;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+  
+}
+
+
+.donornamecontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+   
+}
+
+.dontorName {
+    height: 50%;
+    display: flex;
+    align-items:center;
+    margin: 0;
+    padding: 0;
+}
+
+.donorNamedata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+.donormobilecontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.donormobile {
+    height: 50%;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    padding: 0;
+}
+
+.donormobiledata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+.donoradhaarcontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.donoradhaar {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.donoradhaardata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+.donorpancontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.donorpan {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.donorpandata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+
+.donoraddresscontainer {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.2rem;
+}
+
+.donoraddress {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.donoraddressdata {
+    height: 80%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    display:flex;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.donorusernamecontainer {
+    width: 90%;
+    padding-top: 0.2rem;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.donorusername {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.donorusernamedata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+}
+
+.Listofrequesters {
+    width: 50%;
+    height: 100%;
+    border-left:solid;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-direction:column;
+   
+}
+
+.CurrentRequestsText {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    height:10%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.Listofrequesterscover {
+    height:90%;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width:1325px) {
+    .Accountinfocover {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ProfilepicContainer {
+        height: 50%;
+        width: 60%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .Profilepic {
+        height: 95%;
+        width: 100%;
+        border-radius: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+        margin: 0;
+        padding: 0;
+        width: 85%;
+        height: 50%;
+    }
+
+}
+
+
+
+@media only screen and (max-width:801px) {
+    body{
+       
+    }
+
+
+    .Accountinfocontainer {
+        position: relative;
+        top: 8.5rem;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        height: 1200px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 0.0rem;
+        font-family: Arial;         
+    }
+
+    .Accountinfo {
+        background-color:lightgray;
+        margin: 0;
+        padding: 0;
+        width: 90%;
+        height: 30%;
+        border-radius:1rem;
+    }
+
+    .Accountinfocover {
+        height:100%;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        align-items:center;
+        justify-content:center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .ProfilepicContainer {
+        height: 100%;
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+
+    .Profilepic {
+        height: 90%;
+        width: 90%;
+        border-radius: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .info {
+        display: flex;
+        flex-direction:column;
+        justify-content:center;
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        height: 100%;
+    }
+
+
+    .donornamecontainer {
+        height: 10%;
+        width:90%;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 0;
+    }
+
+    .dontorName {
+        height: 50%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donorNamedata {
+        height: 50%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color:white;
+    }
+
+
+    .donormobilecontainer {
+        width: 90%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.2rem;
+    }
+
+    .donormobile {
+        height: 50%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donormobiledata {
+        height: 50%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+
+    .donoradhaarcontainer {
+        width: 90%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.2rem;
+    }
+
+    .donoradhaar {
+        height: 50%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donoradhaardata {
+        height: 50%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+
+    .donorpancontainer {
+        width: 90%;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.2rem;
+    }
+
+    .donorpan {
+        height: 50%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donorpandata {
+        height: 50%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+
+    .donoraddresscontainer {
+        width: 90%;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 0.2rem;
+    }
+
+    .donoraddress {
+        height: 10%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donoraddressdata {
+        height: 80%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+    .donorusernamecontainer {
+        width: 90%;
+        padding-top: 0.2rem;
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .donorusername {
+        height: 50%;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .donorusernamedata {
+        height: 50%;
+        border: 0.1px solid gray;
+        border-radius: 0.2rem;
+        margin: 0;
+        padding: 0;
+        background-color: white;
+    }
+
+
+    .Listofrequesters {
+        width: 90%;
+        height: 90%;
+        margin: 0rem;
+        border-left:none;    
+    }
+
+    .CurrentRequestsText {
+        font-size:2rem;
+    }
+}
+

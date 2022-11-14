@@ -1,0 +1,309 @@
+.uiupdatecontainer
+{
+    height:stretch;
+    overflow:auto;
+}
+
+
+
+.uiupdateheading{
+    font-size:2rem;
+    height:10%;
+    padding:0;
+    margin:0;
+}
+
+    .uiupdateheading p {
+        padding: 0;
+        margin: 1rem;
+    }
+
+.uiupdateheading hr {
+width:40%;
+border:0.1rem solid;
+border-radius:1rem;
+background-color:black;
+}
+
+.uiupdatelogoupdatecontainer {
+    height: 60%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f5f5f5;
+}
+
+
+.logoupdateheading {
+    font-size: 2rem;
+    height: 10%;
+    padding: 0;
+    margin: 0;
+    margin-bottom:1rem;
+}
+
+    .logoupdateheading p {
+        padding: 0;
+        margin: 1rem;
+    }
+
+    .logoupdateheading hr {
+        width: 40%;
+        border: 0.1rem solid;
+        border-radius: 1rem;
+        background-color: black;
+    }
+
+.uiupdatecurrentlogoimg {
+    border: solid;
+    width: 80%;
+    height: 30%;
+}
+
+.uiupdateupdatedlogoimg {
+    border: solid;
+    width: 80%;
+    height: 30%;
+}
+
+.changelogobutton {
+    width: 60%;
+    height: 10%;
+    margin: 1rem;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.uibannerdatacontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: contain;
+    background-color: #ebedeb;
+}
+
+
+
+.carouselupdateheading {
+    font-size: 2rem;
+    height: 10%;
+    padding: 0;
+    margin: 0;
+}
+
+    .carouselupdateheading p {
+        padding: 0;
+        margin: 1rem;
+    }
+
+    .carouselupdateheading hr {
+        width: 40%;
+        border: 0.1rem solid;
+        border-radius: 1rem;
+        background-color: black;
+    }
+.changebannerbutton {
+    width: 60%;
+    height: 80px;
+    border: none;
+    background-color: red;
+    color: white;
+    font-size: 1.5rem;
+    margin:1rem;
+}
+
+.bannerimgcontainer1 {
+    width: 80%;
+    margin: 1rem;
+    height:contain;
+}
+.bannerimg1 {
+    border: solid;
+    width: 80%;
+    height:350px;
+}
+
+
+.bannerimgcontainer2 {
+    width: 80%;
+    margin: 1rem;
+    height: contain;
+}
+
+.bannerimg2 {
+    border: solid;
+    width: 80%;
+    height: 350px;
+}
+
+.bannerimgcontainer3 {
+    width: 80%;
+    margin: 1rem;
+    height: contain;
+}
+
+.bannerimg3 {
+    border: solid;
+    width: 80%;
+    height: 350px;
+}
+
+.bannerimgcontainer4 {
+    width: 80%;
+    margin: 1rem;
+    height: contain;
+}
+
+.bannerimg4 {
+    border: solid;
+    width: 80%;
+    height: 350px;
+}
+
+@media only screen and (max-width:801px) {
+    .uiupdatelogoupdatecontainer {
+        height: 60%;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: white;
+    }
+
+
+    .logoupdateheading {
+        font-size: 2rem;
+        height: 10%;
+        padding: 0;
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+        .logoupdateheading p {
+            padding: 0;
+            margin: 1rem;
+        }
+
+        .logoupdateheading hr {
+            width: 40%;
+            border: 0.1rem solid;
+            border-radius: 1rem;
+            background-color: black;
+        }
+
+    .uiupdatecurrentlogoimg {
+        border: solid;
+        width: 80%;
+        height: 10%;
+    }
+
+    .uiupdateupdatedlogoimg {
+        border: solid;
+        width: 80%;
+        height: 10%;
+    }
+
+    .changelogobutton {
+        width: 60%;
+        height: 10%;
+        margin: 1rem;
+        border: none;
+        background-color: red;
+        color: white;
+        font-size: 1.5rem;
+    }
+
+    .uibannerdatacontainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: contain;
+        background-color: #ebedeb;
+    }
+
+
+
+    .carouselupdateheading {
+        font-size: 2rem;
+        height: 10%;
+        padding: 0;
+        margin: 0;
+    }
+
+        .carouselupdateheading p {
+            padding: 0;
+            margin: 1rem;
+        }
+
+        .carouselupdateheading hr {
+            width: 40%;
+            border: 0.1rem solid;
+            border-radius: 1rem;
+            background-color: black;
+        }
+
+    .changebannerbutton {
+        width: 60%;
+        height: 6
+        0px;
+        border: none;
+        background-color: red;
+        color: white;
+        font-size: 1.1rem;
+        margin: 1rem;
+    }
+
+    .bannerimgcontainer1 {
+        width: 80%;
+        margin: 1rem;
+        height: contain;
+    }
+
+    .bannerimg1 {
+        border: solid;
+        width: 100%;
+        height: 200px;
+    }
+
+
+    .bannerimgcontainer2 {
+        width: 80%;
+        margin: 1rem;
+        height: contain;
+    }
+
+    .bannerimg2 {
+        border: solid;
+        width: 100%;
+        height: 200px;
+    }
+
+    .bannerimgcontainer3 {
+        width: 80%;
+        margin: 1rem;
+        height: contain;
+    }
+
+    .bannerimg3 {
+        border: solid;
+        width: 100%;
+        height: 200px;
+    }
+
+    .bannerimgcontainer4 {
+        width: 80%;
+        margin: 1rem;
+        height: contain;
+    }
+
+    .bannerimg4 {
+        border: solid;
+        width: 100%;
+        height: 200px;
+    }
+}

@@ -1,0 +1,387 @@
+
+.staffAccountinfocontainer {
+    position: relative;
+    top: 8.6rem;
+    display: flex;
+    align-items: center;
+    height: 75vh;
+    min-height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0.0rem;
+    font-family: Arial;
+}
+
+.staffAccountinfo {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    min-width: 600px;
+    max-width: 800px;
+    height: 80%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.staffAccountinfocover {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffProfilepicContainer {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.staffProfilepic {
+    height: 90%;
+    width: 90%;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.staffinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    height: 100%;
+}
+
+
+.staffnamecontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.staffName {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffNamedata {
+    height: 50%;
+    text-align:start;
+    border-left:solid red;
+    margin: 0;
+    padding: 0;
+    padding-left:1vw;
+    background-color: white;
+}
+
+
+.staffmobilecontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.staffmobile {
+    height: 50%;
+    display: flex;
+    margin: 0;
+    align-items: center;
+    padding: 0;
+}
+
+.staffmobiledata {
+    height: 50%;
+    text-align: start;
+    border-left: solid red;
+    margin: 0;
+    padding: 0;
+    padding-left: 1vw;
+    background-color: white;
+}
+
+
+.staffadhaarcontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.staffadhaar {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffadhaardata {
+    height: 50%;
+    text-align: start;
+    border-left: solid red;
+    margin: 0;
+    padding: 0;
+    padding-left: 1vw;
+    background-color: white;
+}
+
+
+.staffpancontainer {
+    width: 90%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.2rem;
+}
+
+.staffpan {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffpandata {
+    height: 50%;
+    text-align: start;
+    border-left: solid red;
+    margin: 0;
+    padding: 0;
+    padding-left: 1vw;
+    background-color: white;
+}
+
+
+.staffaddresscontainer {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.2rem;
+}
+
+.staffaddress {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffaddressdata {
+    height: 80%;
+    text-align: start;
+    border-left: solid red;
+    margin: 0;
+    padding: 0;
+    padding-left: 1vw;
+    background-color: white;
+}
+
+.staffusernamecontainer {
+    width: 90%;
+    padding-top: 0.2rem;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+}
+
+.staffusername {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.staffusernamedata {
+    height: 50%;
+    text-align: start;
+    border-left: solid red;
+    margin: 0;
+    padding: 0;
+    padding-left: 1vw;
+    background-color: white;
+}
+
+.staffstatistics {
+    width: stretch;
+    max-width: 100%;
+    height: 100%;
+    border-left: solid;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.staffstatisticsText {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.staffstatisticscover {
+    height: 90%;
+    margin: 0;
+    padding: 0;
+  
+}
+
+
+@media only screen and (max-width:1325px) {
+    .staffAccountinfocover {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .staffAccountinfo {
+        background-color: white;
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        min-width: 400px;
+        max-width: 500px;
+        height: 100%;
+        border-radius: 1rem;
+        margin-left: 1%;
+        margin-right: 1%;
+    }
+
+    .staffProfilepicContainer {
+        height: 50%;
+        width: 60%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .staffProfilepic {
+        height: 95%;
+        width: 100%;
+        border-radius: 1rem;
+        margin: 0;
+        padding: 0;
+    }
+
+    .staffinfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        width: 85%;
+        height: 50%;
+    }
+}
+
+
+@media only screen and (max-width:801px) {
+
+    .staffAccountinfo {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        min-width: 100%;
+        max-width: 800px;
+        height: 90%;
+        margin-left: 1%;
+        margin-right: 1%;
+        aspect-ratio: auto ;
+    }
+
+    .staffAccountinfocontainer {
+        position: relative;
+        top: 8.6rem;
+        display: flex;
+        flex-direction:column;
+        align-items: center;
+        height: 90vh;
+        min-height: 500px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        gap: 0.0rem;
+        font-family: Arial;
+    }
+
+
+    .staffAccountinfocover {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .staffProfilepicContainer {
+        width: 50%;
+        height:80%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+       
+
+    }
+
+    .staffProfilepic {
+        height: 90%;
+        width: 90%;
+        border-radius: 1rem;
+        margin: 0;
+        padding: 0;
+        align-self:center;
+    }
+
+    .staffinfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        height: 100%;
+        min-height:400px;
+    }
+}

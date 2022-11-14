@@ -1,0 +1,143 @@
+.staffnavbar {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    z-index: 50;
+    background-color: white;
+    border-top: 0.1px solid gray;
+    border-bottom: 0.1px solid gray;
+    font-family: Arial;
+    background-color: white;
+}
+
+.staffnavbarulcontainer {
+    -webkit-user-select: none;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 0;
+    gap: 0.5rem;
+    width:stretch;
+}
+
+    .staffnavbarulcontainer :hover {
+        transform: scale3d(1.05,1.05,1.05);
+        background-color: red;
+        color: white;
+        cursor: pointer;
+    }
+
+    .staffnavbarulcontainer :after {
+        transform: scale3d(1.05,1.05,1.05);
+        background-color: red;
+        color: white;
+        cursor: grab;
+    }
+
+
+
+
+
+
+.staffnavbarDashboard {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    transition: 0.3s ease-out;
+}
+
+
+.staffnavbaradmin {
+    width: 100%;
+    height: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.staffnavbarmagnet {
+    display:none;
+}
+
+
+@media only screen and (max-width:801px) {
+    .staffnavbarulcontainer {
+        -webkit-user-select: none;
+        align-items: center;
+        justify-content: space-between;        
+        display: flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        z-index: 0;
+        width:80%;
+    }
+
+        .staffnavbarulcontainer :hover {
+            transform: scale3d(1.05,1.05,1.05);
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        .staffnavbarulcontainer :after {
+            transform: scale3d(1.05,1.05,1.05);
+            background-color: red;
+            color: white;
+            cursor: grab;
+        }
+
+   
+
+    .staffnavbarDashboard {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        color: black;
+        transition: 0.3s ease-out;
+    }
+
+    .staffnavbaradmin {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s ease-out;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 0.1rem solid gray;
+    }
+    .staffnavbarmagnet {
+        width:20%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        border-left:0.1rem solid gray;
+    }
+    .magnetimg{
+        height:70%;
+        width:70%;
+        color:gray;
+    }
+
+}

@@ -1,0 +1,86 @@
+.main {
+    font-family: Arial;
+    -webkit-user-select:none;
+    display:flex;
+    flex-direction:column;
+}
+
+
+.header {
+    color: black;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.list {
+    height: 100px;
+    background-color: #837e87;
+    box-sizing: border-box;
+    font-size: 1rem;
+    display: flex;
+    margin: 0;
+    padding: 2px 4px 2px 4px;
+    margin-top: 0.4rem;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    transition: 2s ease;
+}
+
+
+.items {
+    width:100%;
+    height:100%;
+    list-style: none;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+
+.DonateAnonymously {
+    height:50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+}
+
+.DonatePublicly {
+    border-top: 0.1px solid;
+    border-color: white;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+@media only screen and (max-width:801px) {
+    .main {
+        font-family: Arial;
+        -webkit-user-select: none;
+        display: flex;
+        flex-direction: column;
+        margin:0;padding:0;
+    }
+    .list {
+        height: 120px;
+        width: 100%;
+        left: 0;
+        background-color: red;
+        box-sizing: border-box;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        margin-top: 0.1rem;
+    }
+}

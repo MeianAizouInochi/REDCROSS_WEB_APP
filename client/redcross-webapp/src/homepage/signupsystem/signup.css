@@ -1,0 +1,37 @@
+.Signuppage .Signuppageinner {
+    display: block;
+    margin: auto;
+    border-top: 1px solid;
+    border-radius: 6px;
+    padding: 16px;
+    font-size: 14px;
+    border: 1px solid;
+    background-color: white;
+    margin-top: 50px;
+    width: 400px;
+}
+
+.Signuppage img {
+    display: flex;
+    margin: auto;
+    width: 25%;
+    margin-top: 100px;
+}
+
+.Signuppage .Signuppageinner label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    cursor: default;
+}
+
+.Signuppage .Signuppageinner input {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    border-radius: 6px;
+    line-height: 20px;
+    width: 100%;
+    display: block;
+    border: 1px solid;
+    vertical-align: middle;
+}

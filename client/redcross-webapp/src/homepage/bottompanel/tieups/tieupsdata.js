@@ -1,0 +1,27 @@
+export const Tieupsdata = [
+    {
+        image: '/persondefault.svg',
+        name: "Tieup1",
+        description: "vitae metus eget pretium.Sed sodales metus eleifend augue rhoncus consectetur.Etiam in nisl nibh.Duis at lobortis dolor.Nunc erat purus, rhoncus nec sollicitudin vitae, pellentesque a ante.Maecenas placerat consequat iaculis.Aenean quis enim quis eros ultrices rhoncus.Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent pellentesque justo quis nulla faucibus, at efficitur justo hendrerit.Curabitur nisl dui, iaculis id elementum vel, ornare ut urna.Nullam et ullamcorper justo, in volutpat metus.Quisque suscipit non risus quis ultricies.Ut et eros et nibh gravida gravida.Sed eget metus vel ex posuere fringilla a a ante.Maecenas quis eros lacus.Donec rhoncus enim in enim auctor, eu lacinia est ultrices.Aenean a nisl eget odio congue fringilla eu ut nulla.Nam non ipsum sed odio scelerisque aliquet.Morbi luctus cursus nunc, vel vulputate dolor imperdiet at.Sed suscipit nibh in lacinia volutpat.Mauris vulputate ex tristique nisl efficitur vulputate."
+    },
+    {
+        image: '/persondefault.svg',
+        name: "Tieup2",
+        description: "vitae metus eget pretium.Sed sodales metus eleifend augue rhoncus consectetur.Etiam in nisl nibh.Duis at lobortis dolor.Nunc erat purus, rhoncus nec sollicitudin vitae, pellentesque a ante.Maecenas placerat consequat iaculis.Aenean quis enim quis eros ultrices rhoncus.Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent pellentesque justo quis nulla faucibus, at efficitur justo hendrerit.Curabitur nisl dui, iaculis id elementum vel, ornare ut urna.Nullam et ullamcorper justo, in volutpat metus.Quisque suscipit non risus quis ultricies.Ut et eros et nibh gravida gravida.Sed eget metus vel ex posuere fringilla a a ante.Maecenas quis eros lacus.Donec rhoncus enim in enim auctor, eu lacinia est ultrices.Aenean a nisl eget odio congue fringilla eu ut nulla.Nam non ipsum sed odio scelerisque aliquet.Morbi luctus cursus nunc, vel vulputate dolor imperdiet at.Sed suscipit nibh in lacinia volutpat.Mauris vulputate ex tristique nisl efficitur vulputate."
+    },
+    {
+        image: '/persondefault.svg',
+        name: "Tieup3",
+        description: "vitae metus eget pretium.Sed sodales metus eleifend augue rhoncus consectetur.Etiam in nisl nibh.Duis at lobortis dolor.Nunc erat purus, rhoncus nec sollicitudin vitae, pellentesque a ante.Maecenas placerat consequat iaculis.Aenean quis enim quis eros ultrices rhoncus.Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent pellentesque justo quis nulla faucibus, at efficitur justo hendrerit.Curabitur nisl dui, iaculis id elementum vel, ornare ut urna.Nullam et ullamcorper justo, in volutpat metus.Quisque suscipit non risus quis ultricies.Ut et eros et nibh gravida gravida.Sed eget metus vel ex posuere fringilla a a ante.Maecenas quis eros lacus.Donec rhoncus enim in enim auctor, eu lacinia est ultrices.Aenean a nisl eget odio congue fringilla eu ut nulla.Nam non ipsum sed odio scelerisque aliquet.Morbi luctus cursus nunc, vel vulputate dolor imperdiet at.Sed suscipit nibh in lacinia volutpat.Mauris vulputate ex tristique nisl efficitur vulputate."
+    },
+    {
+        image: '/persondefault.svg',
+        name: "Tieup4",
+        description: "vitae metus eget pretium.Sed sodales metus eleifend augue rhoncus consectetur.Etiam in nisl nibh.Duis at lobortis dolor.Nunc erat purus, rhoncus nec sollicitudin vitae, pellentesque a ante.Maecenas placerat consequat iaculis.Aenean quis enim quis eros ultrices rhoncus.Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent pellentesque justo quis nulla faucibus, at efficitur justo hendrerit.Curabitur nisl dui, iaculis id elementum vel, ornare ut urna.Nullam et ullamcorper justo, in volutpat metus.Quisque suscipit non risus quis ultricies.Ut et eros et nibh gravida gravida.Sed eget metus vel ex posuere fringilla a a ante.Maecenas quis eros lacus.Donec rhoncus enim in enim auctor, eu lacinia est ultrices.Aenean a nisl eget odio congue fringilla eu ut nulla.Nam non ipsum sed odio scelerisque aliquet.Morbi luctus cursus nunc, vel vulputate dolor imperdiet at.Sed suscipit nibh in lacinia volutpat.Mauris vulputate ex tristique nisl efficitur vulputate."
+    },
+    {
+        image: '/persondefault.svg',
+        name: "Tieup5",
+        description: "vitae metus eget pretium.Sed sodales metus eleifend augue rhoncus consectetur.Etiam in nisl nibh.Duis at lobortis dolor.Nunc erat purus, rhoncus nec sollicitudin vitae, pellentesque a ante.Maecenas placerat consequat iaculis.Aenean quis enim quis eros ultrices rhoncus.Interdum et malesuada fames ac ante ipsum primis in faucibus.Praesent pellentesque justo quis nulla faucibus, at efficitur justo hendrerit.Curabitur nisl dui, iaculis id elementum vel, ornare ut urna.Nullam et ullamcorper justo, in volutpat metus.Quisque suscipit non risus quis ultricies.Ut et eros et nibh gravida gravida.Sed eget metus vel ex posuere fringilla a a ante.Maecenas quis eros lacus.Donec rhoncus enim in enim auctor, eu lacinia est ultrices.Aenean a nisl eget odio congue fringilla eu ut nulla.Nam non ipsum sed odio scelerisque aliquet.Morbi luctus cursus nunc, vel vulputate dolor imperdiet at.Sed suscipit nibh in lacinia volutpat.Mauris vulputate ex tristique nisl efficitur vulputate."
+    }
+]

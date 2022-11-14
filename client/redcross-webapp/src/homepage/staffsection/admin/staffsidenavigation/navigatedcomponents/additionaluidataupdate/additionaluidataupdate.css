@@ -1,0 +1,66 @@
+.additionaluidataupdatecontainer {
+    height: stretch;
+    overflow: auto;
+}
+
+.additionaluidataupdateheading {
+    font-size: 2rem;
+    height: 10%;
+    padding: 0;
+    margin: 0;
+}
+
+    .additionaluidataupdateheading p {
+        padding: 0;
+        margin: 1rem;
+    }
+
+    .additionaluidataupdateheading hr {
+        width: 40%;
+        border-radius: 1rem;
+        background-color: black;
+    }
+
+.additionaluiemergencynotificationcontainer {
+    height: 60%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.additionaluiemergencynotificationheading {
+    font-size: 2rem;
+    height: 15%;
+    padding: 0;
+    margin: 0;
+}
+
+    .additionaluiemergencynotificationheading p {
+        padding: 0;
+        margin: 1rem;
+    }
+
+    .additionaluiemergencynotificationheading hr {
+        width: 40%;
+        border: 0.1rem solid;
+        border-radius: 1rem;
+        background-color: black;
+    }
+
+.additionaluiemergencyupdateinput
+{
+    height:60%;
+    width:80%;
+    text-align:center;
+}
+.additionaluiemergencyupdatesubmitbutton{
+    height:15%;
+    width:60%;
+    margin:4%;
+    background-color:red;
+    border:none;
+    color:white;
+    font-size:1.5rem;
+}

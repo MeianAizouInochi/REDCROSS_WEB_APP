@@ -1,0 +1,622 @@
+.Requesterdashboardmothercontainer
+{
+    margin-bottom:10rem;
+}
+.Requesterdashboardcontainer {
+    position: relative;
+    top: 8.6rem;
+    display: grid;
+    height: 78vh;
+    min-height: 500px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0.0rem;
+    font-family: Arial;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(6,1fr);
+}
+
+
+.RequesterAccountinfo {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-width:500px;
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: #e6e6e6;
+    aspect-ratio: auto 500/500;
+}
+
+.RequesterAccountinfocover {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap:wrap;
+    overflow:auto;
+}
+
+.RequesterProfilepicContainer {
+    height: 100%;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RequesterProfilepic {
+    height: 90%;
+    width:90%;
+    border-radius: 1rem;
+    margin: 0;
+    padding: 0;
+
+}
+
+.Requesterinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+    width: 45%;
+    height: 100%;
+}
+
+.Requesterdonornamecontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.RequesterdontorName {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.RequesterdonorNamedata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    font-size:90%;
+    background-color: white;
+}
+
+
+.Requesterdonormobilecontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.2rem;
+}
+
+.Requesterdonormobile {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Requesterdonormobiledata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-size: 90%;
+}
+
+
+.Requesterdonoradhaarcontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.2rem;
+}
+
+.Requesterdonoradhaar {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Requesterdonoradhaardata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    background-color: white;
+}
+
+
+.Requesterdonorpancontainer {
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    padding-top: 0.2rem;
+}
+
+.Requesterdonorpan {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Requesterdonorpandata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    background-color: white;
+}
+
+
+.Requesterdonoraddresscontainer {
+    width: 90%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.2rem;
+}
+
+.Requesterdonoraddress {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Requesterdonoraddressdata {
+    height: 80%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    background-color: white;
+}
+
+.Requesterdonorusernamecontainer {
+    padding-top: 0.2rem;
+    height: 10%;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+}
+
+.Requesterdonorusername {
+    height: 50%;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Requesterdonorusernamedata {
+    height: 50%;
+    border: 0.1px solid gray;
+    border-radius: 0.2rem;
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    background-color: white;
+}
+
+.RequesterListofrequesters {
+  
+    width: 50%;
+    height: 100%;
+    border-left: solid;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.RequesterCurrentRequestsText {
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.RequesterListofrequesterscover {
+    height: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+
+.Requesteractiverequestscontainer {
+    margin-top: 3%;
+    height: 97%;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 7;
+    display: flex;
+    flex-direction: column;
+    background-color: #e6e6e6;
+}
+
+.Requesteractiverequestsheading {
+    height: 20%;
+    width: 100%;
+    background-color:darkred;
+    font-size: 2rem;
+    padding: 0;
+    margin: 0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+}
+
+.Requesteractiverequestsbody {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    height: 80%;
+}
+
+.Requesteractiverequests {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20%;
+    width: 100%;
+    font-size: 1rem;
+    color: white;
+    background-color: red;
+    margin-top: 1%;
+}
+
+.Requestermakerequestcontainer {
+    margin-left: 1%;
+    height: 100%;
+    width: 99%;
+    grid-column-start: 3;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 7;
+    display:flex;
+    flex-direction:column;
+}
+
+.Requestermakerequestheading{
+    height:10%;
+    margin:0;
+    padding:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+}
+
+.Requestermakerequestbody{
+    width:100%;
+    height:90%;
+}
+/*REQUEST TYPE CSS START*/
+.requesttypecontainer {
+    display: grid;
+    row-gap: 1.5rem;
+    column-gap: 1.5rem;
+    height: 100%;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit,minmax(10%,30%));
+    grid-template-rows: repeat(2,45%);
+    justify-content: center;
+    overflow-y: scroll;
+    overflow-x: hidden;}
+
+.requesttypecard {
+    display: flex;
+    flex-direction:column;
+    min-width:30%;
+    height: 100%;
+    border-radius: 0.5rem;
+    margin:0;
+    padding:0;
+    background-color:red;
+    align-items:center;
+    justify-content:center;
+}
+
+.requesttypeimage{
+    height:70%;
+    width:80%;
+    margin:0;
+    padding:0;
+}
+
+.requesttypename {
+    height: 20%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+@media only screen and (max-width:1100px) {
+    .Requestermakerequestcontainer {
+        margin-left: 1%;
+        height: 100%;
+        width: 99%;
+        grid-column-start: 3;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 7;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /*REQUEST TYPE CSS START*/
+    .requesttypecontainer {
+        display: grid;
+        row-gap: 1.5rem;
+        column-gap: 1.5rem;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit,minmax(10%,45%));
+        grid-template-rows: repeat(3,45%);
+        justify-content: center;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .requesttypecard {
+        display: flex;
+        flex-direction: column;
+        min-width: 30%;
+        height: 100%;
+        border-radius: 0.5rem;
+        margin: 0;
+        padding: 0;
+        background-color: red;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .requesttypeimage {
+        height: 70%;
+        width: 80%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .requesttypename {
+        height: 20%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width:950px) {
+    .Requestermakerequestcontainer {
+        margin-left: 1%;
+        height: 100%;
+        width: 99%;
+        grid-column-start: 3;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 7;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    /*REQUEST TYPE CSS START*/
+    .requesttypecontainer {
+        display: grid;
+        row-gap: 1.5rem;
+        column-gap: 1.5rem;
+        height: 100%;
+        width: 100%;
+        grid-template-columns: repeat(auto-fit,minmax(10%,80%));
+        grid-template-rows: repeat(auto,auto);
+        justify-content: center;
+        overflow-y: scroll;
+        overflow-x: hidden;
+    }
+
+    .requesttypecard {
+        display: flex;
+        flex-direction: column;
+        min-width: 30%;
+        height: 100%;
+        border-radius: 0.5rem;
+        margin: 0;
+        padding: 0;
+        background-color: red;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .requesttypeimage {
+        height: 70%;
+        width: 80%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .requesttypename {
+        height: 20%;
+        width: 80%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: white;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+
+    @media only screen and (max-width:801px) 
+    {
+        .Requesterdashboardmothercontainer {
+            margin-bottom: 12rem;
+        }
+        .Requesterdashboardcontainer {
+            position: relative;
+            top: 8.6rem;
+            display: grid;
+            height: 78vh;
+            min-height: 1200px;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            gap: 0.0rem;
+            font-family: Arial;
+            grid-template-columns: repeat(6,1fr);
+            grid-template-rows: repeat(6,1fr);
+        }
+
+        .RequesterAccountinfo {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            min-width: 100%;
+            height: 100%;
+            grid-column-start: 1;
+            grid-column-end: 7;
+            grid-row-start: 1;
+            grid-row-end: 2;
+            border: solid;
+            aspect-ratio: auto 1/0.7;
+        }
+
+        .Requesteractiverequestscontainer {
+            margin-top: 3%;
+            height: 97%;
+            width: 100%;
+            grid-column-start: 1;
+            grid-column-end: 7;
+            grid-row-start: 2;
+            grid-row-end: 4;
+            display: flex;
+            flex-direction: column;
+            background-color: #e6e6e6;
+        }
+
+        .Requestermakerequestcontainer {
+            margin-top: 5%;
+            margin-left: 0%;
+            height: 100%;
+            width: 100%;
+            grid-column-start: 1;
+            grid-column-end: 7;
+            grid-row-start: 4;
+            grid-row-end: 7;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /*REQUEST TYPE CSS START*/
+        .requesttypecontainer {
+            display: grid;
+            row-gap: 1.5rem;
+            column-gap: 1.5rem;
+            height: 100%;
+            width: 100%;
+            grid-template-columns: repeat(auto-fit,minmax(10%,45%));
+            grid-template-rows: repeat(3,45%);
+            justify-content: center;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        .requesttypecard {
+            display: flex;
+            flex-direction: column;
+            min-width: 30%;
+            height: 100%;
+            border-radius: 0.5rem;
+            margin: 0;
+            padding: 0;
+            background-color: red;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .requesttypeimage {
+            height: 70%;
+            width: 80%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .requesttypename {
+            height: 20%;
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+    }

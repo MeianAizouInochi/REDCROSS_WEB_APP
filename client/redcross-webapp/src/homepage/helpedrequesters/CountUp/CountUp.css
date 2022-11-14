@@ -1,0 +1,10 @@
+.Helpedrequester-header {
+    color: #2c146e;
+    font-size: 2.0rem;
+    height:50%;
+    z-index: 0;
+    color:red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

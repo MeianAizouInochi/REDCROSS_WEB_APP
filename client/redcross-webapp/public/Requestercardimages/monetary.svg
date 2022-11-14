@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="24"
+   height="24"
+   viewBox="0 0 24 24"
+   fill="none"
+   stroke="currentColor"
+   stroke-width="2"
+   stroke-linecap="round"
+   stroke-linejoin="round"
+   version="1.1"
+   id="svg12"
+   sodipodi:docname="monetary.svg"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs16" />
+  <sodipodi:namedview
+     id="namedview14"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="29.958333"
+     inkscape:cx="12.667594"
+     inkscape:cy="12.03338"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg12" />
+  <g
+     aria-label="₹"
+     id="text1135"
+     style="font-size:30.687px;line-height:1.25;fill:#ffffff;stroke:none;stroke-width:1.53436">
+    <path
+       d="M 4.4030458,8.9405543 5.6017567,6.8428101 H 13.573185 Q 13.378394,6.063648 12.958845,5.3893731 12.539296,4.7150982 11.909973,4.2206299 11.295634,3.7261617 10.501488,3.4564517 9.7223256,3.1717578 8.7933246,3.1717578 H 4.4030458 L 5.6017567,1.0740137 H 19.431884 l -1.198711,2.0977441 h -3.865842 q 0.359613,0.2996778 0.674274,0.7342105 0.314662,0.4345327 0.569388,0.9439849 0.26971,0.4944682 0.434533,1.0189043 0.179807,0.5094521 0.239742,0.9739526 h 3.146616 l -1.198711,2.0977442 h -1.962889 q -0.179806,1.1237917 -0.779162,2.1426957 -0.584372,1.003921 -1.588292,1.768099 -0.988936,0.764178 -2.382438,1.213695 -1.378518,0.449516 -3.1616001,0.449516 l 8.0163791,8.870461 H 12.853958 L 5.0024013,14.51456 V 12.491735 H 8.089082 q 1.0638559,0 1.977873,-0.209774 0.914017,-0.209774 1.61826,-0.644307 0.719226,-0.434533 1.198711,-1.093824 0.494468,-0.6742747 0.704242,-1.6032757 z"
+       id="path846" />
+  </g>
+</svg>

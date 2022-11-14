@@ -1,0 +1,743 @@
+
+.linksection {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 1000px;
+    margin-top: 20px;
+    align-items: center;
+    align-content: center;
+    background-color: white;
+}
+
+/*HEADING OF LINKSECTION*/
+
+.headingoflinksection {
+    width: 100%;
+    height: 20%;
+    font-size: 3vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial;
+    justify-content: center;
+    background-color: white;
+}
+
+.linksectionheading {
+    margin: 0;
+    font-size: 3rem;
+    background-color: white;
+}
+
+.underlineidentity {
+    align-self: center;
+    margin: 0;
+    width: 60%;
+    margin-top: 1%;
+    border: 0.1rem solid;
+    background-color: black
+}
+
+/*BODY OF LINKSECTION*/
+.donatorpagelink {
+    margin-top: 6%;
+    width: 100%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: white;
+}
+
+
+.donatorlink {
+    align-self: center;
+    border-radius: 10px;
+    display: flex;
+    width: 50%;
+    align-self: start;
+    height: 30%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,25%);
+}
+
+    .donatorlink :hover {
+        cursor: pointer;
+    }
+
+.imagefordonator {
+    background-color: rgba(255,255,255,0.1);
+    height: 100%;
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 5%;
+    transition: ease-out 1s;
+}
+
+    .imagefordonator:hover {
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+.donatortext {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: Arial;
+    color: red;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-size: 3.5vw;
+    border-radius: 10px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.donordescription {
+    display: flex;
+    font-family: Arial;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border-radius: 10px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.buttonDonatorsignin {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border: 0;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: rgba(0,0,0,0.9);
+    grid-column-start: 4;
+    grid-column-end: 6;
+    transition: ease-out 1s;
+}
+
+    .buttonDonatorsignin:hover {
+        background-color: red;
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+.buttonDonatorsignintext {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: Arial;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0rem;
+    height: 100%;
+}
+
+.underlinedonator {
+    margin: 0;
+    width: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: black
+}
+
+
+
+.requester {
+    align-self: center;
+    border-radius: 10px;
+    display: flex;
+    width: 50%;
+    align-self: start;
+    height: 30%;
+    align-self: end;
+    margin-right: 5%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,25%);
+}
+
+    .requester :hover {
+        cursor: pointer;
+    }
+
+
+.requestertext {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: Arial;
+    color: red;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-size: 3.5vw;
+    border-radius: 10px;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+
+.imageforrequester {
+    background-color: rgba(255,255,255,0.1);
+    height: 100%;
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 4;
+    grid-column-end: 6;
+    border-radius: 5%;
+    transition: ease-out 1s;
+}
+
+    .imageforrequester:hover {
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+.requesterdescription {
+    display: flex;
+    font-family: Arial;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border-radius: 10px;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.buttonrequestersignin {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border: 0;
+    border-radius: 10px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 0px;
+    background-color: rgba(0,0,0,0.9);
+    grid-column-start: 1;
+    grid-column-end: 3;
+    transition: ease-out 1s;
+}
+
+    .buttonrequestersignin:hover {
+        background-color: red;
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+.buttonrequestersignintext {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: Arial;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0rem;
+    height: 100%;
+}
+
+.underlinerequester {
+    margin: 0;
+    width: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: black
+}
+
+
+.staff {
+    align-self: center;
+    border-radius: 10px;
+    display: flex;
+    width: 50%;
+    align-self: start;
+    height: 30%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-template-rows: repeat(4,25%);
+}
+
+    .staff :hover {
+        cursor: pointer;
+    }
+
+.stafftext {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    font-family: Arial;
+    color: red;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-size: 3.5vw;
+    border-radius: 10px;
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.imageforstaff {
+    background-color: rgba(255,255,255,0.1);
+    height: 100%;
+    width: 100%;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    border-radius: 5%;
+    transition: 2s ease-out;
+}
+
+    .imageforstaff:hover {
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+.staffdescription {
+    display: flex;
+    font-family: Arial;
+    color: black;
+    align-items: center;
+    justify-content: center;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border-radius: 10px;
+    grid-column-start: 3;
+    grid-column-end: 6;
+}
+
+.buttonstaffsignin {
+    grid-row-start: 4;
+    grid-row-end: 4;
+    font-size: 1vw;
+    border: 0;
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-top-right-radius: 0px;
+    background-color: rgba(0,0,0,0.9);
+    grid-column-start: 4;
+    grid-column-end: 6;
+    transition: ease-out 1s;
+}
+
+    .buttonstaffsignin:hover {
+        background-color: red;
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+        transform: scale3d(1.2,1.2,1.2);
+    }
+
+
+.buttonstaffsignintext {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-family: Arial;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.0rem;
+    height: 100%;
+}
+
+.underlinerstaff {
+    margin: 0;
+    width: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    background-color: black
+}
+/*FOR LANDSCPAE TABLETS, laptops and pc*/
+@media only screen and (max-width:1400px) {
+    .linksection {
+        border-radius: 6px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 700px;
+        margin-top: 20px;
+        background-color: white;
+        align-items: center;
+        align-content: center;
+    }
+}
+
+
+/*FOR TABLETS, and all phones*/
+@media only screen and (max-width:801px) {
+
+    .linksection {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 1200px;
+        margin-top: 20px;
+        align-items: center;
+        align-content: center;
+        background-color: white;
+    }
+
+    .headingoflinksection {
+        width: 100%;
+        height: 10%;
+        font-size: 3rem;
+        display: flex;
+        align-items: center;
+        font-family: Arial;
+        justify-content: center;
+    }
+
+    /*BODY OF LINKSECTION*/
+    .donatorpagelink {
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+
+    .donatorlink {
+        align-self: center;
+        border-radius: 10px;
+        display: flex;
+        width: 80%;
+        align-self: center;
+        height: 30%;
+        margin-left: 0%;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: repeat(4,25%);
+    }
+
+        .donatorlink :hover {
+            cursor: pointer;
+        }
+
+    .imagefordonator {
+        background-color: rgba(255,255,255,0.1);
+        height: 100%;
+        width: 100%;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        border-radius: 5%;
+    }
+
+    .donatortext {
+        margin: 0;
+        padding: 0;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        margin-left: 10%;
+        flex-direction: column;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: end;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        font-size: 2rem;
+        border-bottom: solid;
+        border-radius: 0px;
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+
+    .donordescription {
+        display: flex;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: center;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        font-size: 1rem;
+        border-radius: 10px;
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+
+    .buttonDonatorsignin {
+        margin: 0%;
+        width: 100%;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        font-size: 1vw;
+        border: 0;
+        border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: rgba(0,0,0,0.9);
+        grid-column-start: 1;
+        grid-column-end: 6;
+        transition: ease-out 1s;
+        margin-top: 5%;
+    }
+
+        .buttonDonatorsignin:hover {
+            background-color: red;
+            transition: 0.5s;
+            transition-timing-function: ease-in-out;
+            transform: scale3d(1.2,1.2,1.2);
+        }
+
+    .buttonDonatorsignintext {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        font-family: Arial;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.0rem;
+        height: 100%;
+    }
+
+
+
+    .requester {
+        align-self: center;
+        border-radius: 10px;
+        display: flex;
+        width: 80%;
+        align-self: center;
+        height: 30%;
+        margin-left: 0%;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: repeat(4,25%);
+    }
+
+        .requester :hover {
+            cursor: pointer;
+        }
+
+
+    .requestertext {
+        margin: 0;
+        padding: 0;
+        width: 70%;
+        height: 100%;
+        display: flex;
+        margin-left: 10%;
+        flex-direction: column;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: end;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        font-size: 2rem;
+        border-bottom: solid;
+        border-radius: 0px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .imageforrequester {
+        background-color: rgba(255,255,255,0.1);
+        height: 100%;
+        width: 100%;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        grid-column-start: 3;
+        grid-column-end: 6;
+        border-radius: 5%;
+    }
+
+
+    .requesterdescription {
+        display: flex;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: center;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        font-size: 1rem;
+        border-radius: 10px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .buttonrequestersignin {
+        margin: 0%;
+        width: 100%;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        font-size: 1vw;
+        border: 0;
+        border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: rgba(0,0,0,0.9);
+        grid-column-start: 1;
+        grid-column-end: 6;
+        transition: ease-out 1s;
+        margin-top: 5%;
+    }
+
+        .buttonrequestersignin:hover {
+            background-color: red;
+            transition: 0.5s;
+            transition-timing-function: ease-in-out;
+            transform: scale3d(1.2,1.2,1.2);
+        }
+
+    .buttonrequestersignintext {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        font-family: Arial;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.0rem;
+        height: 100%;
+    }
+
+
+    .staff {
+        align-self: center;
+        border-radius: 10px;
+        display: flex;
+        width: 80%;
+        align-self: center;
+        height: 30%;
+        margin-left: 0%;
+        display: grid;
+        grid-template-columns: repeat(5,1fr);
+        grid-template-rows: repeat(4,25%);
+    }
+
+        .staff :hover {
+            cursor: pointer;
+        }
+
+    .stafftext {
+        margin: 0;
+        padding: 0;
+        width: 80%;
+        height: 100%;
+        display: flex;
+        margin-left: 10%;
+        flex-direction: column;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: end;
+        grid-row-start: 1;
+        grid-row-end: 1;
+        font-size: 2rem;
+        border-bottom: solid;
+        border-radius: 0px;
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+
+    .imageforstaff {
+        background-color: rgba(255,255,255,0.1);
+        height: 100%;
+        width: 100%;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        border-radius: 5%;
+    }
+
+
+    .staffdescription {
+        display: flex;
+        font-family: Arial;
+        color: black;
+        align-items: center;
+        justify-content: center;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        font-size: 1rem;
+        border-radius: 10px;
+        grid-column-start: 4;
+        grid-column-end: 6;
+    }
+
+    .buttonstaffsignin {
+        margin: 0%;
+        width: 100%;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        font-size: 1vw;
+        border: 0;
+        border-radius: 10px;
+        border-bottom-left-radius: 0px;
+        border-top-right-radius: 0px;
+        background-color: rgba(0,0,0,0.9);
+        grid-column-start: 1;
+        grid-column-end: 6;
+        transition: ease-out 1s;
+        margin-top: 5%;
+    }
+
+        .buttonstaffsignin:hover {
+            background-color: red;
+            transition: 0.5s;
+            transition-timing-function: ease-in-out;
+            transform: scale3d(1.2,1.2,1.2);
+        }
+
+
+    .buttonstaffsignintext {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        font-family: Arial;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.0rem;
+        height: 100%;
+    }
+}

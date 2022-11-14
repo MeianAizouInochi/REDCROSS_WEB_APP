@@ -1,0 +1,177 @@
+.donatorNavbar {
+    position: fixed;
+    top: 4rem;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    grid-template-rows: repeat(1,1fr);
+    z-index: 50;
+    background-color: white;
+    border-top: 0.1px solid gray;
+    border-bottom: 0.1px solid gray;
+    font-family: Arial;
+    background-color:white;
+}
+
+.donatornavbarulcontainer {
+    -webkit-user-select: none;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 3;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    z-index: 0;
+    gap:0.5rem;
+    padding-left:3.5%;
+}
+
+.donatornavbarulcontainer :hover{
+    transform:scale3d(1.05,1.05,1.05);
+    background-color:red;
+    color:white;
+    cursor:pointer;
+}
+    .donatornavbarulcontainer :after {
+        transform: scale3d(1.05,1.05,1.05);
+        background-color: red;
+        color: white;
+        cursor:grab;
+    }
+
+.donatorprofilepicdivisionnavbar {
+    grid-column-start: 10;
+    grid-column-end: 10;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.userimage {
+    width: 3.4rem;
+    height: 3.4rem;
+    border-radius: 50%;
+}
+
+
+
+
+    .donatornavbarDashboard {
+    width: 30%;
+    height: 100%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    transition:0.3s ease-out;
+}
+
+
+.donatornavbarchat {
+    width: 30%;
+    height: 100%;
+    color: black;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease-out;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.chaticon{
+    padding-left:10px;
+
+}
+
+
+    @media only screen and (max-width:801px) {
+        .donatornavbarulcontainer {
+            -webkit-user-select: none;
+            align-items: center;
+            justify-content: space-between;
+            grid-column-start: 1;
+            grid-column-end: 10;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            display: flex;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            z-index: 0;
+        }
+
+            .donatornavbarulcontainer :hover {
+                transform: scale3d(1.05,1.05,1.05);
+                background-color: red;
+                color: white;
+                cursor: pointer;
+            }
+
+            .donatornavbarulcontainer :after {
+                transform: scale3d(1.05,1.05,1.05);
+                background-color: red;
+                color: white;
+                cursor: grab;
+            }
+
+        .donatorprofilepicdivisionnavbar {
+            grid-column-start: 10;
+            grid-column-end: 10;
+            grid-row-start: 1;
+            grid-row-end: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .userimage {
+            width: 3.4rem;
+            height: 3.4rem;
+            border-radius: 50%;
+        }
+
+        .donatornavbarDashboard {
+            width: 50%;
+            height: 100%;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            color: black;
+            transition: 0.3s ease-out;
+        }
+
+        .donatornavbarchat {
+            width: 50%;
+            height: 100%;
+            background-color: white;
+            color: black;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 0.1rem solid gray;
+        }
+
+        .chaticon {
+            padding-left: 10px;
+        }
+    }

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="48"
+   height="48"
+   viewBox="0 0 12.7 12.7"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="errorsvg.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="13.455443"
+     inkscape:cx="8.1751303"
+     inkscape:cy="23.893676"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1051"
+       transform="translate(0.03932762,1.2388109)"
+       style="fill:#b3b3b3;opacity:0.84541063">
+      <circle
+         style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0;stroke-linejoin:round;paint-order:stroke fill markers"
+         id="path234"
+         cx="6.3120365"
+         cy="3.5787873"
+         r="3.2838321" />
+      <g
+         id="g1029"
+         transform="translate(-0.48175974,-0.58990947)"
+         style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1">
+        <g
+           id="g1023"
+           style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1">
+          <g
+             id="g1018"
+             transform="translate(2.1630031,-4.93558)"
+             style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0.3;stroke-dasharray:none;stroke-opacity:1">
+            <path
+               style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+               d="M 3.2334098,7.7068936 6.0281765,10.50166"
+               id="path407" />
+          </g>
+          <path
+             style="fill:#b3b3b3;stroke:#ffffff;stroke-width:0.3;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1"
+             d="M 8.1911796,2.7713136 5.3964129,5.56608"
+             id="path1015" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.41111px;line-height:1.25;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="2.3033798"
+       y="10.284096"
+       id="text1107"><tspan
+         sodipodi:role="line"
+         id="tspan1105"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:1.41111px;font-family:Arial;-inkscape-font-specification:'Arial, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.264583"
+         x="2.3033798"
+         y="10.284096">Error loading</tspan></text>
+  </g>
+</svg>

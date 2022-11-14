@@ -1,0 +1,285 @@
+.footer-container { /*COPYRIGHT SECTION EXCLUDED*/
+    display: flex;
+    height: 260px;
+    margin-top: 5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-family: Arial;
+    background-color: #e1e1e1c;
+    border-top: 0.1px solid gray;
+    border-left: 0.1px solid gray;
+    border-right: 0.1px solid gray;
+}
+
+.footer-left {
+    width: 33%;
+    height:100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bottomfooterheading {
+    width:100%;
+    color: red;
+    font-size: 3.2rem;
+    margin:0;
+    padding:0;
+}
+
+.footer-left-aboutus-links {
+    width:100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+    .footer-left-aboutus-links p {
+        cursor: pointer;
+        color: black;
+        padding-left: 5px;
+        padding-right:5px;
+        font-size:1.5vw;
+        border-left:0.1vw solid;
+        border-right:0.1vw solid;
+    }
+
+        .footer-left-aboutus-links :hover{
+            color:darkslategray;
+            text-decoration:underline;
+        }
+
+        .footer-mid {
+            width: 34%;
+            color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+.footercontractus{
+    font-size:1.5rem;
+}
+
+.footer-mid-map {
+    padding: 15px;
+}
+
+.footer-mid-phone-number {
+    padding: 15px;
+}
+
+.footer-mid-email-id {
+    padding: 15px;
+}
+
+.footer-right {
+    width: 33%;
+    color: black;
+}
+
+
+.footer-right-officials-social-media {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:ease-out 0.25s;
+}
+
+    .footer-right-officials-social-media :hover{
+        color:red;
+        transition:ease-in 0.25s;
+    }
+
+    .Twitter {
+        font-size: 2rem;
+        color: black;
+    }
+
+.Facebook {
+    font-size: 2rem;
+    color: black;
+}
+
+.Instagram {
+    font-size: 2rem;
+    color: black;
+}
+
+.LinkedinIn {
+    font-size: 2rem;
+    color: black;
+}
+
+
+.footer-right-officials-link {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+    .footer-right-officials-link :hover {
+        text-decoration:underline;
+        color:darkslategray;
+    }
+
+    .footer-right-officials-link p {
+        margin: 0;
+        padding: 0;
+        cursor: pointer;
+        padding-top: 10px;
+    }
+
+.footer-copyright {
+    color: rgb(255, 255, 255);
+    background-color: red;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    height: 50px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: Arial;
+}
+
+
+
+
+@media (max-width: 801px) {
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: inherit;
+        height: 570px;
+        margin-top: 0%;
+        border-top:solid;
+        border-left:solid;
+        border-right:solid;
+    }
+
+    .footer-left {
+  
+        width: 100%;
+        height:25%;
+        color: black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .footer-left-aboutus-links p {
+        cursor: pointer;
+        color: black;
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 1.5rem;
+        border-left: 0.1vw solid;
+        border-right: 0.1vw solid;
+    }
+
+    .bottomfooterheading {
+      
+        color: red;
+        width:100%;
+        font-size: 3.2rem;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .footer-left-aboutus-links {
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+        .footer-left-aboutus-links p {
+            border-left: 2px solid;
+            cursor: pointer;
+            color: black;
+            padding-left: 5px;
+        }
+
+
+    .footer-mid {
+        width: 100%;
+        font-size: 14px;
+        height:40%;
+    }
+
+    .footercontractus {
+        font-size: 1.5rem;
+        padding:0;
+        margin:0;
+    }
+
+    .footer-mid-map {
+        padding: 15px;
+    }
+
+    .footer-mid-phone-number {
+        padding: 15px;
+    }
+
+    .footer-mid-email-id {
+        padding: 15px;
+    }
+
+    .footer-right {
+        width: 33%;
+        color: black;
+    }
+
+
+    .footer-right {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    .footer-right-officials {
+        padding-left: 0px;
+    }
+
+    .footer-right-officials-social-media {
+        text-align: center;
+    }
+
+    .footer-right-officials-link {
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+    }
+
+        .footer-right-officials-link p {
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            padding-top: 10px;
+        }
+
+    .footer-copyright {
+        color: rgb(255, 255, 255);
+        background-color: red;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+        height: 50px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        font-family: Arial;
+    }
+}

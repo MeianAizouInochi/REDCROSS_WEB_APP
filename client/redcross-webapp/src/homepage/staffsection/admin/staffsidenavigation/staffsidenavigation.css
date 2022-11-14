@@ -1,0 +1,144 @@
+.stafsidenavigationmothercontainer {
+    height: 100%;
+    width: 100%;
+    font-family: Arial;
+    display:flex;
+    user-select:none;
+
+}
+.mobileopensidenavigation{
+    display:none;
+}
+
+.pcstaffsidenavigationcontainer {
+    width: 15%;
+    min-width:200px;
+    height: 100%;
+    background-color: darkred;
+}
+
+.pcstaffsidenavigationheading {
+    height: 10%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkred;
+    color: white;
+    font-size: 1.5rem;
+}
+.pcstaffsidenavigationcontainer ul {
+    margin: 0;
+    height: 90%;
+    list-style: none;
+    padding: 0;
+}
+
+.pcstaffsidenavigationcontainer li {
+    margin: 0;
+    padding: 0;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+}
+
+.pcstaffsidenavigationcontainer ul :hover {
+    cursor: pointer;
+    color: white;
+    background-color: red;
+}
+
+.navigatedcomponents{
+    height:100%;
+    margin:0;
+    padding:0;
+    width:stretch;
+}
+
+.staffnavicons{
+    margin-left:2%;
+    height:stretch;
+    color:white;margin-right:2%;
+
+}
+
+@media only screen and (max-width:801px) {
+
+    .mobileopensidenavigation {
+        position: fixed;
+        display: initial;
+        height: 4.1rem;
+        width: 20%;
+        border: none;
+        background-color: darkred;
+        color: white;
+        right: 0;
+        top: 4rem;
+        font-size: 1.2rem;
+        z-index: 100;
+    }
+    .mobilestaffsidenavigationcontainer {
+        position: fixed;
+        width: 60%;
+        height: 100%;
+        background-color: darkred;
+        animation:navanim;
+        animation-duration:0.3s;
+        animation-timing-function:ease-out;
+    }
+
+    @keyframes navanim{
+        0%{
+            transform:translateX(-100%)
+        }
+        100% {
+            transform: translateX(0%)
+        }
+    }
+
+    .mobilestaffsidenavigationheading {
+        height: 10%;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: darkred;
+        color: white;
+        font-size: 1.5rem;
+        padding-left:5%;
+    }
+
+    .mobilesidenavigationclose{
+        border:none;
+        background-color:darkred;
+        height:100%;
+        width:30%;
+        font-size:2rem;
+        color:white;      
+    }
+
+    .mobilestaffsidenavigationcontainer ul {
+        margin: 0;
+        height: 90%;
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobilestaffsidenavigationcontainer li {
+        margin: 0;
+        padding: 0;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        color: white;
+    }
+
+    .mobilestaffsidenavigationcontainer ul :hover {
+        cursor: pointer;
+        color: white;
+        background-color: red;
+    }
+}

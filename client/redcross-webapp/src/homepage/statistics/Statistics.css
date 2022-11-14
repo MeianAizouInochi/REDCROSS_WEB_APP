@@ -1,0 +1,44 @@
+.statisticscointainer {
+    display:flex;
+    width:100%;
+    height:400px;
+    margin:0;
+    padding:0;
+    align-items:center;
+    justify-content:space-evenly;
+    margin-top:50px;
+}
+
+.Helpedrequesterstatistics{
+
+    width:49%;
+    height:100%;
+}
+.Topdonatorsstatistics {
+
+    width: 49%;
+    height: 100%;
+}
+
+
+/*FOR TABLETS, and all phones*/
+@media only screen and (max-width:801px) {
+    .statisticscointainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 900px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    .Helpedrequesterstatistics {
+        width: 100%;
+        height: 50%;
+    }
+
+    .Topdonatorsstatistics {
+        width: 100%;
+        height: 50%;
+    }
+}
+
