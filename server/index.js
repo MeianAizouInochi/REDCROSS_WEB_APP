@@ -88,12 +88,11 @@ app.use(cors({
     methods:["GET","POST"]
 }));
 
-//app.use(cookieParser());
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(session({
-    path: '/',
     secret: "somesecret",
     resave: false,
     saveUninitialized: false,
@@ -110,7 +109,7 @@ app.use(session({
 /*
  * GET REQUEST FOR SESSION CHECK.
  */
-app.get("/", (req, res) => {
+app.get("/api/user/login", (req, res) => {
 
     console.log(req.session);
     
@@ -129,6 +128,22 @@ app.get("/", (req, res) => {
  * LOGOUT PORTION.
  * 
  */
+app.get("/api/user/logout", (req, res) => {
+
+    req.session.destroy((err) => {
+
+        if (err)
+        {
+            console.log("ERROR MESSAGE: ERROR IN DESTROYING SESSION: " + err);
+        }
+
+        res.clearCookie("connect.sid");
+
+        res.send({ LoginStatus: false });
+
+        console.log("LOGGED OUT!");
+    });
+});
 
 /*
  * POST TYPE LOGIN
@@ -179,11 +194,10 @@ app.post("/api/user/Login", (req, res) => {
                     }
                 }
                 Connection.close();
-                console.log("BULLSHIT:"+req.session);
+               
             });
         }
     });
-    console.log("CHICKENSHIT:" + req.session);
 });
 /*----------------------------------------------------------------------------------LOGIN SECTION END------------------------------------------------------------------------------------------------------------*/
 

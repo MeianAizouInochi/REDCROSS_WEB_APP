@@ -457,9 +457,7 @@ const Signup = (props) => {
 
                         console.log("inside responsefdb not error");
 
-                        //props.Data(Username, Usertype, LoginSema.data.LoginStatus);// LOGGING IN AND SENDING USER BACK TO HOMEPAGE WITH ABILITY TO ENTER THEIR PROFILE.
-
-                        Axios.get(DbURL + "/").then((response) => { console.log(response); }).catch((err) => { console.log(err); });
+                        props.Data(Username, Usertype, LoginSema.data.LoginStatus);// LOGGING IN AND SENDING USER BACK TO HOMEPAGE WITH ABILITY TO ENTER THEIR PROFILE.
 
                     }).catch(function (errorfromfdb) {// CATCHING ANY ERROR ON UNEXPECTED EXECUTION.
 

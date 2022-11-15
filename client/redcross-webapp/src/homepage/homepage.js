@@ -102,9 +102,22 @@ const Homepage = () => {
 
         Axios.get(DbURL + "/api/user/login").then((response) => {
 
-            console.log(response);
-           
-        });
+            if (response.data.LoginStatus) {
+
+                var temparr = response.data.user.split('_');
+
+                var usertype = temparr[0] + '_'
+
+                setLoginSignupDataUserType(usertype);
+
+                setLoginSignupDataUsername(temparr[1]);
+
+                setLogStatus(true);
+
+            }
+
+        }).catch((err) => { console.log(err); });
+
 
     }, []);
 
@@ -116,7 +129,7 @@ const Homepage = () => {
 
         if (LogStatus) {
 
-            LoggerListener();// CALLING LOGGERLISTENER IF LOGSTATUS IS TRUE.
+            //LoggerListener();// CALLING LOGGERLISTENER IF LOGSTATUS IS TRUE.
 
         }
         else {
@@ -230,6 +243,12 @@ const Homepage = () => {
      * LOG OUT FUNCTION.
      */
     const Logoutfunc = () => {
+
+        Axios.get(DbURL + "/api/user/logout").then((response) => {
+
+            console.log("LOGINSTATUS: "+ response.data.LoginStatus);
+
+        });
 
         setLogStatus(false);
 
