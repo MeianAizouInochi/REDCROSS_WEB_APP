@@ -2,7 +2,11 @@ import "./homepage.css"
 
 import { phoneauth, chatRDB } from "../authchatsystem/firebaseconfig";
 
-import { ref, runTransaction, set,onValue } from "firebase/database";
+import { ref, runTransaction, set, onValue } from "firebase/database";
+
+import Axios from 'axios';
+
+import DbURL from "../domainconfig";
 
 //below is navbar imports
 import Navbar from "./navbar/navbar";
@@ -88,6 +92,22 @@ const Homepage = () => {
     let openpage = useNavigate(); // THIS NEEDS TO GET CHANGES TO NORMAL SEmAPHORE STATE FOR STAFF SECTION.
 
     /*-------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.--------------------------------------------------------------------------------------------------------------------------*/
+    Axios.defaults.withCredentials = true;
+
+    /*
+     * THIS USE EFFECT IS FOR LOGIN SESSION.
+     * IT IS STILL UNDER DEVELOPMENT.
+     */
+    useEffect(() => {
+
+        Axios.get(DbURL + "/api/user/login").then((response) => {
+
+            console.log(response);
+           
+        });
+
+    }, []);
+
 
     /*
      * THIS USE EFFECT HOOKS EXECUTES WHEN LOGSTATUS STATE IS CHANGED.

@@ -9,6 +9,10 @@ const mssql = require('mssql');
 
 const cors = require('cors');
 
+const session = require('express-session');
+
+const cookieParser = require('cookie-parser');
+
 //DB configuration start.
 const db_admin_web_asset = {
 
@@ -66,23 +70,122 @@ const db_config_for_userinfo_filetype =
 
 app.use(express.json({ limit: '10mb' }));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use(cors({
-    credentials: true, origin: [
+    credentials: true,
+    origin: [
+        `http://172.19.5.133:3000`,
         `http://192.168.183.110:3000`,
         `http://192.168.42.110:3000`,
         `http://192.168.124.110:3000`,
         `http://192.168.144.110:3000`,
-        `http://localhost:3000`,
         `http://172.19.2.121:3000`,
         `http://192.168.255.110:3000`,
         `http://192.168.212.110:3000`,
-        `http://192.168.96.110`
-    ]
+        `http://192.168.96.110:3000`
+    ],
+    methods:["GET","POST"]
 }));
 
+//app.use(cookieParser());
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(session({
+    path: '/',
+    secret: "somesecret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 3600000,
+        secure: false
+    }
+}));
+
+
 //important connector and data translator uses end.
+
+/*-------------------------------------------------------------------------------------------LOGIN SECTION------------------------------------------------------------------------------------------------------*/
+/*
+ * GET REQUEST FOR SESSION CHECK.
+ */
+app.get("/", (req, res) => {
+
+    console.log(req.session);
+    
+    if (req.session.user) {
+
+        res.send({ LoginStatus: true, user: req.session.user });
+    }
+    else
+    {
+        res.send({ LoginStatus: false });
+    }
+
+});
+
+/*
+ * LOGOUT PORTION.
+ * 
+ */
+
+/*
+ * POST TYPE LOGIN
+ */
+app.post("/api/user/Login", (req, res) => {
+
+    var Username = req.body.username;
+
+    var password = req.body.password;
+
+    var Connection = new mssql.ConnectionPool(db_config_for_userinfo);
+
+    var sqlstatement = "select DETAILS from " + Username + " where DETAILS_TYPE = 'PASSWORD';";
+
+    Connection.connect(function (error)
+    {
+        if (error)
+        {
+            console.log("ERROR MESSAGE: (LOGIN QUERY CONNECTION ERROR) : " + error);
+        }
+        else
+        {
+            var request = new mssql.Request(Connection);
+
+            request.query(sqlstatement, (err, result) => {
+
+                if (err) {
+
+                    console.log("ERROR MESSAGE: (LOGIN SQLSTATEMENT QUERY REQUEST ERROR) : " + err);
+                }
+                else
+                {
+                    if (password == result.recordset[0].DETAILS)
+                    {
+                        req.session.user = Username;
+
+                        console.log("INSIDE CONNECTION: "+req.session);
+
+                        var newResultToSend = { LoginStatus: true };
+
+                        res.send(newResultToSend);
+                    }
+                    else
+                    {
+                        var newResultToSend = { LoginStatus: false };
+
+                        res.send(newResultToSend)
+                    }
+                }
+                Connection.close();
+                console.log("BULLSHIT:"+req.session);
+            });
+        }
+    });
+    console.log("CHICKENSHIT:" + req.session);
+});
+/*----------------------------------------------------------------------------------LOGIN SECTION END------------------------------------------------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------------------ADMIN SECTION START---------------------------------------------------------------------------------*/
 
