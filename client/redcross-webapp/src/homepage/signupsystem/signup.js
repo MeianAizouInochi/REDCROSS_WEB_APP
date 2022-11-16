@@ -222,7 +222,7 @@ const Signup = (props) => {
                             }, phoneauth);
 
                             //CALLING FIREBASE API SIGN IN WITH PHONE NUMBER FUNCTION, AND SENDING OTP.
-                            /*signInWithPhoneNumber(phoneauth, "+91" + Mobile, appVerifier)
+                            signInWithPhoneNumber(phoneauth, "+91" + Mobile, appVerifier)
                                 .then(confirmationResult => {
                                     window.confirmationResult = confirmationResult;
                                 })
@@ -231,7 +231,7 @@ const Signup = (props) => {
                                     console.log("ERROR MESSAGE: FIREBASE SIGN IN WITH PHONE NUMBER FUNCTION: " + error);
 
                                 });
-                                */
+                                
 
                             //CHANGING THE FORM TO SECOND PART FOR OTP VERIFICATION AND IF CORRECT THEN DATA UPLOAD TO DB..
                             setExpandForm(true);
@@ -284,7 +284,7 @@ const Signup = (props) => {
 
         //CHECKING OTP LENGTH
         if (OTP.length === 6) {
-            /*
+            
             //GETTING THE CONFIRMATION INTO A VARIABLE.
             let confirmationResult = window.confirmationResult;
 
@@ -300,11 +300,9 @@ const Signup = (props) => {
                      * UPLOAD DATA IS AN ASYNC FUNCTION.
                      * IT IS UNWANTED THAT ANY OTHER FUNCTIONALITY OCCURS BEFORE THIS FUNCTION COMPLETES EXECUTING.
                      * HENCE NO OTHER FUNCTION IS CALLED AFTER THIS.
-                     
+                     */
                     UPLOAD_DATA(); 
             });
-        */
-            UPLOAD_DATA();
         }
     }
 

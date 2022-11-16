@@ -281,7 +281,7 @@ const Homepage = () => {
     /**
      * DATA RETRIEVER FROM SIGN UP PAGE.
      */
-    const DataRetrieverFromSignup = (props1,props2) => {
+    const DataRetrieverFromSignup = (props1,props2,props3) => {
 
         setLoginSignupDataUserType(props2);
 
@@ -289,9 +289,7 @@ const Homepage = () => {
 
         setSignupPageVis(false);
 
-        setLogStatus(true);
-
-        //console.log(props);
+        setLogStatus(props3);
     }
 
     /**
