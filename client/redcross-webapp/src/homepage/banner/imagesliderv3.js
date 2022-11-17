@@ -1,91 +1,159 @@
 import react, { useEffect, useState } from 'react'
-import { sliderdata } from './sliderdata'
-//import { AiOutlineCaretLeft, AiOutlineCaretRight } from 'react-icons/ai'
+
 import { GoPrimitiveDot } from 'react-icons/go'
+
 import "./imagesliderv3.css"
 
-//importing announcement section
+import { Carousal } from './sliderdata.js'
+
 import Announcementslider from "../announcements/announcementv3";
+
 import { announcementdata } from "../announcements/announcementdata";
 
-//creating a function which takes slides as arguments 
-const Imageslider = ({ slides }) => {
+
+const Imageslider = () => {
+
+    //VARIABLES
+    var [slides, setslides] = useState([]);
+
+    let [load, setload] = useState(0);
+
     const [current, setcurrent] = useState(0);
+
+    const [flag, setflag] = useState(1);//THIS STATE IS USED TO CLEAN THE CRAOUSAL ARRAY
+
+    const [NULL, setnull] = useState(0);//USED TO DISPLAY ERROR SLIDE IF DATA DIDN'T CAME INTO ARRAY.
+
     const length = slides.length;
+
     const [slideindex, setslideindex] = useState(0);
 
-    //function to traverse to next slide.
+    //SYNCHRONIZER FUNCTION GETS DATA FROM SLIDERDATA MODULE AND STORES THEM INTO A ARRAY OF OBJECT 'slides'
+    async function sync() {
+
+        await Carousal().then(data => {
+
+            console.log("RAW DATA " + data);
+            setslides(slides = data);
+
+        });
+
+        setload(load = 1);
+
+    }
+
+    //USEEFFECT WHICH CALLS THE SYNCHRONIZER FUNCTION AND
+    useEffect(() => {
+
+        if (load === 0) {
+
+            sync();
+
+        }
+
+    }, [])
+
+
+    //FUNCTION TO TRAVERSE TO NEXT SLIDE
     const nextslide = () => {
+
         setcurrent(current === length - 1 ? 0 : current + 1)
+
         setslideindex(slideindex === length - 1 ? 0 : current + 1)
-    }
-
-    const prevslide = () => {
-        setcurrent(current === 0 ? length - 1 : current - 1)
 
     }
-    //debugging purpose
-    //console.log(current);
 
 
+    /*-----------------------------AUTO SCROLLER FUNCTIONALITY STARTS--------------------------*/
 
-    //variable for autoscroll functionality
+    //VARIABLES FOR AUTO SCROLL FUNCTIONALITY
     const autoscroll = true;
     let slideinterval;
     let intervaltime = 7000;
 
-    //autoscroll fuction
+    //AUTO FUNCTION 
     function auto() {
+
         slideinterval = setInterval(nextslide, intervaltime)
+
     }
 
-    //useEffect runs the function idependent of others,
+    //USEEFFECT WHICH RUNS THE AUTO FUNCTION
     useEffect(() => {
+
         if (autoscroll) {
+
             auto();
+
         }
+
         //clean up function, stops memory leaks
         return () => clearInterval(slideinterval);
-    }, [current]/*the elements in this array dosent get called, refreshed,(negation)*/ );
+
+    }, [current]);
 
 
-    //function for container dots
+    //FUNCTION FOR CONTAINER DOTS 
     const movedot = index => {
         setslideindex(index)
     }
 
-    //to check if the array is not empty
+    /*-----------------------------AUTO SCROLLER FUNCTIONALITY ENDS--------------------------*/
+
+
+
+    /*-----------------------------IMPORTANT SECTION OF CRAOUSAL DEALS WITH LOADING SCREEN,ERROR SCREEN , EMPTY DATA START------------------------------------- */
+
+    //THIS CHECKS IF THE ARRAY RECIVED IS NOT EMPTY AS THE DATA LOADS IT PUSHES A LOADING SCREEN IN COLLECTION
     if (!Array.isArray(slides) || slides.length <= 0) {
-        return null;
+
+        setslides(oldArray => [...oldArray, { image: './loadingbanner.svg', description: "loading please wait" }]);
+
     }
 
-    /* || BUTTONS ||
-     <AiOutlineCaretLeft className="left-arrow" onClick={prevslide} />
-            <AiOutlineCaretRight className="right-arrow" onClick={nextslide} />
-     */
+    //THIS CLEANS UP ARRAY OF LOADING SCREEN AFTER RECIVING DATA
+    if (slides.length > 2 && flag === 1 && NULL !== 1) {
 
-    //returning function
-    return ( //returns the slider -> (slideactive,slide) -> bannerdescription and (left-arrow,right-arrow) classes
+        slides.shift();
+
+        setflag(0);
+
+    }
+
+    //IF WE GOT A EMPTY ARRAY , NO DATA CAME 
+    if (length === 1 && flag === 1) {
+
+        setslides(oldArray => [...oldArray, { image: null, description: null }]);
+
+        setnull(1);
+    }
+
+    /*-----------------------------IMPORTANT SECTION OF CRAOUSAL DEALS WITH LOADING SCREEN,ERROR SCREEN , EMPTY DATA END-------------------------------------- */
+
+
+    return (
         <section className="slider">
+            {
+                slides.map((slide, index) => {
 
-            {sliderdata.map((slide, index) => {
-                return (
+                    return (
 
-                    <div className={index === current ? 'slide active' : 'slide'} key={index}>
-                        {index === current && (
-                            <>
-                                <div className="bannerdescription">
-                                    <p>{slide.description}</p>
-                                </div>
-                                <div className="imagedivision">
-                                    <img src={slide.image} alt='banner'/>
-                                </div>
-                            </>
-                        )}
-                    </div>
-
-                );
-            })}
+                        <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                            {index === current && (
+                                <>
+                                    {console.log("its coming here")}
+                                    <div className="bannerdescription">
+                                        <p>{slide.description === null ? "Error displaying Info" : slide.description}</p>
+                                    </div>
+                                    <div className="imagedivision">
+                                        <img src={slide.image === null ? './BannerOnError.svg' : slide.image} alt='banner' />
+                                    </div>
+                                </>
+                            )}
+                        </div>
+                    );
+                })
+            }
             <div className="container-dots">
                 {Array.from({ length: slides.length }).map((slides, index) => (
                     <GoPrimitiveDot className={index === current ? 'dot active' : 'dot'} key={index} />
