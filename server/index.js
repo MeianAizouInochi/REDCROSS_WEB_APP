@@ -789,7 +789,7 @@ app.post("/api/getuserchatdata", (req, res) => {
 
     var Connection = new mssql.ConnectionPool(db_config_for_userinfo);
 
-    const sqlchatdataquery = "select DETAILS from " + verifiedusername + " where DETAILS_TYPE = 'chat';"
+    const sqlchatdataquery = "select DETAILS from " + verifiedusername + " where DETAILS_TYPE like 'CHAT_%';"
 
     Connection.connect(function (error) {
 
