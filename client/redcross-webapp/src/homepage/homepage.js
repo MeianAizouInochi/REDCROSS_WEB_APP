@@ -2,7 +2,11 @@ import "./homepage.css"
 
 import { phoneauth, chatRDB } from "../authchatsystem/firebaseconfig";
 
-import { ref, runTransaction, set,onValue } from "firebase/database";
+import { ref, runTransaction, set, onValue } from "firebase/database";
+
+import Axios from 'axios';
+
+import DbURL from "../domainconfig";
 
 //below is navbar imports
 import Navbar from "./navbar/navbar";
@@ -86,6 +90,35 @@ const Homepage = () => {
     let openpage = useNavigate(); // THIS NEEDS TO GET CHANGES TO NORMAL SEmAPHORE STATE FOR STAFF SECTION.
 
     /*-------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.--------------------------------------------------------------------------------------------------------------------------*/
+    Axios.defaults.withCredentials = true;
+
+    /*
+     * THIS USE EFFECT IS FOR LOGIN SESSION.
+     * IT IS STILL UNDER DEVELOPMENT.
+     */
+    useEffect(() => {
+
+        Axios.get(DbURL + "/api/user/login").then((response) => {
+
+            if (response.data.LoginStatus) {
+
+                var temparr = response.data.user.split('_');
+
+                var usertype = temparr[0] + '_'
+
+                setLoginSignupDataUserType(usertype);
+
+                setLoginSignupDataUsername(temparr[1]);
+
+                setLogStatus(true);
+
+            }
+
+        }).catch((err) => { console.log(err); });
+
+
+    }, []);
+
 
     /*
      * THIS USE EFFECT HOOKS EXECUTES WHEN LOGSTATUS STATE IS CHANGED.
@@ -94,7 +127,7 @@ const Homepage = () => {
 
         if (LogStatus) {
 
-            LoggerListener();// CALLING LOGGERLISTENER IF LOGSTATUS IS TRUE.
+            //LoggerListener();// CALLING LOGGERLISTENER IF LOGSTATUS IS TRUE.
 
         }
         else {
@@ -209,6 +242,12 @@ const Homepage = () => {
      */
     const Logoutfunc = () => {
 
+        Axios.get(DbURL + "/api/user/logout").then((response) => {
+
+            console.log("LOGINSTATUS: "+ response.data.LoginStatus);
+
+        });
+
         setLogStatus(false);
 
         setLoginSignupDataUserType("");
@@ -240,7 +279,7 @@ const Homepage = () => {
     /**
      * DATA RETRIEVER FROM SIGN UP PAGE.
      */
-    const DataRetrieverFromSignup = (props1,props2) => {
+    const DataRetrieverFromSignup = (props1,props2,props3) => {
 
         setLoginSignupDataUserType(props2);
 
@@ -248,9 +287,7 @@ const Homepage = () => {
 
         setSignupPageVis(false);
 
-        setLogStatus(true);
-
-        //console.log(props);
+        setLogStatus(props3);
     }
 
     /**
