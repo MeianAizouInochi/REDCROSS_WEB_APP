@@ -1,117 +1,108 @@
 import "./donatorchat.css";
-
 import Axios from "axios";
-
 import { useState, useEffect } from "react";
-
 import { chatRDB } from "../../../authchatsystem/firebaseconfig"
-
 import { ref, push, onValue } from "firebase/database";
-
 import { AiOutlineMenu, AiOutlineSend } from 'react-icons/ai';
-
 import { HiOutlineInboxIn } from 'react-icons/hi';
 
 import DbURL from "../../../domainconfig";
 
 const Donatorchat = (props) => {
 
-    /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES----------------------------------------------------------------------------------------------------------------------*/
+    const senderusername = props.username;
 
-    const senderusername = props.username; // GETTING USERNAME FROM DONATOR PAGE.
+    const donatorkeyword = "DONATOR_"
 
-    const donatorkeyword = "DONATOR_" // MAKING A KEYWORD VARIABLE FOR DONATOR.
+    const Fullusername = donatorkeyword + senderusername;
 
-    const Fullusername = donatorkeyword + senderusername; // CREATING FULL USERNAME.
+    const senderid = donatorkeyword + senderusername;
 
-    const senderid = Fullusername; // CREATING SENDER ID.
+    const [Currentsentmessage, setCurrentsentmessage] = useState("");
 
-    const [Currentsentmessage, setCurrentsentmessage] = useState(""); // CURRENT MESSAGE STATE. 
+    const [Messagesendervisibility, setMessagesendervisibility] = useState(false);
 
-    const [Messagesendervisibility, setMessagesendervisibility] = useState(false); // MESSAGE SENDER VISIBILIITY.
+    const [Currentchatuser, setCurrentchatuser] = useState("");
 
-    const [Currentchatuser, setCurrentchatuser] = useState(""); // STORING CURRENT CHAT USER.
+    const [Chatusermssqldata,setChatusermssqldata] = useState(null);
 
-    const [Chatusermssqldata,setChatusermssqldata] = useState(null); /// STORING CHAT USER MSSQL DATA.
+    const [Roomcode, setRoomcode] = useState("");
 
-    const [Roomcode, setRoomcode] = useState(""); // STORING ROOM CODE FOR CHAT.
+    const [Chatsmessages, setChatsmessages] = useState([]);
 
-    const [Chatsmessages, setChatsmessages] = useState([]); // STORING CHAT MESSAGES.
+    const [chatinglistclasschecker, setchatinglistclasschecker] = useState(true);
 
-    const [chatinglistclasschecker, setchatinglistclasschecker] = useState(true); // CHATTING LIST CLASS CHECKER SEMAPHORE.
-
-    /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.----------------------------------------------------------------------------------------------------------------------*/
-
-    /*
-     * THIS USE EFFECT HOOK RUNS ONCE AFTER THE CHAT IS MOUNTED OR RENDERED FOR FIRST TIME. 
-     */
     useEffect(() => {
 
-        // MAKING AN API CALL TO GET USER CHAT DATA, FOR GETTING CHAT DATA FROM DB.
-        Axios.post(DbURL + "/api/getuserchatdata", { verifiedusername: Fullusername }).
-            then((responsedata) => {
+        Axios.post(DbURL+"/api/getuserchatdata", {
 
-                setChatusermssqldata(responsedata.data.recordset);
+            verifiedusername: Fullusername
 
-            });
+        }).then((responsedata) => {
+
+           // console.log(responsedata.data.recordset);
+
+            //console.log(typeof responsedata.data.recordset);
+
+            setChatusermssqldata(responsedata.data.recordset);
+
+            //console.log("ran once.");
+
+        });
+
     }, []);
 
-    /*
-     * THIS USE EFFECT SHOULD RUN ONLY WHEN ROOMCODE STATE IS CHANGED AND THE COMPONENT RE-RENDERS.
-     */
     useEffect(() => {
 
-        if (Roomcode !== "") // CHECKING IF ROOMCODE IS NOT EMPTY.
-        {
-            // CALLING FIREBASE ON VALUE CHANGE FUNCTION, IT IS MOUNTED AND  RUNS WHENEVER THERE IS A CHANGE IN FIREBASE DB.
-            onValue(ref(chatRDB, "/CHATS/" + Roomcode + "/MESSAGES"), (snapshot) => {
+        if (Roomcode !== "") {
+
+            onValue(ref(chatRDB, "/CHATS/" + Roomcode+"/MESSAGES"), (snapshot) => {
+
+                console.log("inside onvalue");
 
                 const firebasechatdata = snapshot.val();
 
+                console.log(firebasechatdata);
+
                 if (firebasechatdata !== null) {
 
-                    let TEMPCHATARRAY = []; // TEMPORARY ARRAY FOR STORING DATA
+                    let TEMPCHATARRAY = [];
 
-                    Object.keys(firebasechatdata).map((element) => { // MAPPING DATA FROM SNAPSHOT FIREBASECHATDATA TO TEMPCHATARRAY.
+                    //setChatsmessages(Object.keys(firebasechatdata));
+
+                    //console.log(Object.keys(firebasechatdata));
+
+                    Object.keys(firebasechatdata).map((element) => {
 
                         TEMPCHATARRAY.push(firebasechatdata[element]);
 
                     });
 
-                    setChatsmessages(TEMPCHATARRAY); // SETTING THE TEMP ARRAY TO STATE. 
+                    setChatsmessages(TEMPCHATARRAY);
 
                 }
+
             });
         }
-        else
-        {
-            //do nothing
-        } 
 
     }, [Roomcode]);
 
-    /*
-     * THIS USE EFFECT HOOK RUNS ONLy WHEN CHAT MESSAGES STATE HAS ANY CHANGES MADE TO IT.
-     */
     useEffect(() => {
 
-        if (Messagesendervisibility === true) {// CHECKS IF MESSAGE SENDER IS VISIBLE TO USER.
+        if (Messagesendervisibility === true) {
 
-            // SCROLLING MESSAGE TO BOTTOM MOST PORTION.
-            var obj = document.getElementById("Messagedisplay"); 
+            var obj = document.getElementById("Messagedisplay");
 
             obj.scrollTop = obj.scrollHeight;
+
         }
+        
     }, [Chatsmessages]);
 
-    /*
-     * SEND CHAT DATA FUNCTION.
-     * ITS SENDS CHAT DATA TO FIREBASE DB.
-     */
+
     const sendChatdata = () => {
 
-        let roomcode = Roomcode;// GETTING ROOMCODE. 
-
+        let roomcode = Roomcode;
         var roomcode2 = Currentchatuser + Fullusername;
 
         push(ref(chatRDB, "/CHATS/" + roomcode+"/MESSAGES"), {
@@ -179,25 +170,18 @@ const Donatorchat = (props) => {
 
     //variable for opening mobile list of requester to chat
     const [mobiledonatorchattingliststate, setmobiledonatorchattingliststate] = useState(false);
-
     const [mobilechattingversion, setmobilechattingversion] = useState(false);
-
     const mobiledonatorchatlisttoggler = () => setmobiledonatorchattingliststate(!mobiledonatorchattingliststate);
 
     useEffect(() => {
 
         window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
-
         window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
-
         window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
 
         window.addEventListener("resize", () => {
-
             window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
-
             window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
-
             window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
         });
 
@@ -208,12 +192,10 @@ const Donatorchat = (props) => {
 
         <div className="Donatorchat">
 
-            { /*PC DONATOR CHATING SECTION START*/ }
+            {/* PC DONATOR CHATING SECTION START*/}
             {pcdonatorchatstate && (
                 <div className="Donatorchatinglistmothercontainer" >
-
                     <p className="pcrequesterheading">Requesters</p>  
-
                     <ul className="Donatorchatinglistchildcontainer">
                         
                             {(Chatusermssqldata !== null) && Object.keys(Chatusermssqldata).map((element) => {
@@ -254,7 +236,7 @@ const Donatorchat = (props) => {
                                     textAlign: "right",
                                     padding: "1rem",
                                     marginRight: "1%",
-                                    width: "auto",
+                                    width: "fit-content",
                                     maxWidth: "40%",
                                     textAlign: "end",
                                     alignSelf: "end",
@@ -268,7 +250,7 @@ const Donatorchat = (props) => {
                                         
                                         padding: "1rem",
                                         marginLeft: "1%",
-                                        width: "auto",
+                                        width: "fit-content",
                                         maxWidth: "40%",
                                         textAlign: "start",
                                         alignSelf: "start",

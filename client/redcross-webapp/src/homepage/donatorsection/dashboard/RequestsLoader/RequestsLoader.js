@@ -1,54 +1,52 @@
 import { useEffect, useState } from "react";
-
 import Axios from "axios";
-
-import './requestdummy.css';
-
-import { Request_Data } from './requestdata';
-
-import { requestdummydata } from './requestdummydata';
-
+import './RequestsLoader.css';
+import { Request_Data } from './RequestsData';
 import RequestSelector from './requestselector/requestselector';
-
 import DbURL from "../../../../domainconfig";
-
 import { GrNext, GrPrevious } from 'react-icons/gr'
 
-const Requestdummyslider = () => {
+import Requests_Popup from './requestPopup/RequestPopup';
 
-    /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES----------------------------------------------------------------------------------------------------------------------*/
-    // STATES
-    var [Request_collection, setRequest_collection] = useState([]);// HAVE THE FINAL ARRAY OF OBJECTS TO BE DISPLAYED
+import LoadingIcon from './loadingRequesterAnim'
 
-    let [RAW_Requests_list, setRAW_Requests_list] = useState([]);// HAVE ALL THE LIST OF REQUESTS CURRENTELY AVAILABLE (RAW DATA)
+const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
-    let [Requests_list_sorted, setRequests_list_sorted] = useState([]);
+    //STATES
+    var [Request_collection, setRequest_collection] = useState([]);//HAVE THE FINAL ARRAY OF OBJECTS TO BE DISPLAYED
 
-    const [loaded, setloaded] = useState(0);// IS TURNED ON WHEN THE REQUEST LIST IS FILLED
+    let [RAW_Requests_list, setRAW_Requests_list] = useState([]);//HAVE ALL THE LIST OF REQUESTS CURRENTELY AVAILABLE (RAW DATA)
 
-    var [svgload, setsvgload] = useState(0);
+    let [Requests_list_sorted, setRequests_list_sorted] = useState([]);//ACTS AS A INTERMEDIATE BUCKET FOR REQUESTS (SEARCHING A SINGLE TYPE OF REQUEST) RAW REQUEST LIST -> REQUEST LIST SORTED -> REQUEST ARRAY (Containg the 10 current list)
 
-    var [Request_array, setRequest_array] = useState([]);// LOADS THE RAW REQUEST DATA CORRESPONDING TO THE PAGE 
+    const [loaded, setloaded] = useState(0);//IS TURNED ON WHEN THE REQUEST LIST IS FILLED
 
-    var [Page_no, setPage_no] = useState(1);// CURRENT PAGE 
+    var [svgload, setsvgload] = useState(false);//VARIABLE FOR LOADING SCREEN
 
-    var [Total_pages, setTotal_pages] = useState(0);// TOTAL NO OF PAGES 
+    var [Request_array, setRequest_array] = useState([]);//LOADS THE RAW REQUEST DATA CORRESPONDING TO THE PAGE 
 
-    let filler_size = 0;// THIS VARIABLE DETERMINES THE NUMBER OF ELEMENTS IN EACH PAGE.
+    var [Page_no, setPage_no] = useState(1);//CURRENT PAGE 
 
-    var [Type_of_Request, setType_of_Request] = useState("");
+    var [Total_pages, setTotal_pages] = useState(0);//TOTAL NO OF PAGES 
+
+    let filler_size = 0;//THIS VARIABLE DETERMINES THE NUMBER OF ELEMENTS IN EACH PAGE.
+
+    var [Type_of_Request, setType_of_Request] = useState("");//TAKES THE TYPE OF REQUEST
+
+    let [indexdata, setindexdata] = useState(0);//USED IN SENDING INDEX TO REQUEST POP UP
+
+    let [collectiondata, setcollectiondata] = useState({});//IMP* HAVE THE 10 REQUEST IN DISPLAYABLE FORM.
+
+    let [vis, setvis] = useState(false);//VISIBILITY SEMA USED IN VISIBILTY OF REQUEST POP UP.
 
     //TEMP VARIABLES 
     var profile_pic_array = [];
-
     var requester_name_array = [];
-
     var request_type_array = [];
-
     var request_detail_array = [];
-
     var user_name_array = [];
-    /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END----------------------------------------------------------------------------------------------------------------------*/
+
+
 
     /*----------------------------USE EFFECTS START ---------------------------------------------------------*/
 
@@ -64,6 +62,7 @@ const Requestdummyslider = () => {
     //THIS USE EFFECT IS CALLED EVERYTIME THE PAGE NO CHANGES 
     useEffect(() => {
 
+        setsvgload(false);
 
         if (loaded && (Page_no >= 1 || Type_of_Request != "")) {
 
@@ -75,6 +74,9 @@ const Requestdummyslider = () => {
     }, [Page_no, Type_of_Request])
 
     /*----------------------------USE EFFECTS END ---------------------------------------------------------*/
+
+
+
 
 
     /*----------------------------SYNCHRONIZER FUNCTIONS START ------------------------------------------------*/
@@ -92,7 +94,6 @@ const Requestdummyslider = () => {
             });
 
             console.log("RAW REQUEST LIST IN SETTER " + RAW_Requests_list);
-
             console.log("setter has ended");
             //console.log("USE EFFECT REQUESTER LIST " + Requests_list);
         }
@@ -120,6 +121,8 @@ const Requestdummyslider = () => {
 
         //THE DATA FOR DISPLAYING HAVE BEEN LOADED.
         setloaded(1);
+
+        setsvgload(true);
     }
 
     async function sync2() {
@@ -127,13 +130,9 @@ const Requestdummyslider = () => {
 
         //IMPORTANT!!!!!!!! TEMP VARIABLES CLEAN UP
         profile_pic_array = [];
-
         requester_name_array = [];
-
         request_type_array = [];
-
         request_detail_array = [];
-
         user_name_array = [];
 
         //IMPORTANT!!!!!!!!CLEANING UP STATE VARIABLES.
@@ -158,9 +157,14 @@ const Requestdummyslider = () => {
         await getrequestername();
 
         await collectionfiller();
+
+        setsvgload(true);
     }
 
     /*----------------------------SYNCHRONIZER FUNCTIONS END ------------------------------------------------*/
+
+
+
 
 
     /*----------------------------SORTER ASYNC FUNCTION START------------------------------------------------------*/
@@ -216,6 +220,9 @@ const Requestdummyslider = () => {
     }
 
     /*----------------------------SORTER ASYNC FUNCTION END--------------------------------------------------------*/
+
+
+
 
 
 
@@ -317,7 +324,9 @@ const Requestdummyslider = () => {
 
             var responsedetaildata = await Axios.post(DbURL + "/api/getrequestdetails", {
 
-                TABLE_NAME: Request_array[i]
+                TABLE_NAME: Request_array[i],
+                SEMA: 0,
+                DETAIL_TYPE: "Request_data"
 
             });
 
@@ -364,7 +373,7 @@ const Requestdummyslider = () => {
                 image: profile_pic_array[i],
                 name: requester_name_array[i],
                 type: request_type_array[i],
-                description: request_detail_array[i]
+                detail: request_detail_array[i]
             })
 
         }
@@ -375,7 +384,11 @@ const Requestdummyslider = () => {
 
         console.log("collection filler has ended");
     }
+
     /*----------------------------ASYNC FUNCTIONS (GETTER AND SETTERS) END---------------------------------------------------------*/
+
+
+
 
 
     //FUNCTION WHICH CHANGES REQUEST TYPES
@@ -386,6 +399,10 @@ const Requestdummyslider = () => {
         console.log("REQUEST GOT CHANGED TO :" + data);
 
     }
+
+
+
+
 
     /*-----------------------------PAGE CHANGER FUNCTIONALITY START -----------------------------*/
 
@@ -419,51 +436,84 @@ const Requestdummyslider = () => {
 
     /*-----------------------------PAGE CHANGER FUNCTIONALITY END -----------------------------*/
 
-    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER.--------------------------------------------------------------------------------------------------*/
+
+
+    //SENDS POPUP OPEN DATA TO REQUEST POP UP COMPONENT ACTS AS A BRAIN TO MUSULE(REQUEST POPUP) START
+    let [random, setrandom] = useState(0);
+
+    function sendData(data) {
+        //console.log("getting index : " + data);
+        console.log("index from :" + data);
+        setindexdata(data);
+        setcollectiondata(Request_collection[data]);
+        setvis(vis = true);
+        //console.log("visivilty :" + vis);
+        randomgen();
+    }
+
+    function randomgen() {
+        if (random === 1) {
+            setrandom(!random);
+        }
+        else {
+            setrandom(!random);
+        }
+    }
+    //ENDS 
+
+
     return (
         <div className="requestscontainer">
 
             <div className="requestselectormother">
 
                 <RequestSelector Request_selected_by_user={Request_selected_by_user} />
+
             </div>
-            {loaded && (
+
+
+            {svgload && (
                 <div className="requestdummyslider">
-
                     {
-
                         Request_collection.map((slide, index) => {
                             return (
-                                // <Slider {...settings}>
 
-                                <div className="requestdummyslide" key={index}>
+                                <div className="requestdummyslide" key={index} onClick={(e) => { sendData(index) }}>
 
                                     <h6 className="typeofrequest">{slide.type}</h6>
-
-                                    <img src={slide.image} className="requestimage"></img>
+                                    <img src={slide.image} className="requestimage" ></img>
 
                                     <div className="headingRequester">
 
                                         <p className="requestname">{slide.name}</p>
-
                                         <hr className="horizontalline" />
 
                                     </div>
 
                                     <p className="requestdescription">
 
-                                        {slide.description}
+                                        {slide.detail}
+
                                     </p>
 
-
                                 </div>
-                                //  </Slider>
                             )
                         })
                     }
-
                 </div>
             )}
+            
+            {!svgload && (<LoadingIcon />)}
+
+            <Requests_Popup
+                index={indexdata}
+                collectioncomp={collectiondata}
+                visibilitydata={vis} randint={random}
+                Requests_list={Request_array}
+                DONATOR_TABLENAME={DONATOR_TABLENAME}
+                passingchangesectiondata={passingchangesectiondata}
+            />
+
             <div className="pagescroller">
 
                 <GrPrevious className="next/prevButtons" onClick={previous}></GrPrevious>
@@ -475,9 +525,9 @@ const Requestdummyslider = () => {
             </div>
 
         </div>
-    );
-    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER END.--------------------------------------------------------------------------------------------------*/
+    )
 
 }
-export default Requestdummyslider;
+
+export default RequestLoader;
 

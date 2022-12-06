@@ -29,7 +29,7 @@
     margin-top: 0.5rem;
     display: grid;
     row-gap: 1.0rem;
-    column-gap: 1.0rem;
+    column-gap: 1.5rem;
     height: 90%;
     grid-template-columns: repeat(auto-fit,minmax(10rem,18rem));
     justify-content: center;
@@ -129,6 +129,8 @@
     column-gap:1rem;
     height:10%;
 }
+
+
 
 @media only screen and (max-width:801px) {
     .requestdummyslider {
