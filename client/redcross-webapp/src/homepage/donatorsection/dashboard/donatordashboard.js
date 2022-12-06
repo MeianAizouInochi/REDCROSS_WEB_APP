@@ -5,7 +5,7 @@ import Axios from "axios";
 
 import "./donatordashboard.css"
 
-import Requestdummyslider from './requestdummys/requestdummy';
+import RequestLoader from './RequestsLoader/RequestsLoader';
 
 import DbURL from "../../../domainconfig";
 
@@ -197,7 +197,7 @@ const Donatordashboard = (props) => {
 
                     { /*CALLING THE IMPORTED COMPONENT*/}
 
-                    <Requestdummyslider />
+                    <RequestLoader DONATOR_TABLENAME={Fullusername} passingchangesectiondata={props.passingchangesectiondata} />
 
                 </div>
 
