@@ -14,8 +14,6 @@ import Navbar from "./navbar/navbar";
 //below banner(carousel) imports 
 import Imageslider from "./banner/imagesliderv3";
 
-import { sliderdata } from "./banner/sliderdata";
-
 //official info imports
 import Officialinfo from "./officalinfo/Officialinfov2";
 
@@ -412,7 +410,7 @@ const Homepage = () => {
 
                     <div className="carousel">
 
-                        <Imageslider slides={sliderdata} />
+                        <Imageslider/>
 
                     </div>
 
