@@ -18,7 +18,7 @@ const db_admin_web_asset = {
 
     user: "Redcross_officials",
     password: "123",
-    server: "LAPTOP-S278V6HI",
+    server: "LAPTOP-6E8JR0HD",
 
     database: "RedCross_Web_Assets_Database",
     options: {
@@ -35,7 +35,7 @@ const db_config_for_userinfo =
 {
     user: "Redcross_officials",
     password: "123",
-    server: "LAPTOP-S278V6HI", //LAPTOP-S278V6HI    //Kooustav's Laptop server
+    server: "LAPTOP-6E8JR0HD", //LAPTOP-S278V6HI    //Kooustav's Laptop server
                                //LAPTOP-6E8JR0HD    //Jashandeep's laptop server
     database: "RedCross_Database",
     options:
@@ -52,7 +52,7 @@ const db_config_for_userinfo_filetype =
 {
     user: "Redcross_officials",
     password: "123",
-    server: "LAPTOP-S278V6HI", //LAPTOP-S278V6HI    //Kooustav's Laptop server
+    server: "LAPTOP-6E8JR0HD", //LAPTOP-S278V6HI    //Kooustav's Laptop server
                                //LAPTOP-6E8JR0HD    //Jashandeep's laptop server
     database: "Redcross_Database_File_Type",
     options:
@@ -567,6 +567,95 @@ app.post("/api/SendRequestData", (req, res) => {
 
 /*--------------------------------------------------------------------------------DONATOR SECTION START---------------------------------------------------------------------------------*/
 
+/*-------------------------------------------------GET REQUESTS START.-------------------------------------------------*/
+app.post("/api/getrequests", (req, res) => {
+
+    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST________%';"
+
+    var Connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
+
+    Connection.connect(function (error) {
+
+        if (error) {
+
+            console.log(error.message);
+
+        }
+        else {
+
+            var request = new mssql.Request(Connection);
+
+            request.query(SQLStatement, function (err, result) {
+
+                if (err) {
+
+                    console.log(err.message);
+
+                }
+                else {
+
+                    res.send(result);
+
+                }
+                Connection.close();
+            });
+        }
+    });
+});
+
+/*-------------------------------------------------GET REQUESTS END.-------------------------------------------------*/
+
+/*-------------------------------------------------GET REQUESTS DETAILS START.-------------------------------------------------*/
+app.post("/api/getrequestdetails", (req, res) => {
+
+    const TABLE_NAME = req.body.TABLE_NAME;
+
+    const DETAIL_TYPE = req.body.DETAIL_TYPE;
+
+    const SEMA = req.body.SEMA;
+
+    console.log("TABLE :" + TABLE_NAME);
+    console.log("DETAILS TYPE :" + DETAIL_TYPE);
+    console.log("SEMA :" + SEMA);
+
+    var SQLStatement = [
+        "select DETAILS from " + TABLE_NAME + " where DETAILS_TYPE like " + "'" + DETAIL_TYPE[0] + "%';",
+        "select DETAILS,FILE_DETAILS from " + TABLE_NAME + " where DETAILS_TYPE = " + "'" + DETAIL_TYPE + "';",
+        "select DETAILS_DESCRIPTION from " + TABLE_NAME + " where DETAILS_TYPE = 'Request_data';"
+    ];
+
+    var Connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
+
+    Connection.connect(function (error) {
+
+        if (error) {
+
+            console.log(error.message);
+
+        }
+        else {
+
+            var request = new mssql.Request(Connection);
+
+            request.query(SQLStatement[SEMA], function (err, result) {
+
+                if (err) {
+
+                    console.log(err.message);
+
+                }
+                else {
+                    console.log("API CALL REQUEST DETAILS :" + result);
+                    res.send(result);
+
+                }
+                Connection.close();
+            });
+        }
+    });
+});
+/*-------------------------------------------------GET REQUESTS DETAILS END.-------------------------------------------------*/
+
 
 
 /*--------------------------------------------------------------------------------DONATOR SECTION END---------------------------------------------------------------------------------*/
@@ -820,6 +909,53 @@ app.post("/api/getuserchatdata", (req, res) => {
     });
 });
 /*-------------------------------------------------REQUESTING USER CHAT ATTRIBUTE DATA FROM ENTITY SECTION END.-------------------------------------------------*/
+
+
+/*---------------------------------------CHECKING CHAT FOR USER GENERALIZED START------------------------------------- */
+app.post("/api/checkchats", (req, res) => {//USING THIS FOR CHECKING CHATS 
+
+    const TABELNAME = req.body.TABELNAME;
+
+    const TYPE_OF_REQUEST = req.body.TYPE_OF_REQUEST;
+
+    const SEMA = req.body.SEMA;
+
+    var Connection = new mssql.ConnectionPool(db_config_for_userinfo);
+
+    var sqlinsert = [
+        "select DETAILS from " + TABELNAME + " where DETAILS_TYPE LIKE '" + "CHAT_" + "%';",
+        "select DETAILS_TYPE from " + TABELNAME + " where DETAILS_TYPE='" + TYPE_OF_REQUEST + "';",
+        "select DETAILS from " + TABELNAME + " where DETAILS_TYPE LIKE '" + "CHAT_" + TYPE_OF_REQUEST + "%';"
+    ];
+
+    Connection.connect(function (error) {
+
+        if (error) {
+
+            console.log(error.message);
+        }
+        else {
+
+            var request = new mssql.Request(Connection);
+
+            request.query(sqlinsert[SEMA], function (err, result) {
+
+                if (err) {
+                    console.log(err.message);
+                }
+                else {
+
+                    res.send(result);
+                }
+
+                Connection.close();
+
+            });
+        }
+    });
+});
+/*---------------------------------------CHECKING CHAT FOR USER GENERALIZED END------------------------------------- */
+
 
 /*-------------------------------------------------CREATE USER PROFILE PIC ENTITY SECTION START.-------------------------------------------------*/
 app.post("/api/newuserdata", (req, res) => {
