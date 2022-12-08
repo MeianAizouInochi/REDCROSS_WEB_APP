@@ -39,6 +39,10 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
     let [vis, setvis] = useState(false);//VISIBILITY SEMA USED IN VISIBILTY OF REQUEST POP UP.
 
+    let [noRequests, setnoRequests] = useState(false);//IF THERE ARE NO REQUESTS AVAILABLE IF REQUEST LIST SORTED LENGTH IS ZERO.(AVALIBILITY SEMA)
+
+    //let [displayNoRequests, setdisplayNoRequests] = useState(false);//(JSX SEMA FOR DISPLAYING NO REQUEST AVAILABLE DIVISION).
+
     //TEMP VARIABLES 
     var profile_pic_array = [];
     var requester_name_array = [];
@@ -156,7 +160,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         await getrequestername();
 
-        await collectionfiller();
+        await collectionfiller(); 
 
         setsvgload(true);
     }
@@ -216,6 +220,10 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
         //console.log("sorted list" + Requests_list_sorted);
         console.log("SOTTER has ended");
 
+        if (Requests_list_sorted.length === 0) {
+            setnoRequests(true);
+            setsvgload(true);//removes the LOADING .
+        }
 
     }
 
@@ -396,6 +404,8 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         setType_of_Request(data);
 
+        setPage_no(1);
+
         console.log("REQUEST GOT CHANGED TO :" + data);
 
     }
@@ -473,33 +483,38 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
 
             {svgload && (
-                <div className="requestdummyslider">
-                    {
-                        Request_collection.map((slide, index) => {
-                            return (
+                <div className="requestdummyslidermother">
+                    {!noRequests && (
+                        <div className="requestdummyslider">
+                            {
+                                Request_collection.map((slide, index) => {
+                                    return (
 
-                                <div className="requestdummyslide" key={index} onClick={(e) => { sendData(index) }}>
+                                        <div className="requestdummyslide" key={index} onClick={(e) => { sendData(index) }}>
 
-                                    <h6 className="typeofrequest">{slide.type}</h6>
-                                    <img src={slide.image} className="requestimage" ></img>
+                                            <h6 className="typeofrequest">{slide.type}</h6>
+                                            <img src={slide.image} className="requestimage" ></img>
 
-                                    <div className="headingRequester">
+                                            <div className="headingRequester">
 
-                                        <p className="requestname">{slide.name}</p>
-                                        <hr className="horizontalline" />
+                                                <p className="requestname">{slide.name}</p>
+                                                <hr className="horizontalline" />
 
-                                    </div>
+                                            </div>
 
-                                    <p className="requestdescription">
+                                            <p className="requestdescription">
 
-                                        {slide.detail}
+                                                {slide.detail}
 
-                                    </p>
+                                            </p>
 
-                                </div>
-                            )
-                        })
-                    }
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )}
+                    {noRequests && (<p className="No_request_available"><b>No REQUESTS available at the moment</b></p>)}
                 </div>
             )}
             
