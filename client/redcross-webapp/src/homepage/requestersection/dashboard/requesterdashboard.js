@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 import Axios from "axios";
@@ -7,10 +8,12 @@ import "./requesterdashboard.css"
 import Requesttype from "./requesttypes/requesttypes";
 
 import DbURL from "../../../domainconfig";
+
 import RequesterForm from "./requesterform";
 
-const Donatordashboard = (props) => {
+const Requesterdashboard = (props) => {
 
+    /*-------------------------------------------------------------------------------------------------------------REQUIRED VARIABLES START---------------------------------------------------------------------------------------------------------------------------------------*/
     const username = props.username;
 
     const requesterkeyword = "REQUESTER_";
@@ -35,73 +38,112 @@ const Donatordashboard = (props) => {
 
     const [SelectedType, setSelectedType] = useState("");
 
+    const [ActiveRequests, setActiveRequests] = useState([]);
+    /*-------------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END---------------------------------------------------------------------------------------------------------------------------------------*/
+
+    /*
+     * THIS USEEFFECT IS EXECUTED WHEN THIS COMPONENT IS MOUNTED (EXACTLY ONCE).
+     */
     useEffect(() => {
-
-        async function getuserdata() {
-
-            var responsedata = await Axios.post(DbURL+"/api/getuserdata", {
-
-                verifiedusername: Fullusername
-
-            });
-
-            Object.keys(responsedata.data.recordset).map((element) => {
-
-                if (responsedata.data.recordset[element].DETAILS_TYPE === "NAME") {
-
-                    setName(responsedata.data.recordset[element].DETAILS);
-
-                }
-                else if (responsedata.data.recordset[element].DETAILS_TYPE === "MOBILENUMBER") {
-
-                    setMobilenumber(responsedata.data.recordset[element].DETAILS);
-
-                }
-                else if (responsedata.data.recordset[element].DETAILS_TYPE === "ADHR") {
-
-                    setAdhaar(responsedata.data.recordset[element].DETAILS);
-
-                }
-                else if (responsedata.data.recordset[element].DETAILS_TYPE === "PAN") {
-
-                    setPan(responsedata.data.recordset[element].DETAILS);
-
-                }
-                else if (responsedata.data.recordset[element].DETAILS_TYPE === "ADDRESS") {
-
-                    setAddress(responsedata.data.recordset[element].DETAILS);
-
-                }
-
-            });
-
-        }
 
         getuserdata();
-        
-    },[]);
 
-    useEffect(() => {
-
-        async function getImage() {
-
-            var responseimagedata = await Axios.post(DbURL+"/api/getuserimagedata", {
-
-                username: Fullusername
-
-            });
-
-            console.log(responseimagedata.data);
-
-            const base64string = await btoa(String.fromCharCode(...new Uint8Array(responseimagedata.data.recordset[0].DETAILS.data)));
-
-            setImagevarbinaryarray(base64string);
-
-        }
         getImage();
 
-    },[])
+        GetActiveRequests();
 
+    }, []);
+
+
+    /*
+     * THIS IS THE GET USER DATA FUNCTION - GETS TExTUAL USER INFORMATION.
+     */
+    async function getuserdata() {
+
+        /*
+         * WAITING FOR ALL DATA TO BE LOADED INTO RESPONSEDATA VARIABLE.
+         */
+        var responsedata = await Axios.post(DbURL + "/api/getuserdata", {
+
+            verifiedusername: Fullusername
+
+        });
+
+        /*
+         * ITERATING THROUGH THE DATA.
+         */
+        Object.keys(responsedata.data.recordset).map((element) => {
+
+            if (responsedata.data.recordset[element].DETAILS_TYPE === "NAME") {
+
+                setName(responsedata.data.recordset[element].DETAILS);
+
+            }
+            else if (responsedata.data.recordset[element].DETAILS_TYPE === "MOBILENUMBER") {
+
+                setMobilenumber(responsedata.data.recordset[element].DETAILS);
+
+            }
+            else if (responsedata.data.recordset[element].DETAILS_TYPE === "ADHR") {
+
+                setAdhaar(responsedata.data.recordset[element].DETAILS);
+
+            }
+            else if (responsedata.data.recordset[element].DETAILS_TYPE === "PAN") {
+
+                setPan(responsedata.data.recordset[element].DETAILS);
+
+            }
+            else if (responsedata.data.recordset[element].DETAILS_TYPE === "ADDRESS") {
+
+                setAddress(responsedata.data.recordset[element].DETAILS);
+
+            }
+        });
+    }
+    /*
+     * THIS GET IMAGE FUNCTION GETS THE USER PROFILE IMAGE
+     */
+    async function getImage() {
+        /*
+         * WAITING FOR THE PROFILEPIC IMAGE DATA TO BE LOADED IN RESPONSEIMAGE DATA VARIABLE.
+         */
+        var responseimagedata = await Axios.post(DbURL + "/api/getuserimagedata", {
+
+            username: Fullusername
+
+        });
+
+        /*
+         * WAITING FOR THE WHOLE IMAGE DATA TO BE CONVERTED INTO READABLE FORMAT FOR REACTJS/HTML URL.
+         */
+        const base64string = await btoa(String.fromCharCode(...new Uint8Array(responseimagedata.data.recordset[0].DETAILS.data)));
+
+        /*
+         * SETTING THE DATA INTO A STATE.
+         */
+        await setImagevarbinaryarray(base64string);
+    }
+    /*
+     * THIS GET ACTIVE REQUESTS FUNCTION GETS THE ACTIVE REQUESTS MADE BY THE CURRENT USER.
+     */
+    async function GetActiveRequests()
+    {
+        var responsedata = await Axios.post(DbURL + "/api/GetActiveRequests", {
+
+            FullUsername: username
+
+        });
+        //NEED TO WORK ON THIS. (PARSE RESPONSEDATA AND PUT IT INTO ACTIVEREQUESTS STATE ARRAY)
+        console.log(responsedata.data.recordset);
+
+        setActiveRequests(responsedata.data.recordset); 
+        //THE ABOVE LINE WILL BE REPLACED BY THE INFORMATION SETTER FOR THE ACTIVE REQUEST STATE.
+    }
+
+    /*
+     * THIS REQUESTERFORMVISCHANGER FUNCTION SWITCHES BETWEEN FORM AND DASHBOARD VIEWS.
+     */
     const RequesterFormVisChanger = (props) => {
 
         setRequestingFormVis(!RequestingFormVis);
@@ -109,11 +151,17 @@ const Donatordashboard = (props) => {
         setRequesterPageVis(!RequesterPageVis);
 
         setSelectedType(props);
-
     }
+
+    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER START.--------------------------------------------------------------------------------------------------*/
     return (
         <div className="Requesterdashboardmothercontainer">
+
+            { /*REQUESTERPAGEVIS CONTROLS THE VISIBILITY OF REQUESTER FORM AND THE REQUESTER SECTION PAGE AS A WHOLE.*/ }
+
             {RequesterPageVis && <div className="Requesterdashboardcontainer" >
+
+                { /*REQUESTER USER INFORMATION CONTAINER*/ }
 
                 <div className="RequesterAccountinfo">
 
@@ -121,10 +169,12 @@ const Donatordashboard = (props) => {
 
                         <div className="RequesterProfilepicContainer">
 
+                            { /*PROFILE PIC OF USER*/ }
                             {Imagevarbinaryarray !== null && <img src={`data:image/jpeg;base64,${Imagevarbinaryarray}`} width="260" height="260" className="RequesterProfilepic" />}
 
                         </div>
 
+                        { /*REQUESTER TEXTUAL INFORMATION*/ }
                         <div className="Requesterinfo">
 
                             <section className="Requesterdonornamecontainer">
@@ -181,30 +231,38 @@ const Donatordashboard = (props) => {
 
                 </div>
 
+                { /*ACTIVE REQUEST CONTAINER*/ }
                 <div className="Requesteractiverequestscontainer">
 
                     <p className="Requesteractiverequestsheading">
-
-                        Active Requests
-
+                        ACTIVE REQUESTS
                     </p>
+                    
 
                     <ul className="Requesteractiverequestsbody">
 
-                        <li className="Requesteractiverequests">Active Request1</li>
+                        {ActiveRequests.map((ele, key) => {
+                            return (<li className = "Requesteractiverequests" key={key}>
+                                {ele.TABLE_NAME}
+                            </li>
+                            );
+                        })}
 
                     </ul>
 
                 </div>
 
 
-
+                { /*CONTAINS THE TYPE OF REQUESTS FOR THE USER TO MAKE A REQUEST*/ }
                 <div className="Requestermakerequestcontainer">
 
                     <p className="Requestermakerequestheading">Create a request</p>
 
                     <div className="Requestermakerequestbody">
 
+                      { /*CALLING REQUESTTYPE COMPNENT TO BE MOUNTED 
+                         * (THIS IS CALLED BEFORE THE USE EFFECT OF REQUESTERDASHBOARD COMPONENT IS CALLED.)
+                         */ }
                         <Requesttype RequesterFormVisChanger={RequesterFormVisChanger} />
 
                     </div>
@@ -212,11 +270,14 @@ const Donatordashboard = (props) => {
                 </div>
 
             </div>}
+
+            { /*THE ACTUAL REQUEST MAKER FORM*/ }
             {RequestingFormVis && <RequesterForm Type={SelectedType} RequesterUsername={username} RequesterFormVisChanger={RequesterFormVisChanger} />}
             
         </div>
-        
     );
+    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER END.--------------------------------------------------------------------------------------------------*/
+
 }
 
-export default Donatordashboard;
+export default Requesterdashboard;

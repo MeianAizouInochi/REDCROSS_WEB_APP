@@ -1,10 +1,6 @@
 import './App.css';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Homepage from "./homepage/homepage";
-import Login from "./homepage/loginsystem/login";
-import Signup from "./homepage/signupsystem/signup";
-import Donatorpage from "./homepage/donatorsection/donatorpage"
-import Requesterpage from './homepage/requestersection/requesterpage';
 import Staffpage from './homepage/staffsection/staffpage';
 
 function App()
