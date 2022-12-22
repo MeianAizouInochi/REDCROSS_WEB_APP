@@ -83,7 +83,7 @@ app.use(cors({
         `http://172.19.2.121:3000`,
         `http://192.168.255.110:3000`,
         `http://192.168.212.110:3000`,
-        `http://192.168.96.110:3000`
+        `http://192.168.1.7:3000`
     ],
     methods:["GET","POST"]
 }));
@@ -570,7 +570,7 @@ app.post("/api/SendRequestData", (req, res) => {
 /*-------------------------------------------------GET REQUESTS START.-------------------------------------------------*/
 app.post("/api/getrequests", (req, res) => {
 
-    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST________%';"
+    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like '[R][E][Q][U][E][S][T][_]%';"
 
     var Connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
 
@@ -579,6 +579,7 @@ app.post("/api/getrequests", (req, res) => {
         if (error) {
 
             console.log(error.message);
+            console.log("error is happening while retriving requests")
 
         }
         else {
@@ -590,6 +591,8 @@ app.post("/api/getrequests", (req, res) => {
                 if (err) {
 
                     console.log(err.message);
+
+                    console.log("error is happening while retriving requests  nested")
 
                 }
                 else {
