@@ -134,11 +134,20 @@ const Requesterdashboard = (props) => {
             FullUsername: username
 
         });
-        //NEED TO WORK ON THIS. (PARSE RESPONSEDATA AND PUT IT INTO ACTIVEREQUESTS STATE ARRAY)
-        console.log(responsedata.data.recordset);
 
-        setActiveRequests(responsedata.data.recordset); 
-        //THE ABOVE LINE WILL BE REPLACED BY THE INFORMATION SETTER FOR THE ACTIVE REQUEST STATE.
+        var temparr = [];
+
+        responsedata.data.recordset.map((val) => {
+
+            var tempstringarr = val.TABLE_NAME.split('_');
+
+            temparr.push(tempstringarr[1]);
+        })
+
+        // SETTING THE REQUESTS MADE INFORMATION.
+
+        setActiveRequests(temparr); 
+        
     }
 
     /*
@@ -242,8 +251,8 @@ const Requesterdashboard = (props) => {
                     <ul className="Requesteractiverequestsbody">
 
                         {ActiveRequests.map((ele, key) => {
-                            return (<li className = "Requesteractiverequests" key={key}>
-                                {ele.TABLE_NAME}
+                            return (<li className="Requesteractiverequests" key={key} onClick={(e) => { console.log(ele); } }>
+                                {ele}
                             </li>
                             );
                         })}
@@ -251,7 +260,7 @@ const Requesterdashboard = (props) => {
                     </ul>
 
                 </div>
-
+                { /*CONTAINER FOR INFORMATION ABOUT REQUEST*/}
 
                 { /*CONTAINS THE TYPE OF REQUESTS FOR THE USER TO MAKE A REQUEST*/ }
                 <div className="Requestermakerequestcontainer">

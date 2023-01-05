@@ -1,4 +1,4 @@
 
-const DbURL = "http://172.19.10.202:5000";
+const DbURL = process.env.REACT_APP_SERVER_URL;
 
 export default DbURL;
