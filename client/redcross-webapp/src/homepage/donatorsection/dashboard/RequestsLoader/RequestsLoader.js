@@ -21,6 +21,8 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
     const [loaded, setloaded] = useState(0);//IS TURNED ON WHEN THE REQUEST LIST IS FILLED
 
+    let [onclickmountRequestpopup, setonclickmountRequestpopup] = useState(false);//IMP THIS STATE VARIABLES AVOID MEMORY LEAK/OVERFLOW BY ONLY MOUNTING THE REQUESTPOP COMPONENT ON CLICK 
+
     var [svgload, setsvgload] = useState(false);//VARIABLE FOR LOADING SCREEN
 
     var [Request_array, setRequest_array] = useState([]);//LOADS THE RAW REQUEST DATA CORRESPONDING TO THE PAGE 
@@ -457,6 +459,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
         setindexdata(data);
         setcollectiondata(Request_collection[data]);
         setvis(vis = true);
+        setonclickmountRequestpopup(true);
         //console.log("visivilty :" + vis);
         randomgen();
     }
@@ -520,14 +523,17 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
             
             {!svgload && (<LoadingIcon />)}
 
-            <Requests_Popup
-                index={indexdata}
-                collectioncomp={collectiondata}
-                visibilitydata={vis} randint={random}
-                Requests_list={Request_array}
-                DONATOR_TABLENAME={DONATOR_TABLENAME}
-                passingchangesectiondata={passingchangesectiondata}
-            />
+            {onclickmountRequestpopup && (
+                <Requests_Popup
+                    index={indexdata}
+                    collectioncomp={collectiondata}
+                    visibilitydata={vis} randint={random}
+                    Requests_list={Request_array}
+                    DONATOR_TABLENAME={DONATOR_TABLENAME}
+                    passingchangesectiondata={passingchangesectiondata}
+                />
+                )}
+           
 
             <div className="pagescroller">
 
