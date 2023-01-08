@@ -151,70 +151,91 @@ const RequesterForm = (props) => {
     }
 
     return (
-        <div className="RequesterFormContainerOuter">
+        <div className="RequesterFormContainer">
 
-            <form onSubmit={(e) => { HandleSubmit(e); } }>
+            <form className="Formcontainer" onSubmit={(e) => { HandleSubmit(e); }}>
 
-                <label>Provide Your Request Title here:</label>
+                <p><b>{Type} REQUEST FORM</b></p>
 
-                <input className="Title" type="text" value={Title} maxLength="255" placeholder="Please Help me get money for Admission at cgcjhanjeri. " onChange={(e) => { TitleChangeNotifier(e); }} required />
+                <div className="Requesttitle">
 
-                <div>{CharacterRatioTitle}/255</div>
+                    <p>Provide Your Request Title here:</p>
 
-                <label>Provide your Request Description here:</label>
+                    <input className="Title" type="text" value={Title} maxLength="255" placeholder="Please Help me " onChange={(e) => { TitleChangeNotifier(e); }} required />
+                
+                    <p>{CharacterRatioTitle}/255</p>
 
-                <textarea className="Description"  cols="100" rows="5" value={Description} maxLength="500" placeholder="Description" onChange={(e) => { DescriptionChangeNotifier(e); }} required />
+                </div>
 
-                <div>{CharacterRatioDescription}/500</div>
+                <div className="RequestDescription">
 
-                <label>Provide Supporting Documents here:</label>
+                    <p>Provide your Request Description here:</p>
 
-                <div className="DocumentInputContainer">
-                    <div>
+                    <textarea className="Description"  cols="100" rows="5" value={Description} maxLength="500" placeholder="Description" onChange={(e) => { DescriptionChangeNotifier(e); }} required />
 
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 1); }} required />
+                    <p>{CharacterRatioDescription}/500</p>
 
-                        <img src={Document1Img} alt="Document1" />
+                </div>
 
-                    </div>
+                <div className="DocumentContainer">
 
-                    <div>
+                    <p>Provide Supporting Documents here:</p>
 
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 2); }} required />
+                    <div className="DocumentInputContainer">
 
-                        <img src={Document2Img} alt="Document2" />
+                        <div className="DOCUMENT">
 
-                    </div>                    
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 1); }} required />
 
-                    <div>
+                            <img src={Document1Img === null ? './OnerrorDocumentPreview.svg' : Document1Img} alt="Document1" />
 
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 3); }} required />
+                            <textarea id="DocumentDescriptionTextInput"  maxLength="255" placeholder="Describe Document "/>
 
-                        <img src={Document3Img} alt="Document3" />
+                        </div>
 
-                    </div>                    
+                        <div className="DOCUMENT">
 
-                    <div>
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 2); }} required />
 
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 4); }} required />
+                            <img src={Document2Img === null ? './OnerrorDocumentPreview.svg' : Document2Img } alt="Document2" />
 
-                        <img src={Document4Img} alt="Document4" />
+                            <textarea id="DocumentDescriptionTextInput"  maxLength="255" placeholder="Describe Document " />
 
-                    </div>
+                        </div>                    
+
+                        <div className="DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 3); }} required />
+
+                            <img src={Document3Img === null ? './OnerrorDocumentPreview.svg' : Document3Img} alt="Document3" />
+
+                            <textarea id="DocumentDescriptionTextInput"  maxLength="255" placeholder="Describe Document " />
+
+                        </div>                    
+
+                        <div className="DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 4); }} required />
+
+                            <img src={Document4Img === null ? './OnerrorDocumentPreview.svg' : Document4Img} alt="Document4" />
+
+                            <textarea id="DocumentDescriptionTextInput"  maxLength="255" placeholder="Describe Document " />
+
+                        </div>
                     
-                </div>
-
-                <div>{Type}</div>
-
-                <div className="SubmittionDivision" >
-
-                    <button type="submit" value="Submit">Submit</button>
-
-                    <button onClick={(e) => { Cancel(); }}>Cancel</button>
+                    </div>
 
                 </div>
-
+                
             </form>
+
+            <div className="SubmittionDivision" >
+
+                <button id="requestsubmitbutton" type="submit" value="Submit">Submit</button>
+
+                <button id="requestcancelbutton" onClick={(e) => { Cancel(); }}>Cancel</button>
+
+            </div>
 
         </div>
         );

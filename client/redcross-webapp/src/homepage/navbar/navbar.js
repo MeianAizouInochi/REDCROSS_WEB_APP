@@ -107,11 +107,6 @@ export default function Navbar(props) {
 
                 </li>
 
-                <li className="changelanguage" >
-
-                    <Language />
-
-                </li>
 
                 { /*THE BUTTON VISIBILITY ON THE NAVBAR DEPENDING ON THE LOG STATUS OF THE USER*/}
 
