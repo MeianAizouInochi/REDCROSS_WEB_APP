@@ -1,46 +1,253 @@
 
-.RequesterFormContainerOuter {
-    
-    margin-top:10rem;
-    border:1px solid;
-    display:block;
-    width:75%;
-    margin-left:12.55%;
-    
+.RequesterFormContainer {
+    margin-top: 10rem;
+    border: 1px solid gray;
+    width: 70%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-left: 15%;
+    font-family: sans-serif;
 }
-    .RequesterFormContainerOuter label {
 
-        display:block;  
-        text-align:left;
-        padding:10px;
+.Formcontainer {
+    width: stretch;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.Requesttitle {
+    display: flex;
+    width: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: lightgray;
+    padding-left: 5%;
+}
+
+.Title {
+    width: 90%;
+    height: 2rem;
+}
+
+.RequestDescription {
+    display: flex;
+    width: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: lightgray;
+    padding-left: 5%;
+}
+
+.Description {
+    width: 90%;
+    height: 6rem;
+    resize: none;
+}
+
+.DocumentContainer {
+    display: flex;
+    width: stretch;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 5%;
+    margin-right: 5%;
+    background-color: lightgray;
+    padding-left: 5%;
+}
+
+.DocumentInputContainer {
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-right: 5%;
+    width: stretch;
+    grid-row-gap: 1rem;
+}
+
+.DOCUMENT {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    grid-row: 4;
+    width: stretch;
+    min-height: 150px;
+    max-height: 250px;
+    grid-column-gap: 5%;
+    padding-bottom: 5%;
+}
+
+    .DOCUMENT img {
+        border: 1px solid;
+        height: 200px;
+        width: 200px;
+        aspect-ratio: 1/1;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 4;
+        background-color: white;
+    }
+
+.Documentinput {
+    grid-column-start: 2;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#DocumentDescriptionTextInput {
+    grid-column-start: 2;
+    grid-column-end: 6;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    resize: none;
+}
+
+
+.SubmittionDivision {
+    margin: 1rem;
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    width: 80%;
+    grid-column-gap: 5%;
+    height: 3rem;
+}
+
+#requestsubmitbutton {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background-color: red;
+    color: white;
+    border: 1px solid gray;
+}
+
+    #requestsubmitbutton:hover {
+        cursor: pointer;
+    }
+
+#requestcancelbutton {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 1px solid gray;
+}
+
+    #requestcancelbutton:hover {
+        cursor: pointer;
+    }
+
+@media only screen and (max-width:1400px) {
+    .RequesterFormContainer {
+        margin-top: 10rem;
+        border: 1px solid gray;
+        width: 90%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 5%;
+        font-family: sans-serif;
+    }
+}
+
+
+@media only screen and (max-width:801px) {
+    .RequesterFormContainer {
+        margin-top: 10rem;
+        border: 0px;
+        width: stretch;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-left: 0%;
+        font-family: sans-serif;
     }
 
 
-.DocumentInputContainer {
+    .Requesttitle {
+        display: flex;
+        width: stretch;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: lightgray;
+        padding-left: 2%;
+    }
 
-    display: flex;
+    .Title {
+        width: 90%;
+        height: 2rem;
+    }
 
-    flex-direction: row;
+    .RequestDescription {
+        display: flex;
+        width: stretch;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: lightgray;
+        padding-left: 2%;
+    }
 
-}
+    .Description {
+        width: 90%;
+        height: 6rem;
+    }
 
-        .DocumentInputContainer img {
+    .DocumentContainer {
+        display: flex;
+        width: stretch;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-left: 0%;
+        margin-right: 0%;
+        background-color: lightgray;
+        padding-left: 2%;
+    }
 
-            width: 100px;
-            height: 100px;
+    .DocumentInputContainer {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        margin-right: 5%;
+        width: stretch;
+        grid-row-gap: 1rem;
+    }
 
+    .DOCUMENT {
+        display: grid;
+        grid-template-columns: 150px 1fr 1fr;
+        grid-row: 4;
+        width: stretch;
+        grid-column-gap: 5%;
+    }
+
+        .DOCUMENT img {
+            border: 1px solid;
+            height: 150px;
+            width: 150px;
+            grid-column-start: 1;
+            grid-column-end: 2;
+            grid-row-start: 1;
+            grid-row-end: 4;
+            background-color: white;
         }
-
-
-.Title {
-
-    width:75%;
-    height:30px;
-
-}
-.Description {
-
-    resize:none;
-    width:75%;
-
 }

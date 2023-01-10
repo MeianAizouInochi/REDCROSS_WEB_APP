@@ -1,6 +1,6 @@
 import React from "react";
 import './Footer.css'
-import { useNavigate } from "react-router-dom";
+
 // icons
 
 import {
@@ -10,14 +10,13 @@ import {
     FaTwitterSquare,
     FaMapMarkerAlt,
     FaPhoneAlt,
-    FaEnvelope,
-    FaPhone,
+    FaEnvelope
   } from "react-icons/fa";
 
 const Footer = (props) => {
     return (
 
-        <container className="Footer">
+        <section className="Footer">
 
             <div className="footer-container">
 
@@ -82,28 +81,28 @@ const Footer = (props) => {
 
                             <a href="https://twitter.com/ICRC"
                                     className="Twitter">
-                                    <FaTwitterSquare icon={FaTwitterSquare}  />
+                                    <FaTwitterSquare   />
                                 </a>
 
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <a href="https://www.facebook.com/IFRC/"
                                     className="Facebook">
-                                    <FaFacebookSquare icon={FaFacebookSquare} />
+                                    <FaFacebookSquare  />
                                 </a>
 
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <a href="https://www.instagram.com/icrc/"
                                     className="Instagram">
-                                    <FaInstagramSquare icon={FaInstagramSquare}  />
+                                    <FaInstagramSquare   />
                                 </a>
 
                                 &nbsp;&nbsp;&nbsp;&nbsp;
 
                                 <a href="https://www.linkedin.com/company/icrc/"
                                     className="LinkedinIn">
-                                    <FaLinkedinIn icon={FaLinkedinIn}  />
+                                    <FaLinkedinIn />
                                 </a>
 
                                
@@ -134,7 +133,7 @@ const Footer = (props) => {
 
             
 
-        </container>
+        </section>
                 
     );
 }
