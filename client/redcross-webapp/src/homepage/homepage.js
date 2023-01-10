@@ -53,7 +53,7 @@ const Homepage = () => {
     /*-------------------------------------------------------------------------------------------------------REQUIRED VARIABLES--------------------------------------------------------------------------------------------------------------------------*/
     const DONATOR = 1; // DONATOR CODES.
 
-    const REQUESTER = 2; // REQUESTER CODE>
+    const REQUESTER = 2; // REQUESTER CODE.
 
     const STAFF = 3; // STAFF CODE.
 

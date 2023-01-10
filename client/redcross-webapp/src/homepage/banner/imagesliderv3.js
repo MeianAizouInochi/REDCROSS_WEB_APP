@@ -141,7 +141,7 @@ const Imageslider = () => {
                         <div className={index === current ? 'slide active' : 'slide'} key={index}>
                             {index === current && (
                                 <>
-                                    {console.log("its coming here")}
+                                    { /*console.log("its coming here")*/ }
                                     <div className="bannerdescription">
                                         <p>{slide.description === null ? "Error displaying Info" : slide.description}</p>
                                     </div>

@@ -1,3 +1,9 @@
+/*
+ * START OF NODEJS SERVER APP
+ */
+
+/*--------------------------------------------------INITIALISING MODULES START------------------------------------------------------------*/
+require('dotenv').config();
 
 const express = require('express');
 
@@ -12,15 +18,23 @@ const cors = require('cors');
 const session = require('express-session');
 
 const cookieParser = require('cookie-parser');
+/*--------------------------------------------------INITIALISING MODULES END------------------------------------------------------------*/
 
-//DB configuration start.
+/*----------------------------------------------DATABASE CONFIGURATION SECTION START---------------------------------------------------------- */
+
+/*
+ * db_admin_web_asset CONTAINS CONFIG FOR ADMIN DATABASE.
+ */
 const db_admin_web_asset = {
 
-    user: "Redcross_officials",
-    password: "123",
-    server: "LAPTOP-6E8JR0HD",
+    user: process.env.user,
 
-    database: "RedCross_Web_Assets_Database",
+    password: process.env.password,
+
+    server: process.env.server,
+
+    database: process.env.ADMINdatabase,
+
     options: {
 
         trustedConnection: true,
@@ -31,13 +45,19 @@ const db_admin_web_asset = {
     }
 };
 
+/*
+ * db_config_for_userinfo CONTAINS CONFIG FOR USER INFORMATION DATABASE.
+ */
 const db_config_for_userinfo =
 {
-    user: "Redcross_officials",
-    password: "123",
-    server: "LAPTOP-6E8JR0HD", //LAPTOP-S278V6HI    //Kooustav's Laptop server
-                               //LAPTOP-6E8JR0HD    //Jashandeep's laptop server
-    database: "RedCross_Database",
+    user: process.env.user,
+
+    password: process.env.password,
+
+    server: process.env.server, 
+
+    database: process.env.USERINFOdatabase,
+
     options:
     {
         trustedConnection: true,
@@ -48,13 +68,19 @@ const db_config_for_userinfo =
 
 };
 
+/*
+ * db_config_for_userinfo_filetype CONTAINS CONFIG FOR USER INFORMATION FILE TYPE DATABASE.
+ */
 const db_config_for_userinfo_filetype =
 {
-    user: "Redcross_officials",
-    password: "123",
-    server: "LAPTOP-6E8JR0HD", //LAPTOP-S278V6HI    //Kooustav's Laptop server
-                               //LAPTOP-6E8JR0HD    //Jashandeep's laptop server
-    database: "Redcross_Database_File_Type",
+    user: process.env.user,
+
+    password: process.env.password,
+
+    server: process.env.server,
+
+    database: process.env.USERINFOFILETYPEdatabase,
+
     options:
     {
         trustedConnection: true,
@@ -64,34 +90,38 @@ const db_config_for_userinfo_filetype =
     }
 
 };
-//DB configuration end.
+/*----------------------------------------------DATABASE CONFIGURATION SECTION END---------------------------------------------------------- */
 
-//important connector and data translator uses start.
 
+/*
+ *json data readability
+ */
 app.use(express.json({ limit: '10mb' }));
 
-
-
+/*
+ * CROSS ORIGIN RESOURCE SHARING POLICY SETUP.
+ * ORIGIN SHOULD CONTAIN DOMAIN NAME LATER ON.
+ */
 app.use(cors({
     credentials: true,
-    origin: [
-        `http://172.19.5.133:3000`,
-        `http://192.168.183.110:3000`,
-        `http://192.168.42.110:3000`,
-        `http://192.168.124.110:3000`,
-        `http://192.168.144.110:3000`,
-        `http://172.19.2.121:3000`,
-        `http://192.168.255.110:3000`,
-        `http://192.168.212.110:3000`,
-        `http://192.168.1.7:3000`
-    ],
+    origin: process.env.DOMAIN,
     methods:["GET","POST"]
 }));
 
+/*
+ *USING COOKIEPARSER FOR COOKIE
+ */
 app.use(cookieParser());
 
+/*
+ *USING BODYPARSER FOR BODY
+ */
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/*
+ *USING EXPRESS_SESSION MODULE HERE, TO CREATE SESSION WHEN A LOG IN OCCURS.
+ *CHANGE msxAge for TIME LIMIT OF EXPIRATION OF SESSION (TIME A PERSON CAN REMAIN LOGGED IN, UNIT IS MILLISECONDS.)
+ */
 app.use(session({
     secret: "somesecret",
     resave: false,
@@ -102,8 +132,6 @@ app.use(session({
     }
 }));
 
-
-//important connector and data translator uses end.
 
 /*-------------------------------------------------------------------------------------------LOGIN SECTION------------------------------------------------------------------------------------------------------*/
 /*
@@ -483,7 +511,11 @@ app.post("/api/CreateRequestEntity", (req, res) => {
 /*-------------------------------------------------CREATE REQUEST ENTITY SECTION END.-------------------------------------------------*/
 
 /*-------------------------------------------------SEND REQUEST DATA TO ENTITY SECTION START.-------------------------------------------------*/
-app.post("/api/SendRequestData", (req, res) => {
+app.post("/api/SendRequestData", (req, res) => {//check line 184 in requester form .
+
+    const Type = req.body.Type;
+
+    const VerifiedUsername = req.body.VerifiedUsername;
 
     const DETAILS_TYPE = req.body.DETAILS_TYPE;
 
@@ -560,6 +592,41 @@ app.post("/api/SendRequestData", (req, res) => {
 });
 /*-------------------------------------------------SEND REQUEST DATA TO ENTITY SECTION END.-------------------------------------------------*/
 
+/*-----------------------------------------------------GET ACTIVE REQUEST DATA SECTION------------------------------------------------------*/
+app.post("/api/GetActiveRequests", (req, res) => {
+
+    var FullUserName = req.body.FullUsername;
+
+    SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST[_]%[_]" + FullUserName + "'";
+
+    var connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
+
+    connection.connect(function (err) {
+        if (err) {
+            console.log(err);
+        }
+        else
+        {
+            var request = new mssql.Request(connection);
+
+            request.query(SQLStatement, (err, result) => {
+
+                if (err)
+                {
+                    console.log(err);
+                }
+                else
+                {
+                    res.send(result);
+                }
+
+                connection.close();
+            });
+        }
+    });
+});
+/*-----------------------------------------------------GET ACTIVE REQUEST DATA SECTION------------------------------------------------------*/
+
 /*--------------------------------------------------------------------------------REQUESTER SECTION END---------------------------------------------------------------------------------*/
 
 
@@ -570,7 +637,7 @@ app.post("/api/SendRequestData", (req, res) => {
 /*-------------------------------------------------GET REQUESTS START.-------------------------------------------------*/
 app.post("/api/getrequests", (req, res) => {
 
-    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like '[R][E][Q][U][E][S][T][_]%';"
+    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST[_]%';"; //Jashan's version: [R][E][Q][U][E][S][T][_]%'
 
     var Connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
 
@@ -579,7 +646,6 @@ app.post("/api/getrequests", (req, res) => {
         if (error) {
 
             console.log(error.message);
-            console.log("error is happening while retriving requests")
 
         }
         else {
@@ -591,8 +657,6 @@ app.post("/api/getrequests", (req, res) => {
                 if (err) {
 
                     console.log(err.message);
-
-                    console.log("error is happening while retriving requests  nested")
 
                 }
                 else {
@@ -622,8 +686,8 @@ app.post("/api/getrequestdetails", (req, res) => {
     console.log("SEMA :" + SEMA);
 
     var SQLStatement = [
-        "select DETAILS from " + TABLE_NAME + " where DETAILS_TYPE like " + "'" + DETAIL_TYPE[0] + "%';",
-        "select DETAILS,FILE_DETAILS from " + TABLE_NAME + " where DETAILS_TYPE = " + "'" + DETAIL_TYPE + "';",
+        "select DETAILS from " + TABLE_NAME + " where DETAILS_TYPE like '" + DETAIL_TYPE[0] + "%';",
+        "select DETAILS,FILE_DETAILS from " + TABLE_NAME + " where DETAILS_TYPE = '" + DETAIL_TYPE + "';",
         "select DETAILS_DESCRIPTION from " + TABLE_NAME + " where DETAILS_TYPE = 'Request_data';"
     ];
 
@@ -1155,6 +1219,6 @@ app.post("/api/GetRequests", (req, res) => {
 })
 //donatordashboard requesters lists end.
 
-app.listen(5000, () => {
-    console.log("running on port 5000");
+app.listen(process.env.PORT, () => {
+    console.log("running on port "+process.env.PORT);
 });
