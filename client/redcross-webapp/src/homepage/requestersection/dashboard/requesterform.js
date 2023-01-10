@@ -272,6 +272,8 @@ const RequesterForm = (props) => {
 
             <form className="Formcontainer" onSubmit={(e) => { HandleSubmit(e); } }>
 
+                <p><b>{Type} REQUEST FORM</b></p>
+
                 <div className="Requesttitle">
 
                     <p>Provide Your Request Title here:</p>
@@ -347,9 +349,6 @@ const RequesterForm = (props) => {
 
                     </div>
                 </div>
-                
-
-                <div>{Type}</div>
 
                 <div className="SubmittionDivision" >
 
