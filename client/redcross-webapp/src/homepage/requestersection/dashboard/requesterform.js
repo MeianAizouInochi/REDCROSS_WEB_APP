@@ -270,72 +270,92 @@ const RequesterForm = (props) => {
     return (
         <div className="RequesterFormContainerOuter">
 
-            <form onSubmit={(e) => { HandleSubmit(e); } }>
+            <form className="Formcontainer" onSubmit={(e) => { HandleSubmit(e); } }>
 
-                <label>Provide Your Request Title here:</label>
+                <div className="Requesttitle">
 
-                { /*TITLE OF REQUEST*/ }
-                <input className="Title" type="text" value={Title} maxLength="255" placeholder="Please Help me get money for Admission at cgcjhanjeri. " onChange={(e) => { TitleChangeNotifier(e); }} required />
+                    <p>Provide Your Request Title here:</p>
 
-                <div>{CharacterRatioTitle}/255</div>
+                    { /*TITLE OF REQUEST*/}
+                    <input className="Title" type="text" value={Title} maxLength="255" placeholder="Please Help me get money for Admission at cgcjhanjeri. " onChange={(e) => { TitleChangeNotifier(e); }} required />
 
-                <label>Provide your Request Description here:</label>
+                    <p>{CharacterRatioTitle}/255</p>
 
-                { /*DESCRIPTION OF REQUEST*/ }
-                <textarea className="Description"  cols="100" rows="5" value={Description} maxLength="500" placeholder="Description" onChange={(e) => { DescriptionChangeNotifier(e); }} required />
-
-                <div>{CharacterRatioDescription}/500</div>
-
-                <label>Provide Supporting Documents here:</label>
-
-                { /*CONTAINER FOR DOCUMENTS*/ }
-                <div className="DocumentInputContainer">
-
-                    { /*FIRST DOCUMENT*/ }
-                    <div>
-                        
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 1); }} required />
-
-                        <img src={Document1Img} alt="Document1" />
-
-                    </div>
-
-                    { /*SECOND DOCUMENT*/}
-                    <div>
-
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 2); }} required />
-
-                        <img src={Document2Img} alt="Document2" />
-
-                    </div>                    
-
-                    { /*THIRD DOCUMENT*/}
-                    <div>
-
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 3); }} required />
-
-                        <img src={Document3Img} alt="Document3" />
-
-                    </div>                    
-
-                    { /*FOURTH DOCUMENT*/}
-                    <div>
-
-                        <input type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 4); }} required />
-
-                        <img src={Document4Img} alt="Document4" />
-
-                    </div>
-                    
                 </div>
+                
+                <div className="RequestDescription">
+
+                    <p>Provide your Request Description here:</p>
+
+                    { /*DESCRIPTION OF REQUEST*/}
+                    <textarea className="Description" cols="100" rows="5" value={Description} maxLength="500" placeholder="Description" onChange={(e) => { DescriptionChangeNotifier(e); }} required />
+
+                    <p>{CharacterRatioDescription}/500</p>
+
+                </div>
+
+                <div className="DocumentContainer">
+
+                    <p>Provide Supporting Documents here:</p>
+
+                    { /*CONTAINER FOR DOCUMENTS*/}
+                    <div className="DocumentInputContainer">
+
+                        { /*FIRST DOCUMENT*/}
+                        <div className = "DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 1); }} required />
+
+                            <img src={Document1Img === null ? './OnerrorDocumentPreview.svg' : Document1Img} alt="Document1" />
+
+                            <textarea id="DocumentDescriptionTextInput" maxLength="255" placeholder="Describe Document " />
+
+                        </div>
+
+                        { /*SECOND DOCUMENT*/}
+                        <div className="DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 2); }} required />
+
+                            <img src={Document2Img === null ? './OnerrorDocumentPreview.svg' : Document2Img} alt="Document2" />
+
+                            <textarea id="DocumentDescriptionTextInput" maxLength="255" placeholder="Describe Document " />
+
+                        </div>
+
+                        { /*THIRD DOCUMENT*/}
+                        <div className="DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 3); }} required />
+
+                            <img src={Document3Img === null ? './OnerrorDocumentPreview.svg' : Document3Img} alt="Document3" />
+
+                            <textarea id="DocumentDescriptionTextInput" maxLength="255" placeholder="Describe Document " />
+
+                        </div>
+
+                        { /*FOURTH DOCUMENT*/}
+                        <div className="DOCUMENT">
+
+                            <input className="Documentinput" type="file" accept="image/png, image/jpg" onChange={(e) => { ImageHandler(e, 4); }} required />
+
+                            <img src={Document4Img === null ? './OnerrorDocumentPreview.svg' : Document4Img} alt="Document4" />
+
+                            <textarea id="DocumentDescriptionTextInput" maxLength="255" placeholder="Describe Document " />
+
+                        </div>
+
+                    </div>
+                </div>
+                
 
                 <div>{Type}</div>
 
                 <div className="SubmittionDivision" >
 
-                    <button type="submit" value="Submit">Submit</button>
+                    <button id="requestsubmitbutton" type="submit" value="Submit">Submit</button>
 
-                    <button onClick={(e) => { Cancel(); }}>Cancel</button>
+                    <button id="requestcancelbutton" type="button" onClick={(e) => { Cancel(); }}>Cancel</button>
 
                 </div>
 

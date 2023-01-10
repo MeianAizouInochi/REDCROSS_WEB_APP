@@ -637,7 +637,7 @@ app.post("/api/GetActiveRequests", (req, res) => {
 /*-------------------------------------------------GET REQUESTS START.-------------------------------------------------*/
 app.post("/api/getrequests", (req, res) => {
 
-    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST[_]%';";
+    var SQLStatement = "select TABLE_NAME from INFORMATION_SCHEMA.TABLES where TABLE_NAME like 'REQUEST[_]%';"; //Jashan's version: [R][E][Q][U][E][S][T][_]%'
 
     var Connection = new mssql.ConnectionPool(db_config_for_userinfo_filetype);
 
