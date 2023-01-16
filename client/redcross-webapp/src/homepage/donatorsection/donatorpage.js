@@ -40,7 +40,7 @@ const Donatorpage = (props) => {
             { /*IF DSECTION VALUE IS 0, THEN DASHBOARD IS VISIBLE TO END USER ELSE CHAT IS VISIBLE.*/ }
             {Dsection === 0 ? <div className="Donatordashboard">
 
-                <Donatordashboard username={username} />
+                <Donatordashboard username={username} passingchangesectiondata={changesection} />
 
             </div> : <div className="Donatordashboard">
 

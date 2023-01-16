@@ -7,7 +7,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBXQM0KE0QZ0VTr1m9-tY1lZnXmJZwvvfE",
+    apiKey: process.env.REACT_APP_apiKey,
     authDomain: "redcross-final.firebaseapp.com",
     projectId: "redcross-final",
     storageBucket: "redcross-final.appspot.com",

@@ -59,7 +59,7 @@
     border-radius: 10px;
     display: flex;
     width: 50%;
-    align-self: start;
+    align-self: flex-start;
     height: 30%;
     margin-left: 5%;
     display: grid;
@@ -171,7 +171,7 @@
     width: 50%;
     align-self: start;
     height: 30%;
-    align-self: end;
+    align-self: flex-end;
     margin-right: 5%;
     display: grid;
     grid-template-columns: repeat(5,1fr);
@@ -280,7 +280,7 @@
     border-radius: 10px;
     display: flex;
     width: 50%;
-    align-self: start;
+    align-self: flex-start;
     height: 30%;
     margin-left: 5%;
     display: grid;
@@ -476,7 +476,7 @@
         font-family: Arial;
         color: black;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
         grid-row-start: 1;
         grid-row-end: 1;
         font-size: 2rem;
@@ -567,7 +567,7 @@
         font-family: Arial;
         color: black;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
         grid-row-start: 1;
         grid-row-end: 1;
         font-size: 2rem;
@@ -668,7 +668,7 @@
         font-family: Arial;
         color: black;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
         grid-row-start: 1;
         grid-row-end: 1;
         font-size: 2rem;

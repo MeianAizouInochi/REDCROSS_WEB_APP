@@ -4,6 +4,7 @@
     min-height: 500px;
     display: flex;
     flex-direction: column;
+    justify-content:space-between;
 }
 
 /*REQUEST SELECTOR*/
@@ -23,18 +24,31 @@
     align-self:center;
 }
 
+.requestdummyslidermother{
+    height:85%;
+    width:stretch;
+    margin:0;
+    display:flex;
+    align-content:center;
+    justify-content:center;
 
+}
+
+.No_request_available{
+
+}
 
 .requestdummyslider {
     margin-top: 0.5rem;
     display: grid;
     row-gap: 1.0rem;
-    column-gap: 1.0rem;
-    height: 90%;
+    column-gap: 1.5rem;
+    height: 100%;
     grid-template-columns: repeat(auto-fit,minmax(10rem,18rem));
     justify-content: center;
     overflow-y: scroll;
     overflow-x: hidden;
+    width:stretch;
 }
 
 .requestdummyslide {
@@ -60,7 +74,7 @@
 }
 
 .requestimage {
-    width: 40%;
+    width: 30%;
     height: 100%;
     align-self: center;
     justify-self: center;
@@ -86,6 +100,7 @@
     grid-column-end: 7;
     grid-row-start: 4;
     grid-row-end: 4;
+
 }
 
 .requestname {
@@ -96,7 +111,6 @@
     justify-content: center;
     margin: 0;
     padding: 0;
-    font-size:1.2rem;
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 4;
@@ -127,10 +141,22 @@
     align-items:center;
     justify-content:center;
     column-gap:1rem;
-    height:10%;
+    height:5%;
+    margin:0;
 }
 
+
+
 @media only screen and (max-width:801px) {
+    .requestscontainer {
+        height: fit-content;
+        width: 100%;
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+    }
     .requestdummyslider {
             margin: 0rem;
             display: grid;
@@ -144,7 +170,7 @@
             overflow-x: hidden;
             margin-top: 1rem;
             border: 0.15rem solid gray;
-            border-radius: 1rem;
+            border-radius: 0.5rem;
         }
 
         .requestdummyslide {
@@ -152,7 +178,7 @@
             grid-template-rows: repeat(6,1fr);
             grid-template-columns: repeat(6,1fr);
             min-width: 15rem;
-            height: 17.5em;
+            height: 13em;
             border: 0.2rem solid gray;
             border-radius: 0.5rem;
         }
@@ -162,7 +188,7 @@
             height: 80%;
             align-self: center;
             justify-self: center;
-            border-radius: 0.5rem;
+            border-radius: 0.4rem;
             margin: 0;
             padding: 0;
             grid-column-start: 1;
@@ -182,8 +208,8 @@
             padding: 0;
             grid-column-start: 4;
             grid-column-end: 7;
-            grid-row-start: 1;
-            grid-row-end: 2;
+            grid-row-start: 2;
+            grid-row-end: 3;
         }
 
         .requestname {
@@ -206,13 +232,26 @@
 
         .requestdescription {
             width: 100%;
-            height: 100%;
+            padding-top:5%;
             grid-column-start: 4;
             grid-column-end: 7;
             grid-row-start: 3;
-            grid-row-end: 7;
+            grid-row-end: 6;
             overflow: auto;
-            height: 100%;
             margin: 0;
+           
+           
         }
+
+    .typeofrequest {
+        grid-column-start: 4;
+        grid-column-end: 7;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+    }
     }

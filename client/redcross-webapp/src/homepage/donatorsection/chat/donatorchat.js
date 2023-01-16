@@ -40,7 +40,40 @@ const Donatorchat = (props) => {
 
     const [chatinglistclasschecker, setchatinglistclasschecker] = useState(true); // CHATTING LIST CLASS CHECKER SEMAPHORE.
 
+    //variable for opening pc chat of requester to chat
+    const [pcdonatorchatstate, setpcdonatorchatstate] = useState(true);
+
+    //variable for opening mobile list of requester to chat
+    const [mobiledonatorchattingliststate, setmobiledonatorchattingliststate] = useState(false);
+
+    const [mobilechattingversion, setmobilechattingversion] = useState(false);
+
+    const mobiledonatorchatlisttoggler = () => setmobiledonatorchattingliststate(!mobiledonatorchattingliststate);
+
     /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.----------------------------------------------------------------------------------------------------------------------*/
+
+    /*
+     * THIS USE EFFECT HOOK RUNS ONCE AFTER THE CHAT IS MOUNTED OR RENDERED FOR FIRST TIME.
+     * THIS USE EFFECT HOOK CONTAINS A EVENT LISTENER WHICH IS ATTACHED TO THE WINDOW. (PARASITE FUNCTOIN)
+     */
+    useEffect(() => {
+
+        window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
+
+        window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
+
+        window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
+
+        window.addEventListener("resize", () => {
+
+            window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
+
+            window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
+
+            window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
+        });
+
+    }, []);
 
     /*
      * THIS USE EFFECT HOOK RUNS ONCE AFTER THE CHAT IS MOUNTED OR RENDERED FOR FIRST TIME. 
@@ -55,6 +88,22 @@ const Donatorchat = (props) => {
 
             });
     }, []);
+
+    /*
+     * ON SELECTION OF A REQUESTER FROM THE CHATTING LIST.
+     * IT CHANGES THE CHAT VISIBILITY TO TRUE FOR THAT PARTICULAR REQUESTER.
+     * THEIR CHAT IS THEN LOADED.
+     * AND DISPLAYED.
+     */
+    const showrequesterchat = (props) => {
+
+        setMessagesendervisibility(true);
+
+        setCurrentchatuser(props);
+
+        setRoomcode("DONATOR_" + senderusername + props);
+
+    }
 
     /*
      * THIS USE EFFECT SHOULD RUN ONLY WHEN ROOMCODE STATE IS CHANGED AND THE COMPONENT RE-RENDERS.
@@ -104,44 +153,19 @@ const Donatorchat = (props) => {
         }
     }, [Chatsmessages]);
 
-    /*
-     * SEND CHAT DATA FUNCTION.
-     * ITS SENDS CHAT DATA TO FIREBASE DB.
+    /**
+     * UPDATE CURRENT MESSAGE  COMPONENT
+     * 
+     * JUST CHANGES THE CURRENT MESSAGE STATE.
      */
-    const sendChatdata = () => {
-
-        let roomcode = Roomcode;// GETTING ROOMCODE. 
-
-        var roomcode2 = Currentchatuser + Fullusername;
-
-        push(ref(chatRDB, "/CHATS/" + roomcode+"/MESSAGES"), {
-
-            message: Currentsentmessage,
-            senderid: senderid
-        });
-        push(ref(chatRDB, "/CHATS/" + roomcode2+"/MESSAGES"), {
-
-            message: Currentsentmessage,
-            senderid: senderid
-        });
-
-    }
-
     const Updatecurrentmessage = (props) => {
 
         setCurrentsentmessage(props.target.value);
     }
 
-    const showrequesterchat = (props) => {
-
-        setMessagesendervisibility(true);
-
-        setCurrentchatuser(props);
-
-        setRoomcode("DONATOR_" + senderusername + props);
-
-    }
-
+    /*
+     * THIS COMPONENT INVOKES THE SEND CHAT DATA FUNCTION TO SEND NEW CHAT MESSAGE.
+     */
     const SendMessage = () => {
 
         if (Currentsentmessage !== "") {
@@ -150,18 +174,50 @@ const Donatorchat = (props) => {
 
             setCurrentsentmessage("");
         }
-
-        console.log("send is invoked");
-
+        else {
+            //do nothing
+        }
     }
 
+    /*
+     * SEND CHAT DATA FUNCTION.
+     * ITS SENDS CHAT DATA TO FIREBASE DB.
+     */
+    const sendChatdata = () => {
 
+        let roomcode = Roomcode;// GETTING ROOMCODE. 
+
+        var roomcode2 = Currentchatuser + Fullusername; //CREATING ROOMCODE2
+
+        // PUSHING CHANGES TO RTDB IN ROOMCODE
+        push(ref(chatRDB, "/CHATS/" + roomcode+"/MESSAGES"), {
+
+            message: Currentsentmessage,
+            senderid: senderid
+        });
+
+        // PUSHING CHANGES IN RTDB IN ROOMCODE2.
+        push(ref(chatRDB, "/CHATS/" + roomcode2+"/MESSAGES"), {
+
+            message: Currentsentmessage,
+            senderid: senderid
+        });
+    }
+
+    /*
+     * NEED TO CHECK THE REQUIREMENT FOR THIS COMPONENT.
+     */
     const changevaluechatinglistclasschecker = () => {
+
         setchatinglistclasschecker(!chatinglistclasschecker);
+
     }
 
-
+    /*
+     * NEED TO CHECK THE REQUIREMENT FOR THIS COMPONENT.
+     */
     const chattinglisttyperetuner = () => {
+
         (Chatusermssqldata !== null) && Object.keys(Chatusermssqldata).map((element) => {
             return (
 
@@ -174,69 +230,62 @@ const Donatorchat = (props) => {
     }
 
 
-    //variable for opening pc chat of requester to chat
-    const [pcdonatorchatstate, setpcdonatorchatstate] = useState(true);
-
-    //variable for opening mobile list of requester to chat
-    const [mobiledonatorchattingliststate, setmobiledonatorchattingliststate] = useState(false);
-
-    const [mobilechattingversion, setmobilechattingversion] = useState(false);
-
-    const mobiledonatorchatlisttoggler = () => setmobiledonatorchattingliststate(!mobiledonatorchattingliststate);
-
-    useEffect(() => {
-
-        window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
-
-        window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
-
-        window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
-
-        window.addEventListener("resize", () => {
-
-            window.innerWidth <= 801 ? setmobilechattingversion(true) : setmobilechattingversion(false);
-
-            window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
-
-            window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
-        });
-
-    }, []);
-
-
+    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER--------------------------------------------------------------------------------------------------*/
     return (
-
         <div className="Donatorchat">
 
-            { /*PC DONATOR CHATING SECTION START*/ }
+            { /*
+             * PC DONATOR CHATING SECTION START.
+             * THIS SECTION IS VISIBLE ONLY IF  PC DONATOR CHAT STATE IS TRUE.
+             * */}
+
             {pcdonatorchatstate && (
                 <div className="Donatorchatinglistmothercontainer" >
 
                     <p className="pcrequesterheading">Requesters</p>  
 
                     <ul className="Donatorchatinglistchildcontainer">
-                        
-                            {(Chatusermssqldata !== null) && Object.keys(Chatusermssqldata).map((element) => {
 
-                                return (
-                                    <li className="Donatorchatingitem" onClick={() => { showrequesterchat(Chatusermssqldata[element].DETAILS) }} key={element} >
+                        { /*
+                         * CHECKS IF CHAT USER MSSQL DATA IS NULL.
+                         * IF NOT, THEN MAPS EVERY ELEMENT OF IT TO THE CHAT LIST.
+                         * IT PLACES AN ON CLICK LISTENER ON EVERY ELEMENT, FOR INVOKING THE SHOW REQUESTER CHAT FUNCTION.
+                         */ }
 
-                                        {Chatusermssqldata[element].DETAILS}
+                        {(Chatusermssqldata !== null) &&
+                            Object.keys(Chatusermssqldata)
+                            .map((element) => {
 
-                                    </li>);
+                            return (
+                                <li className="Donatorchatingitem" onClick={() => {
 
-                            })}
+                                    showrequesterchat(Chatusermssqldata[element].DETAILS) // THE FUNCTION SET ON CLICK LISTENER.
 
+                                }} key={element}>
+
+                                    { /* THE ELEMENT IN THE LIST*/}
+
+                                    {Chatusermssqldata[element].DETAILS} 
+
+                                </li>
+                                );
+                            })
+                        }
                     </ul>
 
                 </div>
             )}
 
-            
-
+            { /*
+             * THIS SECTION ALSO CHECKS THE MESSAGE SENDER VISIBILITY ALONG WITH THE PC DONATOR CHAT STATE.
+             */ }
             {pcdonatorchatstate && (
 
                 Messagesendervisibility ? < div className="MessageSender">
+
+                    { /*
+                     * THIS HANDLES THE WHOLE PC MESSAGE SENDER UI.
+                     */ }
 
                     <div className="chattingtouser">
 
@@ -244,6 +293,9 @@ const Donatorchat = (props) => {
 
                     </div>
 
+                    { /*
+                     * THIS IS THE MESSAGE DISPLAY BOX UI.
+                     */ }
                     <div className="Messagedisplay" id="Messagedisplay">
 
                         {Chatsmessages?.map((element, index) => {
@@ -286,6 +338,9 @@ const Donatorchat = (props) => {
 
                     </div>
 
+                    { /*
+                     * THIS IS THE MESSAGE BOX AND SEND BUTTON UI.
+                     */ }
                     <div className="Messageboxsendbuttondisplay">
 
                         <input className="donatorchatinput"
@@ -296,16 +351,21 @@ const Donatorchat = (props) => {
                         />
 
                         <div className="donatorchatsendbuttoncontainer">
+
                             <AiOutlineSend className="donatorchatsendbutton" onClick={() => { SendMessage(); }} />
+
                         </div>
 
                     </div>
 
                 </div> : <div className="MessageSender">
+
                         <div className="pcnooneselectedforchat">
                             
                             <h1 className="pcnooneselectedforchattext">No one for chat selected!</h1>
+
                             <img src="./emptyinbox.svg" className="pcdonorchatemptyimage" />
+
                         </div>
                 </div>
 
@@ -318,25 +378,30 @@ const Donatorchat = (props) => {
 
             {mobiledonatorchattingliststate && (
                 <div className="mobileDonatorchatinglistmothercontainer" >
+
                     <p className="mobilerequesterheading">Requesters</p>  
+
                     <ul className="mobileDonatorchatinglistchildcontainer">
 
-                        {(Chatusermssqldata !== null) && Object.keys(Chatusermssqldata).map((element) => {
+                        {(Chatusermssqldata !== null) &&
+                            Object.keys(Chatusermssqldata)
+                                .map((element) => {
 
-                            return (
+                                    return (
+                                        <li className="mobileDonatorchatingitem" onClick={() => {
 
-                                <li className="mobileDonatorchatingitem" onClick={() => {
-                                    showrequesterchat(Chatusermssqldata[element].DETAILS);
-                                    mobiledonatorchatlisttoggler();
-                                }
+                                            showrequesterchat(Chatusermssqldata[element].DETAILS);
 
-                                } key={element} >
+                                            mobiledonatorchatlisttoggler();
 
-                                    {Chatusermssqldata[element].DETAILS}
+                                        }} key={element}>
 
-                                </li>);
+                                            {Chatusermssqldata[element].DETAILS}
 
-                        })}
+                                        </li>
+                                    );
+                                })
+                        }
 
                     </ul>
 
@@ -352,13 +417,13 @@ const Donatorchat = (props) => {
                             Messagesendervisibility ? < div className="mobileMessageSender">
                                 
                                 <div className="mobilechattingtouser">
+
                                     <div className="mobilechattingtousermenucontainer">
-                                    <HiOutlineInboxIn className="mobilechattingtousermenuicon" onClick={
-                                        () => {
-                                            mobiledonatorchatlisttoggler();
-                                        }
-                                    } />
+
+                                        <HiOutlineInboxIn className="mobilechattingtousermenuicon" onClick={() => { mobiledonatorchatlisttoggler(); }} />
+
                                     </div>
+
                                     <p className="mobilechattingtousername">{Currentchatuser}</p>
 
                                 </div>
@@ -417,14 +482,18 @@ const Donatorchat = (props) => {
                                     />
 
                                     <div className="mobiledonatorchatsendbuttoncontainer">
+
                                         <AiOutlineSend className="mobiledonatorchatsendbutton" onClick={() => { SendMessage(); }} />
+
                                     </div>
 
 
                                 </div>
 
                             </div> : <div className="mobileMessageSender">
+
                                     <h1 className="mobileheadingnooneselected">No one for chat selected!</h1>
+
                             </div>
 
                         )
@@ -433,9 +502,11 @@ const Donatorchat = (props) => {
                 </div>)
             }
 
-            {/* MOBILE DONATOR CHATING SECTION END*/}
+            {/* MOBILE DONATOR CHATING SECTION END*/ }
 
         </div>
     );
+    /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER END.--------------------------------------------------------------------------------------------------*/
+
 }
 export default Donatorchat;

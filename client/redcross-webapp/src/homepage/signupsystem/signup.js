@@ -47,10 +47,7 @@ const Signup = (props) => {
 
     /*------------------------------------------------------------------------------------------------FORM FUNCTIONAL COMPONENTS ACCORDING TO WORKFLOW----------------------------------------------------------------------------------------------------*/
 
-
-
-
-
+    Axios.defaults.withCredentials = true;
     /*------------------------------------------------------------------------------------------------FORM FUNCTIONAL COMPONENTS FIRST PART----------------------------------------------------------------------------------------------------*/
     /**
      * CHECKING NAME HERE.
@@ -230,6 +227,7 @@ const Signup = (props) => {
                                     console.log("ERROR MESSAGE: FIREBASE SIGN IN WITH PHONE NUMBER FUNCTION: " + error);
 
                                 });
+                                
 
                             //CHANGING THE FORM TO SECOND PART FOR OTP VERIFICATION AND IF CORRECT THEN DATA UPLOAD TO DB..
                             setExpandForm(true);
@@ -282,7 +280,7 @@ const Signup = (props) => {
 
         //CHECKING OTP LENGTH
         if (OTP.length === 6) {
-
+            
             //GETTING THE CONFIRMATION INTO A VARIABLE.
             let confirmationResult = window.confirmationResult;
 
@@ -300,7 +298,7 @@ const Signup = (props) => {
                      * HENCE NO OTHER FUNCTION IS CALLED AFTER THIS.
                      */
                     UPLOAD_DATA(); 
-                });
+            });
         }
     }
 
@@ -432,30 +430,47 @@ const Signup = (props) => {
             {
 
                 /*
-                 * A SECURITY FEATURE STARTS HERE, TO PREVENT MULTIPLE LOGINS AT A TIME IN AN ACCOUNT. (BY THE SAME PERSON OR MULTIPLE PERSONS.)
-                 * THIS USES FIREBASE RTDB.
-                 * LOGGINGIN IS AN ASYNC FUNCTION, HENCE NOTHING IS PERFORMED AFTER IT, RATHER ON ITS COMPLETION.
+                 * LOGIN API CALL.
+                 * IT STARTS SESSION IN SERVER.
                  */
-                LoggingIn().then((responsefromfdb) => {// IF SUCCESSFULL THEN PROCEEDING WITH FURTHER FUNCTIONALITIES.
+                var LoginSema = await Axios.post(DbURL + "/api/user/login", {
+                    username: Usertype + Username,
+                    password: Password
+                });
 
-                    console.log(responsefromfdb);
+                if (LoginSema.data.LoginStatus) // CHEKING RESULT.
+                {
+                    /*
+                     * A SECURITY FEATURE STARTS HERE, TO PREVENT MULTIPLE LOGINS AT A TIME IN AN ACCOUNT. (BY THE SAME PERSON OR MULTIPLE PERSONS.)
+                     * THIS USES FIREBASE RTDB.
+                     * LOGGINGIN IS AN ASYNC FUNCTION, HENCE NOTHING IS PERFORMED AFTER IT, RATHER ON ITS COMPLETION.
+                     */
+                    LoggingIn().then((responsefromfdb) => {// IF SUCCESSFULL THEN PROCEEDING WITH FURTHER FUNCTIONALITIES.
 
-                    console.log("inside responsefdb not error");
-                    
-                    props.Data(Username, Usertype);// LOGGING IN AND SENDING USER BACK TO HOMEPAGE WITH ABILITY TO ENTER THEIR PROFILE.
+                        console.log(responsefromfdb);
 
-                }).catch(function (errorfromfdb) {// CATCHING ANY ERROR ON UNEXPECTED EXECUTION.
+                        console.log("inside responsefdb not error");
 
-                    console.log(errorfromfdb);
+                        props.Data(Username, Usertype, LoginSema.data.LoginStatus);// LOGGING IN AND SENDING USER BACK TO HOMEPAGE WITH ABILITY TO ENTER THEIR PROFILE.
 
-                    console.log("error occured fdb");
+                    }).catch(function (errorfromfdb) {// CATCHING ANY ERROR ON UNEXPECTED EXECUTION.
+
+                        console.log(errorfromfdb);
+
+                        console.log("error occured fdb login api call");
+
+                        props.VisChangerSignup(); // IN CASE OF ERROR REROUTING USER TO START FROM BEGINNING.
+
+                    });
+                }
+                else
+                {
+                    console.log("ERROR MESSAGE: SOMETHING REALLY BAD HAPPENED IN SIGNUP ENDING LOGIN API CALL.");
 
                     props.VisChangerSignup(); // IN CASE OF ERROR REROUTING USER TO START FROM BEGINNING.
-
-                });
+                }
             }
         }
-
     }
     
     /*
@@ -639,10 +654,10 @@ const Signup = (props) => {
                         {/*SUBMIT BUTTON FOR FIRST PART OF FORM*/}
 
                         { /* CALLING HANDLESUBMIT COMPONENT WHEN CLICK ON SUBMIT*/ }
-                        <input type="submit" value="Submit" />
+                        <input type = "submit" value="Submit" />
 
                         { /*  CALLING VISCHANGERSIGNUP COMPONENT() FROM HOMEPAGE TO CHANGE FORM TO FORM BACK TO HOME PAGE. */ }
-                        <button onClick={() => { props.VisChangerSignup(); }}>Cancel</button>
+                        <button type = "button" onClick={() => { props.VisChangerSignup(); }}>Cancel</button>
 
                     </div>
                     }
@@ -662,10 +677,10 @@ const Signup = (props) => {
                     {ExpandForm && <div className="data10">
 
                         { /*CALLING VERIFY OTP IF SUBMIT OTP IS CLICKED*/ }
-                        <button onClick={() => { verifyOTP(); }}>Submit OTP</button>
+                        <button type = "button" onClick={() => { verifyOTP(); }}>Submit OTP</button>
 
                         { /*CALLING VISCHANGER SIGNUP FUNCTION FROM HOMEPAGE IF CANCEL BUTTON IS PRESSED.*/ }
-                        <button onClick={() => { props.VisChangerSignup(); } }>Cancel</button>
+                        <button type = "button" onClick={() => { props.VisChangerSignup(); } }>Cancel</button>
 
                     </div>
                     }
