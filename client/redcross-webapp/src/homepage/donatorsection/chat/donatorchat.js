@@ -48,6 +48,7 @@ const Donatorchat = (props) => {
 
     const [mobilechattingversion, setmobilechattingversion] = useState(false);
 
+    //anonymous function identifier for toggling mobile donator chatting list value.
     const mobiledonatorchatlisttoggler = () => setmobiledonatorchattingliststate(!mobiledonatorchattingliststate);
 
     /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.----------------------------------------------------------------------------------------------------------------------*/
@@ -70,7 +71,7 @@ const Donatorchat = (props) => {
 
             window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
 
-            window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
+            //window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
         });
 
     }, []);
