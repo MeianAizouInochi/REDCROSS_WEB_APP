@@ -230,6 +230,21 @@ const Donatorchat = (props) => {
         })
     }
 
+    /*
+     * Token Creation Button Functionality. 
+     */
+    function CreateToken()
+    {
+
+    }
+
+    /*
+     * XOR function for CreateToken Function
+     */
+    function XOR()
+    {
+
+    }
 
     /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER--------------------------------------------------------------------------------------------------*/
     return (
