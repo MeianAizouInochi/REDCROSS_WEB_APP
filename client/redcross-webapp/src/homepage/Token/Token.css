@@ -1,0 +1,225 @@
+.TokenMotherContainer{
+    position:absolute;
+    height:contain;
+    width:60vw;
+    border:1px solid gray;
+    margin-top:2.5rem;
+    background-color:white;
+    font-family:sans-serif;
+    display:flex;
+    flex-direction:column;
+}
+
+.TokenUpperBar {
+    height: 3rem;
+    border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color:red;
+
+}
+
+    .TokenUpperBar h2 {
+        background-color: none;
+        color: white;
+
+    }
+
+#TokenCloseButton {
+    position: absolute;
+    right: 0%;
+    height: stretch;
+    width: 5%;
+    border: none;
+    font-size: 2rem;
+    background-color: red;
+    color: white;
+}
+
+#TokenCloseButton :hover {
+    cursor:pointer;
+}
+
+.TokenFormContainer {
+    height: 90%;
+}
+
+.TokenFormContentContainer{
+    height:90%;
+}
+
+#TokenAdvisorySection {
+    height: 20%;
+    margin: 10px;
+    padding: 10px;
+    text-align: left;
+    background-color: lightgray;
+}
+
+.TokenInputdivision {
+    margin: 10px;
+    padding: 10px;
+    background-color: lightgray;
+    display: grid;
+    grid-column: 2;
+    grid-row: 2;
+    row-gap: 10px;
+    width: 40%;
+    position:relative;
+    float:left;
+    height:3rem;
+}
+
+    .TokenInputdivision input {
+        background-color:black;
+    }
+
+    #tokenlabelSatisfied {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 2;
+    }
+
+#RequestSatisfied {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#tokenlabelNotSatisfied {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#RequestNotSatisfied {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.TokenConfirmationDivision {
+    background-color: lightgray;
+    width: 50%;
+    min-height:3rem;
+    max-height:contain;
+    position:relative;
+    margin: 10px;
+    padding: 10px;
+    float:right;
+}
+.TokenRequestConfirmationDivision {
+    margin: 0px;
+    padding: 0px;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:space-between;
+}
+
+#NoteRequestConfirmationDivision {
+    margin: 0px;
+    padding: 0px;
+}
+
+#RequestConfirmationInput {
+    margin-top: 10px;
+}
+
+.TokenSubmittionDivision {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+
+
+#TokenSubmitButton {
+    width:40%;
+    height:80%;
+    background-color: red;
+    color: white;
+    border: 1px solid gray;
+}
+
+    #TokenSubmitButton:hover {
+        cursor: pointer;
+        background-color: darkred;
+    }
+
+#TokenCancelButton {
+    width: 40%;
+    height: 80%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 1px solid gray;
+}
+
+    #TokenCancelButton:hover {
+        cursor: pointer;
+        background-color:darkgray;
+    }
+
+
+
+
+
+.TokenFinalSubmitDivsion{
+    position:absolute;
+    height:60%;
+    width:50%;
+    background-color:white;
+    border:1px solid gray;
+    display:flex;
+    flex-direction:column;
+    align-content:center;
+
+}
+
+.TokenFinalSubmitDivsionAlert{
+    height:60%;
+    width:90%;
+}
+
+.TokenFinalSubmitDivsionButtons {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+#TokenConfirmSubmitButton {
+    width: 40%;
+    height: 80%;
+    background-color: red;
+    color: white;
+    border: 1px solid gray;
+}
+
+    #TokenConfirmSubmitButton:hover {
+        cursor: pointer;
+        background-color: darkred;
+    }
+
+#TokenConfirmCancelButton {
+    width: 40%;
+    height: 80%;
+    border: 1px solid gray;
+}
+
+    #TokenConfirmCancelButton:hover {
+        cursor: pointer;
+        background-color: darkgray;
+    }
+

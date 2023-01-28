@@ -14,6 +14,8 @@ import { HiOutlineInboxIn } from 'react-icons/hi';
 
 import DbURL from "../../../domainconfig";
 
+import Token from '../../Token/Token';
+
 const Requesterchat = (props) => {
 
     const senderusername = props.username;
@@ -35,6 +37,32 @@ const Requesterchat = (props) => {
     const [Roomcode1, setRoomcode1] = useState("");
 
     const [Chatsmessages, setChatsmessages] = useState([]);
+
+    const [TokenVisibility, setTokenVisibility] = useState(false);
+
+    const TokenRecivedData = [
+        {
+            name: "Token1"
+        },
+        {
+            name: "Token2"
+        },
+        {
+            name: "Token3"
+        }
+    ]
+
+    const TokenInitiatedData = [
+        {
+            name: "Token1Initated"
+        },
+        {
+            name: "Token2Initiated"
+        },
+        {
+            name: "Token3Initiated"
+        }
+    ]
 
     useEffect(() => {
 
@@ -181,11 +209,18 @@ const Requesterchat = (props) => {
     }, []);
 
 
+    const TokenVisibilityChanger = () => {
+        setTokenVisibility(!TokenVisibility);
+    }
+
+
     return (
 
         <div className="Donatorchat">
 
             {/* PC DONATOR CHATING SECTION START*/}
+
+            {TokenVisibility && (<Token vis={TokenVisibilityChanger} />)}
 
             {pcdonatorchatstate && (
                 <div className="Donatorchatinglistmothercontainer" >
@@ -219,6 +254,8 @@ const Requesterchat = (props) => {
                     <div className="chattingtouser">
 
                         {Currentchatuser}
+
+                        <button id="TokenInitiationButton" onClick={() => { TokenVisibilityChanger() }}>TOKEN +</button>
 
                     </div>
 
@@ -288,6 +325,43 @@ const Requesterchat = (props) => {
                 </div>
 
             )}
+
+            {pcdonatorchatstate && (<div className="TokenRIMotherContainer">
+                <div className="TokenRecivedContainer">
+                    <p id="TokenRecivedHeading">TOKEN RECIVED</p>
+                    <div className="TokenRecivedSlider">
+                        {
+                            TokenRecivedData.map((slide, index) => {
+
+                                return (
+
+                                    <div className="TokenRecivedSlide" key={index} >
+                                        <p>{slide.name}</p>
+                                    </div>
+
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="TokenInitiatedContainer">
+                    <p id="TokenInitiatedHeading">TOKEN INITIATED</p>
+                    <div className="TokenInitiatedSlider">
+                        {
+                            TokenInitiatedData.map((slide, index) => {
+
+                                return (
+
+                                    <div className="TokenInitiatedSlide" key={index} >
+                                        <p>{slide.name}</p>
+                                    </div>
+
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>)}
 
             {/* PC DONATOR CHATING SECTION END*/ }
 
