@@ -202,7 +202,7 @@ const Requesterchat = (props) => {
 
             window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
 
-            window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
+            //window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
 
         });
 
@@ -404,7 +404,9 @@ const Requesterchat = (props) => {
                             Messagesendervisibility ? < div className="mobileMessageSender">
                                 
                                 <div className="mobilechattingtouser">
+
                                     <div className="mobilechattingtousermenucontainer">
+
                                     <HiOutlineInboxIn className="mobilechattingtousermenuicon" onClick={
                                         () => {
                                             mobiledonatorchatlisttoggler();

@@ -50,6 +50,7 @@ const Donatorchat = (props) => {
 
     const [mobilechattingversion, setmobilechattingversion] = useState(false);
 
+
     const mobiledonatorchatlisttoggler = () => { setmobiledonatorchattingliststate(!mobiledonatorchattingliststate) };
 
     const [TokenVisibility, setTokenVisibility] = useState(false);
@@ -98,7 +99,7 @@ const Donatorchat = (props) => {
 
             window.innerWidth > 801 ? setpcdonatorchatstate(true) : setpcdonatorchatstate(false);
 
-
+            //window.innerWidth <= 801 ? setmobiledonatorchattingliststate(true) : setmobiledonatorchattingliststate(false);
         });
 
     }, []);
@@ -259,8 +260,21 @@ const Donatorchat = (props) => {
 
     const TokenVisibilityChanger = () => {
         setTokenVisibility(!TokenVisibility);
-        }
+    }
 
+    /*
+     * Token Creation Button Functionality. 
+     */
+    function CreateToken() {
+
+    }
+
+    /*
+     * XOR function for CreateToken Function
+     */
+    function XOR() {
+
+    }
 
     /*------------------------------------------------------------------------------------------------THE JSX RENDER THAT WILL BE VISIBLE TO END-USER--------------------------------------------------------------------------------------------------*/
     return (

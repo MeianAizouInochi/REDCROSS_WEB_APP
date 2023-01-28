@@ -1,0 +1,8 @@
+DATABASE SERIES (DB series error)
+DB-03l classing error.
+DB-03on connection problem.
+DB-01705x command executequery problem.
+DB-03on-null connection is null.
+DB-019a statement creation error.
+
+

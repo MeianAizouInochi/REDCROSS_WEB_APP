@@ -7,8 +7,9 @@
     min-height: 430px;
     font-family: Arial;
     width: 100%;
+    justify-content: space-evenly;
     padding: 0;
-    justify-content:space-evenly;
+
 }
 
 .Donatorchatinglistmothercontainer {
