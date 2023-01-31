@@ -14,6 +14,8 @@ import { HiOutlineInboxIn } from 'react-icons/hi';
 
 import DbURL from "../../../domainconfig";
 
+import Token from '../../Token/Token';
+
 const Donatorchat = (props) => {
 
     /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES----------------------------------------------------------------------------------------------------------------------*/
@@ -48,8 +50,34 @@ const Donatorchat = (props) => {
 
     const [mobilechattingversion, setmobilechattingversion] = useState(false);
 
-    //anonymous function identifier for toggling mobile donator chatting list value.
-    const mobiledonatorchatlisttoggler = () => setmobiledonatorchattingliststate(!mobiledonatorchattingliststate);
+
+    const mobiledonatorchatlisttoggler = () => { setmobiledonatorchattingliststate(!mobiledonatorchattingliststate) };
+
+    const [TokenVisibility, setTokenVisibility] = useState(false);
+
+    const TokenRecivedData = [
+        {
+            name: "Token1"
+        },
+        {
+            name: "Token2"
+        },
+        {
+            name: "Token3"
+        }
+    ]
+
+    const TokenInitiatedData = [
+        {
+            name: "Token1Initated"
+        },
+        {
+            name: "Token2Initiated"
+        },
+        {
+            name: "Token3Initiated"
+        }
+    ]
 
     /*----------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.----------------------------------------------------------------------------------------------------------------------*/
 
@@ -230,19 +258,21 @@ const Donatorchat = (props) => {
         })
     }
 
+    const TokenVisibilityChanger = () => {
+        setTokenVisibility(!TokenVisibility);
+    }
+
     /*
      * Token Creation Button Functionality. 
      */
-    function CreateToken()
-    {
+    function CreateToken() {
 
     }
 
     /*
      * XOR function for CreateToken Function
      */
-    function XOR()
-    {
+    function XOR() {
 
     }
 
@@ -254,6 +284,8 @@ const Donatorchat = (props) => {
              * PC DONATOR CHATING SECTION START.
              * THIS SECTION IS VISIBLE ONLY IF  PC DONATOR CHAT STATE IS TRUE.
              * */}
+
+            {TokenVisibility && (<Token vis={TokenVisibilityChanger} />)}
 
             {pcdonatorchatstate && (
                 <div className="Donatorchatinglistmothercontainer" >
@@ -306,6 +338,8 @@ const Donatorchat = (props) => {
                     <div className="chattingtouser">
 
                         {Currentchatuser}
+
+                        <button id="TokenInitiationButton" onClick={() => { TokenVisibilityChanger() }}>TOKEN +</button>
 
                     </div>
 
@@ -374,6 +408,8 @@ const Donatorchat = (props) => {
 
                     </div>
 
+                   
+
                 </div> : <div className="MessageSender">
 
                         <div className="pcnooneselectedforchat">
@@ -385,7 +421,46 @@ const Donatorchat = (props) => {
                         </div>
                 </div>
 
+                 
+
             )}
+
+            {pcdonatorchatstate && (<div className="TokenRIMotherContainer">
+                <div className="TokenRecivedContainer">
+                    <p id="TokenRecivedHeading">TOKEN RECIVED</p>
+                    <div className="TokenRecivedSlider">
+                        {
+                            TokenRecivedData.map((slide, index) => {
+
+                                return (
+                                    
+                                    <div className="TokenRecivedSlide" key={index} >
+                                        <p>{slide.name}</p>
+                                    </div>
+                                    
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+                <div className="TokenInitiatedContainer">
+                    <p id="TokenInitiatedHeading">TOKEN INITIATED</p>
+                    <div className="TokenInitiatedSlider">
+                        {
+                            TokenInitiatedData.map((slide, index) => {
+
+                                return (
+
+                                    <div className="TokenInitiatedSlide" key={index} >
+                                        <p>{slide.name}</p>
+                                    </div>
+
+                                )
+                            })
+                        }
+                    </div>
+                </div>
+            </div>)}
 
             {/* PC DONATOR CHATING SECTION END*/ }
 

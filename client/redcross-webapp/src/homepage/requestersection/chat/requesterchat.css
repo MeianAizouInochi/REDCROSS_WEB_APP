@@ -3,21 +3,18 @@
     display: flex;
     flex-direction: row;
     border-radius: 6px;
-    height: 73vh;    
-    min-height:430px;
+    height: 73vh;
+    min-height: 430px;
     font-family: Arial;
-    width: 95%;
-    margin: 0;
-    padding: 0;
-    margin-top: 9rem;
-    margin-left: 2.5%;
+    width: 100%;
     justify-content: space-evenly;
-    margin-bottom:2rem;
+    padding: 0;
+
 }
 
 .Donatorchatinglistmothercontainer {
     display: block;
-    width: 19%;
+    width: 15%;
     border: 0.2rem solid gray;
     background-color: gray;
     height: 100%;
@@ -60,24 +57,35 @@
 
 .MessageSender {
     display: block;
-    height: 100%;
-    width: 75%;
+    height: stretch;
+    width: 65%;
     margin: 0;
     padding: 0;
+    margin-left:5px;
+    margin-right:5px;
 }
 
 /*Nameoftheuser*/
 .chattingtouser {
     background-color: #5c1829;
-    width: 100%;
+    width: stretch;
     height: 10%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     font-size: 2rem;
     margin: 0;
     padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
     color: white;
+}
+
+#TokenInitiationButton {
+    height: 70%;
+    background-color: red;
+    color: white;
+    border: none;
 }
 
 .Messagedisplay {
@@ -150,6 +158,7 @@
     width: 100%;
     height: 70vh;
     position: relative;
+    margin-bottom:2rem;
 }
 
 .mobileDonatorchatinglistmothercontainer {
