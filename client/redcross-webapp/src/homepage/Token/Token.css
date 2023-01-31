@@ -66,10 +66,10 @@
     grid-column: 2;
     grid-row: 2;
     row-gap: 10px;
-    width: 40%;
+    width: 45%;
     position:relative;
     float:left;
-    height:3rem;
+    height:4rem;
 }
 
     .TokenInputdivision input {
@@ -106,8 +106,8 @@
 
 .TokenConfirmationDivision {
     background-color: lightgray;
-    width: 50%;
-    min-height:3rem;
+    width: 45%;
+    min-height:4rem;
     max-height:contain;
     position:relative;
     margin: 10px;
@@ -137,9 +137,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin: 10px;
-    padding: 10px;
     width: 100%;
+    margin-bottom:1rem;
 }
 
 
@@ -176,7 +175,7 @@
 
 .TokenFinalSubmitDivsion{
     position:absolute;
-    height:60%;
+    height:fit-content;
     width:50%;
     background-color:white;
     border:1px solid gray;
@@ -187,16 +186,47 @@
 }
 
 .TokenFinalSubmitDivsionAlert{
-    height:60%;
+    height:5rem;
     width:90%;
+    display:flex;
+    margin:5%;
+}
+
+#TokenAlertImage {
+    height: 100%;
+    width: 30%;
+    color: red;
+}
+
+#TokenAlertPara {
+    height: 100%;
+    width: 70%;
+    background-color:lightgray;
+    margin:0;
+    padding:5px;
+    text-align:left;
+}
+
+#TokenFinalDivisionTopBar{
+    width:100%;
+    background-color:red;
+    height:2rem;
+    margin:0;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 }
 
 .TokenFinalSubmitDivsionButtons {
-    height: 30%;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    margin-bottom:1rem;
 }
 
 #TokenConfirmSubmitButton {
