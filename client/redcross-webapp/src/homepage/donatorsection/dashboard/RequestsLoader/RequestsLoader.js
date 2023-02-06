@@ -1,9 +1,15 @@
 import { useEffect, useState } from "react";
+
 import Axios from "axios";
+
 import './RequestsLoader.css';
+
 import { Request_Data } from './RequestsData';
+
 import RequestSelector from './requestselector/requestselector';
+
 import DbURL from "../../../../domainconfig";
+
 import { GrNext, GrPrevious } from 'react-icons/gr'
 
 import Requests_Popup from './requestPopup/RequestPopup';
@@ -47,9 +53,13 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
     //TEMP VARIABLES 
     var profile_pic_array = [];
+
     var requester_name_array = [];
+
     var request_type_array = [];
+
     var request_detail_array = [];
+
     var user_name_array = [];
 
 
@@ -59,7 +69,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
     //THIS USE EFFECT IS CALLED ONCE AND LOADS THE WHOLE DATA REQUEST DATA
     useEffect(() => {
 
-        console.log("USEFFECT 1");
+        //console.log("USEFFECT 1");
 
         sync1();
 
@@ -72,7 +82,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         if (loaded && (Page_no >= 1 || Type_of_Request != "")) {
 
-            console.log("USEFFECT 2 GETTING CALLED!")
+            //console.log("USEFFECT 2 GETTING CALLED!")
 
             sync2();
 
@@ -99,30 +109,30 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
                 //
             });
 
-            console.log("RAW REQUEST LIST IN SETTER " + RAW_Requests_list);
-            console.log("setter has ended");
-            //console.log("USE EFFECT REQUESTER LIST " + Requests_list);
+            //console.log("RAW REQUEST LIST IN SETTER " + RAW_Requests_list);
+            //console.log("setter has ended");
+            ////console.log("USE EFFECT REQUESTER LIST " + Requests_list);
         }
 
-        console.log("Setter in sync 1 ");
+        //console.log("Setter in sync 1 ");
         await setter();
 
-        console.log("SORTER in sync 1 ");
+        //console.log("SORTER in sync 1 ");
         await SORTER();
 
-        console.log("filler in sync 1 ");
+        //console.log("filler in sync 1 ");
         await filler();
 
-        console.log("profile pic in sync 1 ");
+        //console.log("profile pic in sync 1 ");
         await getProfilepic();
 
-        console.log("request detail in sync 1 ");
+        //console.log("request detail in sync 1 ");
         await getrequestdetail();
 
-        console.log("Requester name in sync 1 ");
+        //console.log("Requester name in sync 1 ");
         await getrequestername();
 
-        console.log("collectionfiller in sync 1 ");
+        //console.log("collectionfiller in sync 1 ");
         await collectionfiller();
 
         //THE DATA FOR DISPLAYING HAVE BEEN LOADED.
@@ -148,9 +158,9 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         setRequest_array([]);
 
-        //console.log("CHECKING THE REQUEST COLLECTION " + Request_collection.length);
-        //console.log("CHECKING THE REQUEST ARRAY " + Request_array.length);
-        //console.log("REQUEST LIST " + Requests_list.length);
+        ////console.log("CHECKING THE REQUEST COLLECTION " + Request_collection.length);
+        ////console.log("CHECKING THE REQUEST ARRAY " + Request_array.length);
+        ////console.log("REQUEST LIST " + Requests_list.length);
 
         await SORTER();
 
@@ -177,13 +187,17 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
     async function SORTER() {
 
-        console.log("SORTER IS CALLED.");
+        //console.log("SORTER IS CALLED.");
 
         let Temp_sorted_array = [];
 
         const size = RAW_Requests_list.length;
 
+        console.log("This is Size of Raw Request: " + size);
+
         if (Type_of_Request === "all" || Type_of_Request === "") {
+
+            console.log("Type of Request value: " + Type_of_Request);
 
             setRequests_list_sorted(Requests_list_sorted = RAW_Requests_list);
 
@@ -192,13 +206,19 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
         }
         else {
 
+            console.log("Type of Request value: " + Type_of_Request);
+
             for (let i = 0; i < size; i++) {
+
+                //const Name_Arr = RAW_Requests_list[i].split("_");
 
                 const underscore_1 = RAW_Requests_list[i].indexOf("_");//first underscore
 
                 const underscore_2 = RAW_Requests_list[i].lastIndexOf("_");//last underscore
 
                 const got_type = RAW_Requests_list[i].substr(underscore_1 + 1, underscore_2 - underscore_1 - 1);
+
+                //const got_type = Name_Arr[1];
 
 
                 //CHECKING EQUALITY (MANIPULATION_1)
@@ -219,12 +239,20 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
             console.log("Sorted Requests List after Sorting: " + Requests_list_sorted);
 
         }
-        //console.log("sorted list" + Requests_list_sorted);
-        console.log("SOTTER has ended");
+        ////console.log("sorted list" + Requests_list_sorted);
+        //console.log("SOTTER has ended");
 
+        /*
+         * Performs 
+         */
         if (Requests_list_sorted.length === 0) {
             setnoRequests(true);
             setsvgload(true);//removes the LOADING .
+        }
+        else
+        {
+            setnoRequests(false);
+            
         }
 
     }
@@ -242,7 +270,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
     async function filler() {
 
         //fills 10 OR NEEDED elements in Request_array according to page number
-        //console.log("entered useeffect for 10 filler");
+        ////console.log("entered useeffect for 10 filler");
 
         const size = Requests_list_sorted.length;
 
@@ -265,20 +293,19 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
             filler_size = 10;
         }
 
-        //console.log("start =" + start);
-        //console.log("end =" + end);
+        ////console.log("start =" + start);
+        ////console.log("end =" + end);
 
         for (var i = start; i < end; i++) {
 
             Temp_Request_array.push(Requests_list_sorted[i]);
-
         }
 
         setRequest_array(Request_array = Temp_Request_array);
 
-        console.log("Request array in filler  = " + Request_array);
+        //console.log("Request array in filler  = " + Request_array);
 
-        console.log("filler has ended");
+        //console.log("filler has ended");
     }
 
     //THIS ASYNC FUNCTION FILLS THE TEMP profile_pic_array , user_name_arraY , request_type_array.
@@ -304,7 +331,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
             if (responseimagedata.data.recordset.length === 0) {
 
-                console.log("Something Bad Happened in getting profile pic!");
+                //console.log("Something Bad Happened in getting profile pic!");
 
             }
             else if (responseimagedata.data.recordset.length === 1) {
@@ -317,13 +344,13 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         }
 
-        //console.log("profile pic array = " + profile_pic_array);
+        ////console.log("profile pic array = " + profile_pic_array);
 
-        //console.log("user name array = " + user_name_array);
+        ////console.log("user name array = " + user_name_array);
 
-        //console.log("Request type array = " + request_type_array);
+        ////console.log("Request type array = " + request_type_array);
 
-        console.log("profile pic has ended");
+        //console.log("profile pic has ended");
 
     }
 
@@ -344,16 +371,16 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         }
 
-        //console.log("detail of requests = " + request_detail_array);
+        ////console.log("detail of requests = " + request_detail_array);
 
-        console.log("request detail has ended ");
+        //console.log("request detail has ended ");
 
     }
 
     //THIS ASYNC FUNCTION FILLS THE requester_name_array.
     async function getrequestername() {
 
-        console.log("getting into resquestername to get names");
+        //console.log("getting into resquestername to get names");
 
         for (let i = 0; i < filler_size; i++) {
 
@@ -367,9 +394,9 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         }
 
-        //console.log("Requester name array = " + requester_name_array);
+        ////console.log("Requester name array = " + requester_name_array);
 
-        console.log("requester name has ended ");
+        //console.log("requester name has ended ");
     }
 
     //THIS ASYNC FUNCTION FILLS THE ARRAY OF OBJECTS NEED TO DISPLAY
@@ -390,9 +417,9 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         setRequest_collection(Temp_Request_collection);
 
-        //console.log("FINAL REQUEST COLLECTION :" + Request_collection);
+        ////console.log("FINAL REQUEST COLLECTION :" + Request_collection);
 
-        console.log("collection filler has ended");
+        //console.log("collection filler has ended");
     }
 
     /*----------------------------ASYNC FUNCTIONS (GETTER AND SETTERS) END---------------------------------------------------------*/
@@ -408,7 +435,7 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
 
         setPage_no(1);
 
-        console.log("REQUEST GOT CHANGED TO :" + data);
+        //console.log("REQUEST GOT CHANGED TO :" + data);
 
     }
 
@@ -454,13 +481,13 @@ const RequestLoader = ({ DONATOR_TABLENAME, passingchangesectiondata }) => {
     let [random, setrandom] = useState(0);
 
     function sendData(data) {
-        //console.log("getting index : " + data);
-        console.log("index from :" + data);
+        ////console.log("getting index : " + data);
+        //console.log("index from :" + data);
         setindexdata(data);
         setcollectiondata(Request_collection[data]);
         setvis(vis = true);
         setonclickmountRequestpopup(true);
-        //console.log("visivilty :" + vis);
+        ////console.log("visivilty :" + vis);
         randomgen();
     }
 
