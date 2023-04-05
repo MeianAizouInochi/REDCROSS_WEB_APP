@@ -300,7 +300,8 @@ const RequesterForm = (props) => {
 
                     <p>Provide Supporting Documents here:</p>
 
-                    { /*CONTAINER FOR DOCUMENTS*/}
+                    { /*CONTAINER FOR DOCUMENTS
+                        The Document Description isnt, Mapped to its state.*/}
                     <div className="DocumentInputContainer">
 
                         { /*FIRST DOCUMENT*/}
