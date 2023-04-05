@@ -1,8 +1,8 @@
 import './feedbackpage.css';
-
+import {useEffect} from 'react';
 
 const Feedbackpage = () => {
-
+    useEffect(()=>{ window.scrollTo(0,0)},[]);
     return (
         <div className="feedbackcontainer">
             <div className="feedbackheadingcontainer">

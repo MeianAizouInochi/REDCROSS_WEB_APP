@@ -92,6 +92,7 @@ const Homepage = () => {
     /*-------------------------------------------------------------------------------------------------------REQUIRED VARIABLES END.--------------------------------------------------------------------------------------------------------------------------*/
     Axios.defaults.withCredentials = true;
 
+
     /*
      * THIS USE EFFECT IS FOR LOGIN SESSION.
      * IT IS STILL UNDER DEVELOPMENT.

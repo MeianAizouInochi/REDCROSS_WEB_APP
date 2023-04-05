@@ -1,7 +1,9 @@
 import "./tieupspage.css"
 import { Tieupsdata } from "./tieupsdata";
-const Tieupspage = () => {
+import {useEffect} from 'react';
 
+const Tieupspage = () => {
+    useEffect(()=>{ window.scrollTo(0,0)},[]);
     return (
         <div className="tieupspagecontainer">
             <div className="tieupsheading">

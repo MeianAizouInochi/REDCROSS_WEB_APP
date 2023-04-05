@@ -1,5 +1,6 @@
 import React from "react";
 import './Footer.css'
+import { useEffect, useState } from "react";
 
 // icons
 
@@ -14,6 +15,9 @@ import {
   } from "react-icons/fa";
 
 const Footer = (props) => {
+
+    
+
     return (
 
         <section className="Footer">

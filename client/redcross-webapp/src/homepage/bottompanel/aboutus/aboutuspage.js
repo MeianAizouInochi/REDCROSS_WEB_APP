@@ -1,7 +1,10 @@
 import './aboutuspage.css';
+import {useEffect} from 'react';
 
 
 const Aboutuspage = () => {
+
+    useEffect(()=>{ window.scrollTo(0,0)},[]);
 
     return (
 

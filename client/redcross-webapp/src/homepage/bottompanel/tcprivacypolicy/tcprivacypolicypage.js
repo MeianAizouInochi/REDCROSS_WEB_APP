@@ -1,6 +1,10 @@
-import "./tcprivacypolicypage.css"
+import "./tcprivacypolicypage.css";
+
+import {useEffect} from 'react';
 
 const Tcprivacypoilcy = () => {
+
+    useEffect(()=>{ window.scrollTo(0,0)},[]);
 
     return (
         <div className="tcprivacypolicycontainer">

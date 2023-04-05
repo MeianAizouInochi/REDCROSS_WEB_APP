@@ -28,6 +28,8 @@ const Imageslider = () => {
 
     const [slideindex, setslideindex] = useState(0);
 
+    useEffect(()=>{ window.scrollTo(0,0)},[]);
+
     //SYNCHRONIZER FUNCTION GETS DATA FROM SLIDERDATA MODULE AND STORES THEM INTO A ARRAY OF OBJECT 'slides'
     async function sync() {
 
